@@ -10,3 +10,12 @@ and `hugo`.  This source code uses xmin-hugo theme as template theme.
 
 `xmin-hugo` is used via `git submodule`.
 
+You can check out all submodules as:
+
+```
+ $ git clone git@github.com:osamuaoki/osamuaoki-hugo.git
+ $ git submodule update --init
+```
+
+
+
