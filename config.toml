@@ -1,16 +1,19 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "A minimal Hugo website"
+title = "Goofing Osamu"
+# active theme (default submodule)
 theme = "hugo-xmin"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 preserveTaxonomyNames = true
 footnotereturnlinkcontents = "↩"
+# allow all tags automatically
+#tags = ["debian", "blog", "personal", "clean", "simple", "starter", "minimalist"]
 
 [permalinks]
-    post = "/post/:year/:month/:day/:slug/"
-    note = "/note/:year/:month/:day/:slug/"
+    en = "/en/:year/:month/:day/:slug/"
+    jp = "/jp/:year/:month/:day/:slug/"
 
 [[menu.main]]
     name = "Home"
@@ -29,9 +32,17 @@ footnotereturnlinkcontents = "↩"
     url = "/tags/"
     weight = 4
 [[menu.main]]
+    name = "English"
+    url = "/en/"
+    weight = 5
+[[menu.main]]
+    name = "Japanese"
+    url = "/jp/"
+    weight = 6
+[[menu.main]]
     name = "Subscribe"
     url = "/index.xml"
 
 [params]
-    description = "A website built through Hugo and blogdown."
-    footer = "&copy; [Yihui Xie](https://yihui.name) 2017 -- 2018 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+    description = "Random memos of Goofing Osamu"
+    footer = "&copy; 2019 [Osamu Aoki](https://github.com/osamuaoki)"

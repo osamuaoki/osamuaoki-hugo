@@ -1,0 +1,12 @@
+# source to build "Goofing Osamu"
+
+## Source code of "Goofing Osamu" web page
+
+[Goofing Osamu](https://osamuaoki.github.io) is built by using this source code
+and `hugo`.  This source code uses xmin-hugo theme as template theme.
+
+  * [hugo](https://gohugo.io/)
+  * [xmin-hugo](https://github.com/yihui/hugo-xmin)
+
+`xmin-hugo` is used via `git submodule`.
+
