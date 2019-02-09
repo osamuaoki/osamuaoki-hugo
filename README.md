@@ -17,5 +17,9 @@ You can check out all submodules as:
  $ git submodule update --init
 ```
 
+Here:
+
+  * https://osamuaoki.github.io (URL of webpages)
+  * https://github.com/osamuaoki.github.io (raw HTML files)
 
 
