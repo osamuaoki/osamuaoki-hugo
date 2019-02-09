@@ -19,7 +19,7 @@ You can check out all submodules as:
 
 Here:
 
-  * https://osamuaoki.github.io (URL of webpages)
-  * https://github.com/osamuaoki.github.io (raw HTML files)
+  * https://osamuaoki.github.io (URL to access webpages)
+  * https://github.com/osamuaoki/osamuaoki.github.io (raw HTML files)
 
 
