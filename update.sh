@@ -23,4 +23,6 @@ git push origin master
 # Come Back up to the Project Root
 cd ..
 
-
+# record submodule updates
+git commit -a -m "submodule: $msg"
+git push origin master
