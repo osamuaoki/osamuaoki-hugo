@@ -7,6 +7,7 @@ googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 preserveTaxonomyNames = true
+enableGitInfo = true
 footnotereturnlinkcontents = "↩"
 # allow all tags automatically
 #tags = ["debian", "blog", "personal", "clean", "simple", "starter", "minimalist"]
