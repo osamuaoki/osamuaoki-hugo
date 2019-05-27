@@ -5,7 +5,7 @@ author: Osamu Aoki
 
 ## Goofing Osamu
 
-**Goodfing Osamu** is a site where I keep random public memos.
+**Goofing Osamu** is a site where I keep random public memos.
 
   * [Recent English posts](en)
   * [Recent Japanese posts](jp)
