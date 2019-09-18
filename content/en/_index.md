@@ -6,4 +6,4 @@ author: Osamu Aoki
 **Goofing Osamu** is a site where I keep random public memos.
 
 
-## Recent English posts 
+## Recent English posts
