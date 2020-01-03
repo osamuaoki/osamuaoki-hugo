@@ -8,7 +8,7 @@ hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 # Go To Public folder
 cd public
 # Add changes to git.
-git add -A .
+git add -A *
 
 # Commit changes.
 msg="rebuilding site `date`"
