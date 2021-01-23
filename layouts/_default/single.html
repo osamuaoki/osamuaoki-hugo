@@ -3,7 +3,7 @@
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 <h3 class="date">Date:
-{{ if (gt .Params.date 0) }}{{ .Date.Format "2006/01/02" }} (initial), {{ end }}
+{{ .Date.Format "2006/01/02" }} (initial),
 {{ .Page.Lastmod.Format "2006/01/02"}} (last modified)
 </h3>
 </div>
