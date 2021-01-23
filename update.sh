@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\033[0;32mDraft pages...\033[0m"
+
 hugo list drafts
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
