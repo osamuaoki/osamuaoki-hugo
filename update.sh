@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 echo -e "\033[0;32mDraft pages...\033[0m"
 
@@ -7,8 +7,9 @@ hugo list drafts
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project (after erasing old build).
-rm -Rf public && mkdir public && \
+git rm -rf --cached public
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+git add public
 
 # Go To Public folder
 cd public
