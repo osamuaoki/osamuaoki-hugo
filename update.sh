@@ -6,10 +6,10 @@ hugo list drafts
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
+# Remove files excluding .git
+rm -rf public/*
 # Build the project (after erasing old build).
-git rm -rf --cached public
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
-git add public
 
 # Go To Public folder
 cd public
