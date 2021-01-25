@@ -3,8 +3,8 @@
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 <h3 class="date">Date:
-{{ .Date.Format "2006/01/02" }} (initial),
-{{ .Page.Lastmod.Format "2006/01/02"}} (last modified)
+{{ .Date.Format "2006/01/02" }} (initial publish),
+{{ .Page.Lastmod.Format "2006/01/02"}} (last update)
 </h3>
 </div>
 
