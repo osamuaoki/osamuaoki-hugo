@@ -39,7 +39,12 @@ git push origin master
 cd ..
 
 # record submodule updates
-git commit -a -m "submodule updated: $DATE"
+if git diff --exit-code >/dev/null ; then
+  echo -e "\033[0;31mSubmodule not changed from the last commit\033[0m"
+else
+  echo -e "\033[0;32mSubmodule changed from the last commit\033[0m"
+  git commit -a -m "submodule updated: $DATE"
+fi
 git push origin master
 echo -e "\033[0;34mFinished\033[0m"
 
