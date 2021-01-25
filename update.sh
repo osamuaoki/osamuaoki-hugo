@@ -31,7 +31,7 @@ cd public
 # Add changes to git.
 git add -A *
 if git commit -m "HTML rebuilt: $DATE"; then
-  echo -e "\031[0;34mNothing to commit .... Finished\033[0m"
+  echo -e "\033[0;31mNothing to commit .... Finished\033[0m"
   exit
 fi
 git push origin master
