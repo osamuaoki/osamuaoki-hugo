@@ -1,34 +1,36 @@
 #!/bin/bash -e
+# vim:set ai si sts=2 sw=2 et:
 
-echo -e "\033[0;32mDraft pages...\033[0m"
+DATE=$(date -u --iso=sec)
 
+echo -e "\033[0;32mList draft pages...\033[0m"
 hugo list drafts
 
-echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+if git diff --exit-code >/dev/null ; then
+  echo -e "\033[0;32mSource not changed from the last commit\033[0m"
+else
+  echo "\033[0;32mSource changed from the last commit\033[0m"
+  git commit -a -m "source updated: $DATE"
+fi
 
-# Remove files excluding .git
+echo -e "\033[0;32mOutstanding draft pages...\033[0m"
+hugo list drafts
+
+echo -e "\033[0;32mBuilding HTML pages...\033[0m"
+# Build the project after erasing old build excluding public/.git
 rm -rf public/*
-# Build the project (after erasing old build).
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
+echo -e "\033[0;32mUploading HTML pages...\033[0m"
 # Go To Public folder
 cd public
 # Add changes to git.
 git add -A *
-
-# Commit changes.
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
-fi
-git commit -m "$msg"
-
-# Push source and build repos.
+git commit -m "HTML rebuilt: $DATE"
 git push origin master
-
 # Come Back up to the Project Root
 cd ..
 
 # record submodule updates
-git commit -a -m "submodule: $msg"
+git commit -a -m "submodule updated: $DATE"
 git push origin master
