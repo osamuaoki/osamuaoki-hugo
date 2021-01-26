@@ -4,7 +4,7 @@
 
 DATE=$(date -u --iso=sec)
 
-echo -e "\033[0;32mList draft pages...\033[0m"
+echo -e "\033[0;32mOutstanding draft pages...\033[0m"
 hugo list drafts
 
 if git diff --exit-code >/dev/null ; then
@@ -17,9 +17,7 @@ else
   git commit -a -m "source updated: $DATE"
 fi
 
-echo -e "\033[0;32mOutstanding draft pages...\033[0m"
-hugo list drafts
-
+##############################################################################
 echo -e "\033[0;32mBuilding HTML pages...\033[0m"
 # Build the project after erasing old build excluding public/.git
 rm -rf public/*
@@ -37,6 +35,7 @@ fi
 git push origin master
 # Come Back up to the Project Root
 cd ..
+##############################################################################
 
 # record submodule updates
 if git diff --exit-code >/dev/null ; then
