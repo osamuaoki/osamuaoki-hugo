@@ -28,9 +28,9 @@ hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 cd public
 git add -A -- *
 if git commit -m "HTML rebuilt: $DATE"; then
-  echo -e "\033[0;31mSome thing to commit .... :-)\033[0m"
+  echo -e "\033[0;34mSome thing to commit for HTML .... :-)\033[0m"
 else
-  echo -e "\033[0;31mNothing to commit .... :-(\033[0m"
+  echo -e "\033[0;31mNothing to commit for HTML .... :-(\033[0m"
   exit
 fi
 echo -e "\033[0;32mUploading HTML pages...\033[0m"
@@ -43,6 +43,7 @@ cd ..
 if git diff --exit-code >/dev/null ; then
   echo -e "\033[0;31mSubmodule not changed from the last commit\033[0m"
   git commit -a -m "submodule not updated: $DATE"
+  exit
 else
   echo -e "\033[0;32mSubmodule changed from the last commit\033[0m"
   git commit -a -m "submodule updated: $DATE"
