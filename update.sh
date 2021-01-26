@@ -16,22 +16,24 @@ else
   echo -e "\033[0;32mSource changed from the last commit\033[0m"
   git commit -a -m "source updated: $DATE"
 fi
+git push origin master
+echo -e "\033[0;34mFinished recording to source\033[0m"
 
 ##############################################################################
 echo -e "\033[0;32mBuilding HTML pages...\033[0m"
 # Build the project after erasing old build excluding public/.git
 rm -rf public/*
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
-
-echo -e "\033[0;32mUploading HTML pages...\033[0m"
-# Go To Public folder
+##############################################################################
 cd public
-# Add changes to git.
-git add -A *
+git add -A -- *
 if git commit -m "HTML rebuilt: $DATE"; then
-  echo -e "\033[0;31mNothing to commit .... Finished\033[0m"
+  echo -e "\033[0;31mSome thing to commit .... :-)\033[0m"
+else
+  echo -e "\033[0;31mNothing to commit .... :-(\033[0m"
   exit
 fi
+echo -e "\033[0;32mUploading HTML pages...\033[0m"
 git push origin master
 # Come Back up to the Project Root
 cd ..
@@ -40,10 +42,11 @@ cd ..
 # record submodule updates
 if git diff --exit-code >/dev/null ; then
   echo -e "\033[0;31mSubmodule not changed from the last commit\033[0m"
+  git commit -a -m "submodule not updated: $DATE"
 else
   echo -e "\033[0;32mSubmodule changed from the last commit\033[0m"
   git commit -a -m "submodule updated: $DATE"
 fi
 git push origin master
-echo -e "\033[0;34mFinished\033[0m"
+echo -e "\033[0;34mFinished recording to submodule\033[0m"
 
