@@ -19,7 +19,7 @@
   {{ else }}
   <td align="left" width="33%"><a href="#">***</a></td>
   {{ end }}
-  <td align="center" width="33%"><a href="/{{.Dir}}">Top</a></td>
+  <td align="center" width="33%"><a href="/{{.File.Dir}}">Top</a></td>
   {{ if .NextInSection }}
   <td align="right" width="33%"><a href="{{.NextInSection.Permalink}}">Next Post</a></td>
   {{ else }}
@@ -39,7 +39,7 @@
   {{ else }}
   <td align="left" width="33%"><a href="#">***</a></td>
   {{ end }}
-  <td align="center" width="33%"><a href="/{{.Dir}}">Top</a></td>
+  <td align="center" width="33%"><a href="/{{.File.Dir}}">Top</a></td>
   {{ if .NextInSection }}
   <td align="right" width="33%"><a href="{{.NextInSection.Permalink}}">Next Post</a></td>
   {{ else }}
