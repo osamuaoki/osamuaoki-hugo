@@ -7,6 +7,10 @@ DATE=$(date -u --iso=sec)
 echo -e "\033[0;32mOutstanding draft pages...\033[0m"
 hugo list drafts
 
+cd content
+git add -A -- *
+cd ..
+
 if git diff --exit-code >/dev/null ; then
   echo -e "\033[0;31mSource not changed from the last commit\033[0m"
   if [ "$1" != "-f" ]; then
