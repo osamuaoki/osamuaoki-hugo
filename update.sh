@@ -16,7 +16,7 @@ else
   echo -e "\033[0;32mSource changed from the last commit\033[0m"
   git commit -a -m "source updated: $DATE"
 fi
-git push origin master
+git push origin main
 echo -e "\033[0;34mFinished recording to source\033[0m"
 
 ##############################################################################
@@ -34,7 +34,7 @@ else
   exit
 fi
 echo -e "\033[0;32mUploading HTML pages...\033[0m"
-git push origin master
+git push origin main
 # Come Back up to the Project Root
 cd ..
 ##############################################################################
@@ -48,6 +48,6 @@ else
   echo -e "\033[0;32mSubmodule changed from the last commit\033[0m"
   git commit -a -m "submodule updated: $DATE"
 fi
-git push origin master
+git push origin main
 echo -e "\033[0;34mFinished recording to submodule\033[0m"
 
