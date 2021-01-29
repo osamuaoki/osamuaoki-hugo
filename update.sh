@@ -11,7 +11,7 @@ cd content
 git add -A -- *
 cd ..
 
-if git diff --exit-code >/dev/null ; then
+if git diff --cached --exit-code >/dev/null ; then
   echo -e "\033[0;31mSource not changed from the last commit\033[0m"
   if [ "$1" != "-f" ]; then
     exit
