@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkListStore" id="liststore_country">
+    <columns>
+      <!-- column-name country -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">U.S.A</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Japan</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Mexico</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Taiwan (R.O.C)</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">France</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">U.K.</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Canada</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore_lang1">
+    <columns>
+      <!-- column-name Language -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Japanese</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">English</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Mandarin Chinese</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">French</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Spanish</col>
+      </row>
+    </data>
+  </object>
+  <template class="combo_boxes" parent="GtkWindow">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">COMBOBOX EXAMPLES</property>
+    <signal name="destroy" handler="onDestroy" swapped="no"/>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="homogeneous">True</property>
+        <property name="baseline-position">top</property>
+        <child>
+          <object class="GtkLabel" id="label_county">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Country</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="combo_country">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="model">liststore_country</property>
+            <property name="active">0</property>
+            <property name="id-column">0</property>
+            <signal name="changed" handler="onCountryChanged" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_lang1">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Language (primary)</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="combo_lang1">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="model">liststore_lang1</property>
+            <property name="active">0</property>
+            <property name="id-column">0</property>
+            <signal name="changed" handler="onLang1Changed" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button">
+            <property name="label" translatable="yes">Print</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <signal name="pressed" handler="onButtonPressed" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
