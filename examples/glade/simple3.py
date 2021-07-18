@@ -6,12 +6,13 @@ from gi.repository import Gtk
 
 @Gtk.Template(filename="simple3.ui")
 class SimpleWindow(Gtk.Window):
-    # corresponding class in XML
-    __gtype_name__ = "Simple3"
-    # class variable and corresponding widget in XML
+    # corresponding name in XML 'class' attribute for this class
+    __gtype_name__ = "simple3"
+    # corresponding name in XML 'id' attribute sets this class member variable
     label = Gtk.Template.Child()
     header = Gtk.Template.Child()
     header_label = Gtk.Template.Child()
+    # class member variables
     entry_text = ""
     folder = ""
 

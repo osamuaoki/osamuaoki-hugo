@@ -17,7 +17,7 @@
     <property name="can-focus">False</property>
     <property name="icon-name">format-justify-fill</property>
   </object>
-  <template class="Simple2" parent="GtkWindow">
+  <template class="simple2" parent="GtkWindow">
     <property name="can-focus">False</property>
     <signal name="destroy" handler="onDestroy" swapped="no"/>
     <child>
@@ -27,7 +27,7 @@
         <property name="orientation">vertical</property>
         <property name="homogeneous">True</property>
         <child>
-          <object class="GtkButton" id="Button">
+          <object class="GtkButton" id="button">
             <property name="label" translatable="yes">Press this to update</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
@@ -41,7 +41,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="Entry">
+          <object class="GtkEntry" id="entry">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <signal name="changed" handler="onEntryChanged" swapped="no"/>
@@ -53,7 +53,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="Label">
+          <object class="GtkLabel" id="label">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
           </object>
@@ -69,7 +69,7 @@
             <property name="can-focus">False</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkSpinButton" id="SpinButton1">
+              <object class="GtkSpinButton" id="spinbutton1">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="adjustment">adjustment1</property>
@@ -82,7 +82,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkSpinButton" id="SpinButton2">
+              <object class="GtkSpinButton" id="spinbutton2">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="adjustment">adjustment1</property>
@@ -107,7 +107,7 @@
             <property name="can-focus">False</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkToggleButton" id="ToggleButton1">
+              <object class="GtkToggleButton" id="togglebutton1">
                 <property name="label" translatable="yes">togglebutton1</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -123,7 +123,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToggleButton" id="ToggleButton2">
+              <object class="GtkToggleButton" id="togglebutton2">
                 <property name="label" translatable="yes">togglebutton2</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -151,7 +151,7 @@
             <property name="can-focus">False</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkCheckButton" id="CheckButton1">
+              <object class="GtkCheckButton" id="checkbutton1">
                 <property name="label" translatable="yes">checkbutton1</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -166,7 +166,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="CheckButton2">
+              <object class="GtkCheckButton" id="checkbutton2">
                 <property name="label" translatable="yes">checkbutton2</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -193,7 +193,7 @@
             <property name="can-focus">False</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkRadioButton" id="RadioButton1">
+              <object class="GtkRadioButton" id="radiobutton1">
                 <property name="label" translatable="yes">radiobutton1</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -209,14 +209,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkRadioButton" id="RadioButton2">
+              <object class="GtkRadioButton" id="radiobutton2">
                 <property name="label" translatable="yes">radiobutton2</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">False</property>
                 <property name="active">True</property>
                 <property name="draw-indicator">True</property>
-                <property name="group">RadioButton1</property>
+                <property name="group">radiobutton1</property>
                 <signal name="toggled" handler="onRadioButtonToggled" swapped="no"/>
               </object>
               <packing>
@@ -226,14 +226,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkRadioButton" id="RadioButton3">
+              <object class="GtkRadioButton" id="radiobutton3">
                 <property name="label" translatable="yes">radiobutton3</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">False</property>
                 <property name="active">True</property>
                 <property name="draw-indicator">True</property>
-                <property name="group">RadioButton1</property>
+                <property name="group">radiobutton1</property>
                 <signal name="toggled" handler="onRadioButtonToggled" swapped="no"/>
               </object>
               <packing>
@@ -250,7 +250,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFileChooserButton" id="FileChooserButton">
+          <object class="GtkFileChooserButton" id="filechooserbutton">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="action">select-folder</property>

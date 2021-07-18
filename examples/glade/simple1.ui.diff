@@ -1,9 +1,9 @@
 $  diff -u0 simple1.ui-ID simple1.ui
---- simple1.ui-ID	2021-07-17 21:55:12.056677932 +0900
-+++ simple1.ui	2021-07-16 22:40:20.989739414 +0900
+--- simple1.ui-ID	2021-07-18 07:29:13.744765698 +0900
++++ simple1.ui	2021-07-18 07:30:00.030723401 +0900
 @@ -5 +5 @@
--  <object class="GtkWindow" id="Simple1">
-+  <template class="Simple1" parent="GtkWindow">
+-  <object class="GtkWindow" id="simple1">
++  <template class="simple1" parent="GtkWindow">
 @@ -52 +52 @@
 -  </object>
 +  </template>
