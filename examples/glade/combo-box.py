@@ -9,17 +9,19 @@ class SimpleWindow(Gtk.Window):
     # corresponding name in XML 'class' attribute for this class
     __gtype_name__ = "combo_boxes"
     # corresponding name in XML 'id' attribute sets this class member variable
-    liststore_country = Gtk.Template.Child()
-    liststore_lang1 = Gtk.Template.Child()
-    combo_country = Gtk.Template.Child()
-    combo_lang1 = Gtk.Template.Child()
+    liststore_country = Gtk.Template.Child() # MODEL
+    liststore_lang1 = Gtk.Template.Child()   # MODEL
+    combo_country = Gtk.Template.Child()     # VIEW
+    combo_lang1 = Gtk.Template.Child()       # VIEW
     button = Gtk.Template.Child()
 
     def __init__(self):
         super().__init__()
 
         renderer_text = Gtk.CellRendererText()
+        # pack_start(cell, expand), Here, cell (Gtk.CellRenderer) 
         self.combo_country.pack_start(renderer_text, True)
+        # add_attribute (cell, attribute, column)
         self.combo_country.add_attribute(renderer_text, "text", 0)
 
         tree_iter = self.combo_country.get_active_iter()
