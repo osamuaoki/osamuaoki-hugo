@@ -1,0 +1,10 @@
+⟫🥷⟫ diff -u0 combo-box.ui combo-box-text.ui 
+--- combo-box.ui	2021-07-18 22:15:11.636047337 +0900
++++ combo-box-text.ui	2021-07-19 00:27:27.848236975 +0900
+@@ -81 +81 @@
+-          <object class="GtkComboBox" id="combo_country">
++          <object class="GtkComboBoxText" id="combo_country">
+@@ -108 +108 @@
+-          <object class="GtkComboBox" id="combo_lang1">
++          <object class="GtkComboBoxText" id="combo_lang1">
+
