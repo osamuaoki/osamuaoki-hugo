@@ -1,0 +1,67 @@
+#!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
+"""
+Simplify data
+"""
+import sys
+import math
+
+if len(sys.argv) <= 1:
+    print("You need file name")
+    exit
+
+import csv
+
+# 0. rank BCCWJ 全体の順位（同順、飛び順あり）
+# 1. lForm 語彙素読み
+# 2. lemma 語彙素
+# 3. pos 品詞
+# 4. subLemma 語彙素細分類
+# 5. wType 語種
+# 7. pmw BCCWJ 全体での 100 万語当たりの頻度
+
+# 仮名漢字変換に役に立たないデーターの削除
+# 排他的連番付与
+# 整数値コスト付与
+
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    i = 0
+    for item in linereader:
+        if i == 0:
+            # exclude top line
+            i += 1
+            continue
+        serial = str(i) # start with 1
+        rank = item[0]
+        lForm = item[1] # yomi
+        lemma = item[2] # dict form
+        pos = item[3]   # hinshi
+#        subLemma = item[4] # dict sub ???
+        wType = item[5] # kan, wa
+        pmw = item[7]   # per 10^6
+        if len(lForm) == 0 or len(lemma) == 0 or len(wType) == 0:
+            print('blank data: ({})'.format(')\t('.join([serial, rank, lForm, lemma, pos, wType, pmw])), file=sys.stderr)
+            continue
+        elif item[5] == '不明':
+            print('不明-wType: {}'.format('\t'.join([serial, rank, lForm, lemma, pos, wType, pmw])), file=sys.stderr)
+            continue
+        elif item[5] == '※':
+            print('※-wType: {}'.format('\t'.join([serial, rank, lForm, lemma, pos, wType, pmw])), file=sys.stderr)
+            continue
+        elif len(item[5]) == 0 or len(lForm) == 0 or len(lemma) == 0 or \
+           '■' in lForm or '○' in lForm or '×' in lForm or '●' in lForm or \
+           ' ' in lForm or '　' in lForm or \
+           '■' in lemma or '○' in lemma or '×' in lemma or '●' in lemma:
+            # exclude invalid entry
+            print('*** Skip ***: {}'.format('\t'.join([serial, rank, lForm, lemma, pos, wType, pmw])), file=sys.stderr)
+            continue
+        cost = int(- 1000 * math.log10(float(pmw) * 1E-6))
+        if cost > 8000:
+            cost = 8000
+        elif cost > 7500:
+            cost = int(cost/10) * 10 # round
+        scost = str(cost)   
+        simple = '\t'.join([serial, rank, lForm, lemma, pos, wType, pmw, scost])
+        print(simple)
+        i += 1

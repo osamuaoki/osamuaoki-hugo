@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
+"""
+Simplify data
+"""
+import sys
+
+if len(sys.argv) <= 1:
+    print("You need file name")
+    exit
+
+import csv
+
+# 0. loc BCCWJ 行の番号（同順なし、飛び順なし）
+# 1. rank BCCWJ 全体の順位（同順、飛び順あり）
+# 2. lForm 語彙素読み
+# 3. lemma 語彙素
+# 4. pos 品詞
+# 5. subLemma 語彙素細分類
+# 6. wType 語種
+# 7. pmw BCCWJ 全体での 100 万語当たりの頻度
+
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for i, item in enumerate(linereader):
+        loc = item[0] # 
+        rank = item[1]
+        lForm = item[2] # yomi
+        lemma = item[3] # dict form
+        pos = item[4]   # hinshi
+        subLemma = item[5] # dict sub ???
+        wType = item[6] # kan, wa
+        pmw = item[7]   # per 10^6
+        print('{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(loc, rank, lForm, lemma, pos, wType, pmw))

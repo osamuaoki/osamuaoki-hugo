@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
+"""
+process -- process BCCWJ_frequencylist_suw_ver1_1.tsv 
+
+
+rank	lForm	lemma	pos	subLemma	wType	frequency	pmw	PB_rank	PB_frequency	PB_pmw	PM_rank	PM_frequency	PM_pmw	PN_rank	PN_frequency	PN_pmw	LB_rank	LB_frequency	LB_pmw	OW_rank	OW_frequency	OW_pmw	OT_rank	OT_frequency	OT_pmw	OP_rank	OP_frequency	OP_pmw	OB_rank	OB_frequency	OB_pmw	OC_rank	OC_frequency	OC_pmw	OY_rank	OY_frequency	OY_pmw	OV_rank	OV_frequency	OV_pmw	OL_rank	OL_frequency	OL_pmw	OM_rank	OM_frequency	OM_pmw	PB_fixed_rank	PB_fixed_frequency	PB_fixed_pmw	PB_variable_rank	PB_variable_frequency	PB_variable_pmw	PM_fixed_rank	PM_fixed_frequency	PM_fixed_pmw	PM_variable_rank	PM_variable_frequency	PM_variable_pmw	PN_fixed_rank	PN_fixed_frequency	PN_fixed_pmw	PN_variable_rank	PN_variable_frequency	PN_variable_pmw	LB_fixed_rank	LB_fixed_frequency	LB_fixed_pmw	LB_variable_rank	LB_variable_frequency	LB_variable_pmw	OW_fixed_rank	OW_fixed_frequency	OW_fixed_pmw	OW_variable_rank	OW_variable_frequency	OW_variable_pmw	core_rank	core_frequency	core_pmw
+
+
+309	キョウイク	教育	名詞-普通名詞-サ変可能		漢	27757	265.3317888	238	9439	331.7691082	1197	363	82.0418337	280	446	325.601633	379	6361	209.8811975	151	4076	835.0932575	836	118	127.5759807	205	2323	619.3893669	453	644	172.2999475	1110	717	70.0503835	1395	668	65.9702069	6922	2	8.9613363	813	113	104.7185434	198	2487	487.4139603	241	2067	324.8245641	239	8930	330.2571098	978	115	99.3733431	1206	342	81.492679	339	265	284.7625188	264	304	346.5564374	383	1384	207.0249984	371	6113	212.0491069	153	856	821.8449459	153	3950	838.2275922	196	489	445.3823685
+
+"""
+import csv
+from collections import defaultdict
+
+d = defaultdict(list)
+with open('BCCWJ_frequencylist_suw_ver1_1.tsv', newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for i, item in enumerate(linereader):
+        if i == 0:
+            continue
+        loc = i - 1 # exclude top line
+        rank = item[0]
+        lForm = item[1] # yomi
+        lemma = item[2] # dict form
+        pos = item[3]   # hinshi
+        subLemma = item[4] # dict sub ???
+        wType = item[5] # kan, wa
+        pmw = item[7]   # per 10^6
+        d[lForm].append((loc, rank, lemma, pos, wType, pmw))
+for k in sorted(d.items()):
+    print("{}:".format(k))
+    for loc, rank, lemma, pos, wType, pmw in d[k]:
+        print("\t{lemma}\t{pmw}\t{wType}\t{pos}\t{rank}\t{loc}".format(loc, rank, lemma, pos, wType, pmw)

@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
+"""
+reduce data 1/100
+"""
+import sys
+for i, line in enumerate(iter(sys.stdin.readline, "")):
+    if (i % 100) == 0:
+        print(line.strip())

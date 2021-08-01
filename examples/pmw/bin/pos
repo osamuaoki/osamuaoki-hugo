@@ -1,0 +1,130 @@
+#!/usr/bin/python3
+# vim:se tw=79 sts=4 ts=4 et ai:
+"""
+Simplify data
+"""
+import sys
+
+if len(sys.argv) <= 1:
+    print("You need file name")
+    exit
+
+import csv
+
+# 0. seial
+# 1. rank BCCWJ 全体の順位（同順、飛び順あり）
+# 2. lForm 語彙素読み
+# 3. lemma 語彙素
+# 4. pos 品詞
+# 5. wType 語種
+# 6. pmw BCCWJ 全体での 100 万語当たりの頻度
+# 7. cost
+
+pos=set()
+nline = 0
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for item in linereader:
+        pos |= {item[4]}
+#        pos |= {item[4] + '-*'}
+#        pos |= {item[4] + '-' + item[5]}
+        nline += 1
+#print("================== POS ==================")
+#print(sorted(pos))
+#print("=========================================")
+
+# Set check point
+i = 1
+j = 0
+step = dict()
+while i < nline:
+    step[j] = i
+    i *= 2
+    j += 1
+step[j] = nline
+jmax = j
+#print(step)
+
+stat_pmw = dict()
+stat_n = dict()
+
+for p in pos:
+    stat_pmw[p] = 0
+    stat_n[p] = 0
+
+print('step:\t' + '\t'.join([p for p in sorted(pos)]))
+#print("=========================================")
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for item in linereader:
+        p = item[4]
+#        p = item[4] + '-*'
+#        px = item[4] + '-' + item[5]
+        stat_pmw[p] += float(item[6])
+        stat_n[p] += 1
+#        stat_pmw[px] += float(item[6])
+#        stat_n[px] += 1
+        if int(item[0]) in sorted(step.values()):
+            print('{}\t'.format(item[0]) + '\t'.join([str(round(stat_pmw[p], 2)) for p in sorted(pos)]))
+
+for p in pos:
+    stat_pmw[p] = 0
+    stat_n[p] = 0
+
+print('\n'*10)
+print('step:\t' + '\t'.join([p for p in sorted(pos)]))
+#print("=========================================")
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for item in linereader:
+        p = item[4]
+#        p = item[4] + '-*'
+#        px = item[4] + '-' + item[5]
+        stat_pmw[p] += float(item[6])
+        stat_n[p] += 1
+#        stat_pmw[px] += float(item[6])
+#        stat_n[px] += 1
+        if int(item[0]) in sorted(step.values()):
+            print('{}\t'.format(item[0]) + '\t'.join([str(round(stat_pmw[p], 2)) for p in sorted(pos)]))
+            for p in pos:
+                stat_pmw[p] = 0
+                stat_n[p] = 0
+print('\n'*10)
+print('step:\t' + '\t'.join([p for p in sorted(pos)]))
+#print("=========================================")
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for item in linereader:
+        p = item[4]
+#        p = item[4] + '-*'
+#        px = item[4] + '-' + item[5]
+        stat_pmw[p] += float(item[6])
+        stat_n[p] += 1
+#        stat_pmw[px] += float(item[6])
+#        stat_n[px] += 1
+        if int(item[0]) in sorted(step.values()):
+            print('{}\t'.format(item[0]) + '\t'.join([str(stat_n[p]) for p in sorted(pos)]))
+
+for p in pos:
+    stat_pmw[p] = 0
+    stat_n[p] = 0
+
+print('\n'*10)
+print('step:\t' + '\t'.join([p for p in sorted(pos)]))
+#print("=========================================")
+with open(sys.argv[1], newline='') as tsvfile:
+    linereader = csv.reader(tsvfile, delimiter = '\t')
+    for item in linereader:
+        p = item[4]
+#        p = item[4] + '-*'
+#        px = item[4] + '-' + item[5]
+        stat_pmw[p] += float(item[6])
+        stat_n[p] += 1
+#        stat_pmw[px] += float(item[6])
+#        stat_n[px] += 1
+        if int(item[0]) in sorted(step.values()):
+            print('{}\t'.format(item[0]) + '\t'.join([str(stat_n[p]) for p in sorted(pos)]))
+            for p in pos:
+                stat_pmw[p] = 0
+                stat_n[p] = 0
+
