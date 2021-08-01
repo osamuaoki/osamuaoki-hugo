@@ -1,0 +1,7 @@
+$ gcc -Wall -DNLOGERR -o cli-log-no cli-log.c
+$ DEBUG=3 ./cli-log-no -vvv Hello World
+logerr_level = 6
+Hello World!
+$ DEBUG=3 ./cli-log-no -vvv Hello
+logerr_level = 6
+Oops!

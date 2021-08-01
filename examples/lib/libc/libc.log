@@ -1,0 +1,24 @@
+$ dpkg -L libc6:amd64|grep ^/lib/x86_64-linux-gnu/.*\.so$
+/lib/x86_64-linux-gnu/libpthread-2.17.so
+/lib/x86_64-linux-gnu/ld-2.17.so
+/lib/x86_64-linux-gnu/libanl-2.17.so
+/lib/x86_64-linux-gnu/libBrokenLocale-2.17.so
+/lib/x86_64-linux-gnu/libc-2.17.so
+/lib/x86_64-linux-gnu/libcidn-2.17.so
+/lib/x86_64-linux-gnu/libcrypt-2.17.so
+/lib/x86_64-linux-gnu/libdl-2.17.so
+/lib/x86_64-linux-gnu/libm-2.17.so
+/lib/x86_64-linux-gnu/libmemusage.so
+/lib/x86_64-linux-gnu/libnsl-2.17.so
+/lib/x86_64-linux-gnu/libnss_compat-2.17.so
+/lib/x86_64-linux-gnu/libnss_dns-2.17.so
+/lib/x86_64-linux-gnu/libnss_files-2.17.so
+/lib/x86_64-linux-gnu/libnss_hesiod-2.17.so
+/lib/x86_64-linux-gnu/libnss_nis-2.17.so
+/lib/x86_64-linux-gnu/libnss_nisplus-2.17.so
+/lib/x86_64-linux-gnu/libpcprofile.so
+/lib/x86_64-linux-gnu/libresolv-2.17.so
+/lib/x86_64-linux-gnu/librt-2.17.so
+/lib/x86_64-linux-gnu/libSegFault.so
+/lib/x86_64-linux-gnu/libthread_db-1.0.so
+/lib/x86_64-linux-gnu/libutil-2.17.so

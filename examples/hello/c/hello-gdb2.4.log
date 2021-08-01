@@ -1,0 +1,31 @@
+(gdb) info reg edi
+edi            0x1    1
+(gdb) nexti
+0x0000000000400506    6        printf("Hello, world!\n");
+(gdb) disas/m
+Dump of assembler code for function main:
+5    {
+   0x00000000004004fd <+0>:    push   %rbp
+   0x00000000004004fe <+1>:    mov    %rsp,%rbp
+
+6        printf("Hello, world!\n");
+   0x0000000000400501 <+4>:    mov    $0x4005c4,%edi
+=> 0x0000000000400506 <+9>:    callq  0x4003e0 <puts@plt>
+
+7        return EXIT_SUCCESS;
+   0x000000000040050b <+14>:    mov    $0x0,%eax
+
+8    }
+   0x0000000000400510 <+19>:    pop    %rbp
+   0x0000000000400511 <+20>:    retq
+
+End of assembler dump.
+(gdb) info reg edi
+edi            0x4005c4    4195780
+(gdb) print /x $edi
+$1 = 0x4005c4
+(gdb) x/s $edi
+0x4005c4:    "Hello, world!"
+(gdb) set $edi=$edi+1
+(gdb) x/s $edi
+0x4005c5:    "ello, world!"

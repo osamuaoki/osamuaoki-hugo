@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import fridge
+import sys
+
+if __name__ == '__main__':
+    print(sys.path)
+    fridge.test(name = "Jane") 

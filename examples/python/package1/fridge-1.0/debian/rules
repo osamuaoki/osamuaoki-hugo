@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+# uncomment to enable verbose mode for debhelper
+#DH_VERBOSE = 1
+# uncomment to exclude VCS paths
+#DH_ALWAYS_EXCLUDE=CVS:.svn:.git
+
+%:
+	dh $@ --with "python2"
+
+# Customize by adding override scripts
+

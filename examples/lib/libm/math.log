@@ -1,0 +1,3 @@
+$ gcc -Wall -omath math.c -lm
+$ ./math
+angle = 60.000000 degree, sin(angle) = 0.866025

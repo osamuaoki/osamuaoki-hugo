@@ -1,0 +1,5 @@
+p "gcc -Wall -o strtol-test strtol-test.c"
+p "./strtol-test $(echo '2^63-1' | bc)"
+p "./strtol-test $(echo '2^63' | bc)"
+p "./strtol-test $(echo '2^64-1' | bc)"
+p "./strtol-test $(echo '2^64' | bc)"

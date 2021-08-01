@@ -1,0 +1,10 @@
+$ valac -v hello-1.vala
+/path/to/vala/hello-1.vala.c: In function ‘main’:
+/path/to/vala/hello-1.vala.c:28:2: warning: ‘g_type_init’ is deprecated (declared...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+cc -o '/path/to/vala/hello-1' '/path/to/vala/hello-1.vala.c' -I/usr/include/glib-...
+$ ./hello-1
+Hello, world!

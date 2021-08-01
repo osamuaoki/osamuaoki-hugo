@@ -1,0 +1,43 @@
+$ ./configure --prefix=/usr
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables...
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+$ make
+make[5]: Entering directory `/path/to/hello'
+make  all-am
+make[6]: Entering directory `/path/to/hello'
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT hello.o -MD -MP -MF .deps/hello.Tpo -c -o ...
+mv -f .deps/hello.Tpo .deps/hello.Po
+gcc  -g -O2   -o hello hello.o
+make[6]: Leaving directory `/path/to/hello'
+make[5]: Leaving directory `/path/to/hello'
+$ DESTDIR=./debian/tmp make install
+make[5]: Entering directory `/path/to/hello'
+make[6]: Entering directory `/path/to/hello'
+ /bin/mkdir -p './debian/tmp/usr/bin'
+  /usr/bin/install -c hello './debian/tmp/usr/bin'
+make[6]: Nothing to be done for `install-data-am'.
+make[6]: Leaving directory `/path/to/hello'
+make[5]: Leaving directory `/path/to/hello'
+$ # now run it
+$ ./debian/tmp/usr/bin/hello
+Hello, world! version: 0.1

@@ -1,0 +1,107 @@
+# ========
+# captured on: Sat Aug 17 23:43:21 2013
+# hostname : goofy
+# os release : 3.11-rc4-amd64
+# perf version : 3.11.0-rc4
+# arch : x86_64
+# nrcpus online : 8
+# nrcpus avail : 8
+# cpudesc : Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+# cpuid : GenuineIntel,6,42,7
+# total memory : 16375452 kB
+# cmdline : /usr/bin/perf_3.11 record ./prime 1048576 
+# event : name = cycles, type = 0, config = 0x0, config1 = 0x0, config2 = 0x0, excl_usr = 0, excl_kern = 0, excl_host = 0, excl_guest = 1, precise_ip = 0
+# HEADER_CPU_TOPOLOGY info available, use -I to display
+# HEADER_NUMA_TOPOLOGY info available, use -I to display
+# pmu mappings: cpu = 4, software = 1, tracepoint = 2, uncore_cbox_0 = 6, uncore_cbox_1 = 7, uncore_cbox_2 = 8, uncore_cbox_3 = 9, breakpoint = 5
+# ========
+#
+# Samples: 38K of event 'cycles'
+# Event count (approx.): 28326744643
+#
+# Overhead  Command            Shared Object                                    Symbol
+# ........  .......  .......................  ........................................
+#
+    95.20%    prime  libglib-2.0.so.0.3600.4  [.] g_list_last                         
+     4.17%    prime  prime                    [.] _vala_main                          
+     0.21%    prime  [kernel.kallsyms]        [k] read_hpet                           
+     0.04%    prime  libc-2.17.so             [.] vfprintf                            
+     0.03%    prime  libglib-2.0.so.0.3600.4  [.] g_list_append                       
+     0.03%    prime  libglib-2.0.so.0.3600.4  [.] g_private_get_impl                  
+     0.02%    prime  libglib-2.0.so.0.3600.4  [.] g_slice_alloc                       
+     0.02%    prime  libpthread-2.17.so       [.] pthread_getspecific                 
+     0.01%    prime  libc-2.17.so             [.] _itoa_word                          
+     0.01%    prime  libglib-2.0.so.0.3600.4  [.] g_private_get                       
+     0.01%    prime  [kernel.kallsyms]        [k] do_timer                            
+     0.01%    prime  libglib-2.0.so.0.3600.4  [.] g_malloc_n                          
+     0.01%    prime  [kernel.kallsyms]        [k] trace_rcu_utilization               
+     0.01%    prime  [vdso]                   [.] 0x0000000000000cb7                  
+     0.01%    prime  libglib-2.0.so.0.3600.4  [.] g_slice_free_chain_with_offset      
+     0.01%    prime  libc-2.17.so             [.] _IO_file_xsputn@@GLIBC_2.2.5        
+     0.01%    prime  [kernel.kallsyms]        [k] update_curr                         
+     0.01%    prime  [kernel.kallsyms]        [k] native_write_msr_safe               
+     0.01%    prime  [kernel.kallsyms]        [k] account_group_user_time             
+     0.01%    prime  [kernel.kallsyms]        [k] trigger_load_balance                
+     0.01%    prime  libc-2.17.so             [.] _int_malloc                         
+     0.01%    prime  [kernel.kallsyms]        [k] vm_brk                              
+     0.01%    prime  [kernel.kallsyms]        [k] account_process_tick                
+     0.01%    prime  [kernel.kallsyms]        [k] __read_seqcount_begin.constprop.20  
+     0.01%    prime  [kernel.kallsyms]        [k] apic_timer_interrupt                
+     0.00%    prime  [kernel.kallsyms]        [k] calc_global_load                    
+     0.00%    prime  [kernel.kallsyms]        [k] __raise_softirq_irqoff              
+     0.00%    prime  [kernel.kallsyms]        [k] notifier_call_chain                 
+     0.00%    prime  [kernel.kallsyms]        [k] update_vsyscall                     
+     0.00%    prime  [kernel.kallsyms]        [k] sched_clock_local                   
+     0.00%    prime  [kernel.kallsyms]        [k] jiffies_to_timeval                  
+     0.00%    prime  [kernel.kallsyms]        [k] pick_next_task_fair                 
+     0.00%    prime  [kernel.kallsyms]        [k] paravirt_sched_clock                
+     0.00%    prime  libglib-2.0.so.0.3600.4  [.] slab_allocator_alloc_chunk          
+     0.00%    prime  [kernel.kallsyms]        [k] tick_program_event                  
+     0.00%    prime  libglib-2.0.so.0.3600.4  [.] g_mutex_get_impl                    
+     0.00%    prime  [kernel.kallsyms]        [k] perf_event_aux_ctx                  
+     0.00%    prime  libc-2.17.so             [.] __GI___mempcpy                      
+     0.00%    prime  [kernel.kallsyms]        [k] hpage_nr_pages                      
+     0.00%    prime  libc-2.17.so             [.] fprintf                             
+     0.00%    prime  [kernel.kallsyms]        [k] local_apic_timer_interrupt          
+     0.00%    prime  [kernel.kallsyms]        [k] arch_local_irq_restore              
+     0.00%    prime  [kernel.kallsyms]        [k] raw_notifier_call_chain             
+     0.00%    prime  [kernel.kallsyms]        [k] native_sched_clock                  
+     0.00%    prime  [kernel.kallsyms]        [k] task_tick_fair                      
+     0.00%    prime  [kernel.kallsyms]        [k] rcu_bh_qs                           
+     0.00%    prime  [kernel.kallsyms]        [k] rb_erase                            
+     0.00%    prime  [kernel.kallsyms]        [k] perf_pmu_disable                    
+     0.00%    prime  [kernel.kallsyms]        [k] intel_pstate_get_min_max            
+     0.00%    prime  libc-2.17.so             [.] free                                
+     0.00%    prime  libc-2.17.so             [.] _int_free                           
+     0.00%    prime  [kernel.kallsyms]        [k] __internal_add_timer                
+     0.00%    prime  [kernel.kallsyms]        [k] rcu_irq_enter                       
+     0.00%    prime  [kernel.kallsyms]        [k] __alloc_pages_nodemask              
+     0.00%    prime  libc-2.17.so             [.] _int_memalign                       
+     0.00%    prime  libpthread-2.17.so       [.] pthread_mutex_trylock               
+     0.00%    prime  [kernel.kallsyms]        [k] _raw_spin_lock_irqsave              
+     0.00%    prime  [kernel.kallsyms]        [k] list_del                            
+     0.00%    prime  [kernel.kallsyms]        [k] irq_enter                           
+     0.00%    prime  [kernel.kallsyms]        [k] ktime_get_update_offsets            
+     0.00%    prime  [kernel.kallsyms]        [k] sched_clock                         
+     0.00%    prime  [kernel.kallsyms]        [k] accumulate_nsecs_to_secs.constprop.4
+     0.00%    prime  [kernel.kallsyms]        [k] set_normalized_timespec             
+     0.00%    prime  libpthread-2.17.so       [.] pthread_mutex_lock                  
+     0.00%    prime  [kernel.kallsyms]        [k] __run_hrtimer                       
+     0.00%    prime  [kernel.kallsyms]        [k] __mod_timer                         
+     0.00%    prime  [kernel.kallsyms]        [k] update_rq_runnable_avg              
+     0.00%    prime  [kernel.kallsyms]        [k] zone_watermark_ok                   
+     0.00%    prime  [kernel.kallsyms]        [k] rcu_check_callbacks                 
+     0.00%    prime  [kernel.kallsyms]        [k] apic_eoi                            
+     0.00%    prime  libc-2.17.so             [.] __posix_memalign                    
+     0.00%    prime  [kvm]                    [k] pvclock_gtod_notify                 
+     0.00%    prime  [kernel.kallsyms]        [k] page_fault                          
+     0.00%    prime  prime                    [.] g_list_append@plt                   
+     0.00%    prime  [kernel.kallsyms]        [k] page_add_new_anon_rmap              
+     0.00%    prime  [kernel.kallsyms]        [k] __count_vm_events                   
+     0.00%    prime  [kernel.kallsyms]        [k] timerqueue_add                      
+     0.00%    prime  [kernel.kallsyms]        [k] arch_local_save_flags               
+
+
+#
+# (For a higher level overview, try: perf report --sort comm,dso)
+#

@@ -1,0 +1,4 @@
+$ grep "# *define *std" /usr/include/stdio.h
+#define stdin stdin
+#define stdout stdout
+#define stderr stderr

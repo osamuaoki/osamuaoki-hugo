@@ -1,0 +1,18 @@
+$ strace -c ./hello-gdb
+Hello, world!
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+  -nan    0.000000           0         1           read
+  -nan    0.000000           0         1           write
+  -nan    0.000000           0         2           open
+  -nan    0.000000           0         2           close
+  -nan    0.000000           0         3           fstat
+  -nan    0.000000           0         8           mmap
+  -nan    0.000000           0         3           mprotect
+  -nan    0.000000           0         1           munmap
+  -nan    0.000000           0         1           brk
+  -nan    0.000000           0         3         3 access
+  -nan    0.000000           0         1           execve
+  -nan    0.000000           0         1           arch_prctl
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.000000                    27         3 total

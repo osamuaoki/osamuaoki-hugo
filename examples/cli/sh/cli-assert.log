@@ -1,0 +1,4 @@
+$ ./cli-assert apple apple
+Input matches: apple = apple
+$ ./cli-assert apple orange
+E: FOO and BAR do not match.

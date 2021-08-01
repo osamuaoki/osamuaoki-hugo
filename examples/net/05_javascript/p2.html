@@ -1,0 +1,26 @@
+<html>
+<head>
+<script type="text/JavaScript">
+<!--
+function popup() {
+alert("popup() local JavaScript function in head called via onclick callback!");
+}
+//-->
+</script>
+</head>
+<body>
+
+<noscript>JavaScript is OFF!</noscript>
+<script>document.write("JavaScript is ON!")</script>
+<br/>
+<script type="text/JavaScript">
+<!--
+document.write("Hello Javascript World!")
+//-->
+</script>
+<br/>
+<input type="button" onclick="popup()" value="Click me (1)!">
+<br/>
+<input type="button" onclick="alert('alart() JavaScript function called via onclick callback!');" value="Click me (2)!">
+</body>
+</html>

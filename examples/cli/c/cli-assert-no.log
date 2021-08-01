@@ -1,0 +1,4 @@
+$ gcc -Wall -DNDEBUG -o cli-assert-no cli-assert.c
+$ ./cli-assert-no 1
+Argument is a single non-negative value: 1
+$ ./cli-assert-no -1

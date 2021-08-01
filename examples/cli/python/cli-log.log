@@ -1,0 +1,5 @@
+$ ./cli-log Hello World
+Hello World!
+$ DEBUG=TRUE ./cli-log Hello World
+L: line=21, foo=Hello, bar=World
+Hello World!

@@ -1,0 +1,5 @@
+$ rm -rf dist
+$ rm -r ~/.local/bin/jane ~/.local/bin/joe ~/.local/bin/tom
+$ rm -r ~/.local/lib/python2.*/site-packages/fridge.py
+$ rm -r ~/.local/lib/python2.*/site-packages/fridge-1.0.egg-info
+$ rm -r ~/.local/lib/python2.*/site-packages/*.pyc

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Un-comment the following to activate debug messages
+#DEBUG="TRUE"
+debug ()
+{
+    if [ -n "$DEBUG" ]; then
+        echo "$@" >&2
+    fi
+}
+FOO=$1
+BAR=$2
+debug "I: debug log message: FOO=$FOO, BAR=$BAR"
+echo "$FOO $BAR!"

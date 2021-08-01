@@ -1,0 +1,14 @@
+# Overhead  Command               Shared Object                                Symbol
+# ........  .......  ..........................  ....................................
+#
+    77.30%    prime  prime                       [.] _vala_main                      
+     5.60%    prime  libglib-2.0.so.0.3600.4     [.] g_datalist_get_flags            
+     4.28%    prime  libgobject-2.0.so.0.3600.4  [.] g_object_unref                  
+     3.84%    prime  libgee.so.2.0.0             [.] gee_array_list_real_get         
+     2.27%    prime  libgee.so.2.0.0             [.] gee_abstract_list_get           
+     2.22%    prime  libgobject-2.0.so.0.3600.4  [.] g_type_check_instance_is_a      
+     1.45%    prime  libgobject-2.0.so.0.3600.4  [.] g_object_ref                    
+     0.85%    prime  libgee.so.2.0.0             [.] gee_abstract_collection_get_size
+     0.61%    prime  libc-2.17.so                [.] vfprintf                        
+     0.26%    prime  libc-2.17.so                [.] _IO_file_xsputn@@GLIBC_2.2.5    
+     0.22%    prime  prime                       [.] _g_object_ref0                  

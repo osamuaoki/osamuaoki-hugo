@@ -1,0 +1,14 @@
+#!/bin/sh 
+N="$1"
+A=0
+B=1
+while [ "$B" -lt "$N" ]; do
+    echo "$B"
+    C=$B 
+    B=$(($A+$B))
+    A=$C 
+    if [ "$B" -lt "0" ]; then
+        echo "E: OVER FLOW at $B, stopped."
+        exit 1
+    fi
+done

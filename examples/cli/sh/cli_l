@@ -1,0 +1,31 @@
+#!/bin/sh
+verbose=0
+while [ "$#" -gt "0" ]; do
+    case $1 in
+    -a)    echo "Option a"
+        ;;
+    -f|--file)
+        shift
+        cat $1
+        ;;
+    -v)    verbose=1
+        ;;
+    --long)    echo "Option long"
+        ;;
+    --longextra)
+        shift
+        echo "Option longextra with $1"
+        ;;
+    --)    shift
+        break 
+        ;;
+    -*)    echo "Unknown option: $1"
+        echo "Usage: $0 [-a] [-f|--file file] [-v] args ..."
+        exit 1
+        ;;
+    *)    break 
+        ;;
+    esac
+    shift
+done
+printf "Remaining arguments are: %s\n" "$*"

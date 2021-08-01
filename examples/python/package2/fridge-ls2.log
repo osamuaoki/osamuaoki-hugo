@@ -1,0 +1,44 @@
+$ ls -lR fridge
+fridge:
+total 28
+drwxrwxr-x 2 osamu osamu 4096 Aug 17 23:43 dist
+-rw-r--r-- 1 osamu osamu 1586 Aug 17 23:43 fridge.py
+-rw-r--r-- 1 osamu osamu 1579 Aug 17 23:43 fridge.py.bak
+-rw-rw-r-- 1 osamu osamu  106 Aug 17 23:43 MANIFEST
+-rw-rw-r-- 1 osamu osamu   31 Mar 28 22:17 README
+drwxrwxr-x 2 osamu osamu 4096 Apr  6 18:14 scripts
+-rwxr-xr-x 1 osamu osamu  362 Apr  5 23:58 setup.py
+
+fridge/dist:
+total 4
+-rw-rw-r-- 1 osamu osamu 1230 Aug 17 23:43 fridge-1.0.tar.gz
+
+fridge/scripts:
+total 12
+-rw-r--r-- 1 osamu osamu 124 Apr  6 18:14 jane
+-rw-r--r-- 1 osamu osamu  93 Mar 28 20:18 joe
+-rw-r--r-- 1 osamu osamu  81 Mar 28 20:19 tom
+$
+$ tar -tvzf fridge/dist/fridge-1.0.tar.gz
+drwxrwxr-x osamu/osamu       0 2013-08-17 23:43 fridge-1.0/
+drwxrwxr-x osamu/osamu       0 2013-08-17 23:43 fridge-1.0/scripts/
+-rw-r--r-- osamu/osamu     124 2013-04-06 18:14 fridge-1.0/scripts/jane
+-rw-r--r-- osamu/osamu      93 2013-03-28 20:18 fridge-1.0/scripts/joe
+-rw-r--r-- osamu/osamu      81 2013-03-28 20:19 fridge-1.0/scripts/tom
+-rw-r--r-- osamu/osamu    1586 2013-08-17 23:43 fridge-1.0/fridge.py
+-rw-rw-r-- osamu/osamu     233 2013-08-17 23:43 fridge-1.0/PKG-INFO
+-rwxr-xr-x osamu/osamu     362 2013-04-05 23:58 fridge-1.0/setup.py
+-rw-rw-r-- osamu/osamu      31 2013-03-28 22:17 fridge-1.0/README
+$
+$ tar -xvzOf fridge/dist/fridge-1.0.tar.gz fridge-1.0/PKG-INFO
+fridge-1.0/PKG-INFO
+Metadata-Version: 1.0
+Name: fridge
+Version: 1.0
+Summary: Python Distutils practice
+Home-page: http://people.debian.org/~osamu/
+Author: Osamu Aoki
+Author-email: osamu@debian.org
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

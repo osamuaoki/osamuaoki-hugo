@@ -1,0 +1,33 @@
+$ gcc -Wall -o forkexec forkexec.c
+$ ./forkexec
+parent  PID     = 6417
+parent  PPID    = 6406
+--- Let's fork ...
+parent  PID     = 6417
+parent  PPID    = 6406
+parent  forked  = 6418
+parent  read from pipe
+child   PID     = 6418
+child   PPID    = 6417
+child   write to pipe
+MESSAGE: passed from child to parent via pipe
+child>  ls -l forkexec.c
+-rw-rw-r-- 1 osamu osamu 2056 Mar 12 22:12 forkexec.c
+parent  child exited.
+$
+$ ./forkexec 2>/dev/null
+child   PID     = 6420
+child   PPID    = 6419
+child   write to pipe
+$
+$ ./forkexec >/dev/null
+parent  PID     = 6421
+parent  PPID    = 6406
+--- Let's fork ...
+parent  PID     = 6421
+parent  PPID    = 6406
+parent  forked  = 6422
+parent  read from pipe
+MESSAGE: passed from child to parent via pipe
+-rw-rw-r-- 1 osamu osamu 2056 Mar 12 22:12 forkexec.c
+parent  child exited.

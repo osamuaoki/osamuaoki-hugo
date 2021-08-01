@@ -1,0 +1,102 @@
+(gdb) step
+_IO_puts (str=0x4005c5 "ello, world!") at ioputs.c:34
+34         const char *str;
+(gdb) disas/m
+Dump of assembler code for function _IO_puts:
+34         const char *str;
+=> 0x00002aaaaad3c2e0 <+0>:    push   %r12
+   0x00002aaaaad3c2e2 <+2>:    mov    %rdi,%r12
+   0x00002aaaaad3c2e5 <+5>:    push   %rbp
+   0x00002aaaaad3c2e6 <+6>:    push   %rbx
+
+35    {
+   0x00002aaaaad3c409 <+297>:    mov    $0xffffffff,%ebp
+   0x00002aaaaad3c40e <+302>:    jmp    0x2aaaaad3c3bd <_IO_puts+221>
+
+36      int result = EOF;
+   0x00002aaaaad3c2e7 <+7>:    callq  0x2aaaaad53080 <__strlen_sse2>
+   0x00002aaaaad3c2f3 <+19>:    mov    %rax,%rbp
+
+37      _IO_size_t len = strlen (str);
+   0x00002aaaaad3c2ec <+12>:    mov    0x33a43d(%rip),%rbx        # 0x2aaaab0767
+30 <stdout>
+   0x00002aaaaad3c2f6 <+22>:    mov    (%rbx),%eax
+   0x00002aaaaad3c2f8 <+24>:    mov    %rbx,%rdi
+   0x00002aaaaad3c2fb <+27>:    and    $0x8000,%eax
+   0x00002aaaaad3c300 <+32>:    jne    0x2aaaaad3c358 <_IO_puts+120>
+   0x00002aaaaad3c302 <+34>:    mov    0x88(%rbx),%r8
+   0x00002aaaaad3c309 <+41>:    mov    %fs:0x10,%rdx
+   0x00002aaaaad3c312 <+50>:    cmp    0x8(%r8),%rdx
+   0x00002aaaaad3c316 <+54>:    je     0x2aaaaad3c410 <_IO_puts+304>
+   0x00002aaaaad3c31c <+60>:    mov    $0x1,%esi
+   0x00002aaaaad3c321 <+65>:    cmpl   $0x0,0x33e6cc(%rip)        # 0x2aaaab07a9
+f4 <__libc_multiple_threads>
+   0x00002aaaaad3c328 <+72>:    je     0x2aaaaad3c337 <_IO_puts+87>
+   0x00002aaaaad3c32a <+74>:    lock cmpxchg %esi,(%r8)
+   0x00002aaaaad3c32f <+79>:    jne    0x2aaaaad3c468 <_L_lock_50>
+   0x00002aaaaad3c335 <+85>:    jmp    0x2aaaaad3c341 <_IO_puts+97>
+   0x00002aaaaad3c337 <+87>:    cmpxchg %esi,(%r8)
+   0x00002aaaaad3c33b <+91>:    jne    0x2aaaaad3c468 <_L_lock_50>
+   0x00002aaaaad3c341 <+97>:    mov    0x88(%rbx),%r8
+   0x00002aaaaad3c348 <+104>:    mov    0x33a3e1(%rip),%rdi        # 0x2aaaab076
+730 <stdout>
+   0x00002aaaaad3c34f <+111>:    mov    %rdx,0x8(%r8)
+   0x00002aaaaad3c353 <+115>:    addl   $0x1,0x4(%r8)
+   0x00002aaaaad3c410 <+304>:    mov    %rbx,%rdi
+   0x00002aaaaad3c413 <+307>:    jmpq   0x2aaaaad3c353 <_IO_puts+115>
+
+38      _IO_acquire_lock (_IO_stdout);
+39
+   0x00002aaaaad3c400 <+288>:    cmp    $0xffffffff,%eax
+   0x00002aaaaad3c403 <+291>:    je     0x2aaaaad3c370 <_IO_puts+144>
+
+40      if ((_IO_vtable_offset (_IO_stdout) != 0
+   0x00002aaaaad3c358 <+120>:    mov    0xc0(%rdi),%eax
+   0x00002aaaaad3c35e <+126>:    test   %eax,%eax
+   0x00002aaaaad3c360 <+128>:    jne    0x2aaaaad3c400 <_IO_puts+288>
+   0x00002aaaaad3c366 <+134>:    movl   $0xffffffff,0xc0(%rdi)
+
+41           || _IO_fwide (_IO_stdout, -1) == -1)
+   0x00002aaaaad3c370 <+144>:    mov    0xd8(%rdi),%rax
+   0x00002aaaaad3c377 <+151>:    mov    %rbp,%rdx
+   0x00002aaaaad3c37a <+154>:    mov    %r12,%rsi
+   0x00002aaaaad3c37d <+157>:    callq  *0x38(%rax)
+   0x00002aaaaad3c380 <+160>:    cmp    %rax,%rbp
+   0x00002aaaaad3c383 <+163>:    jne    0x2aaaaad3c409 <_IO_puts+297>
+
+42          && _IO_sputn (_IO_stdout, str, len) == len
+   0x00002aaaaad3c389 <+169>:    mov    0x33a3a0(%rip),%rdi        # 0x2aaaab076
+730 <stdout>
+   0x00002aaaaad3c390 <+176>:    mov    0x28(%rdi),%rax
+   0x00002aaaaad3c394 <+180>:    cmp    0x30(%rdi),%rax
+   0x00002aaaaad3c398 <+184>:    jae    0x2aaaaad3c418 <_IO_puts+312>
+   0x00002aaaaad3c39e <+190>:    movb   $0xa,(%rax)
+   0x00002aaaaad3c3a1 <+193>:    add    $0x1,%rax
+   0x00002aaaaad3c3a5 <+197>:    mov    %rax,0x28(%rdi)
+   0x00002aaaaad3c418 <+312>:    mov    $0xa,%esi
+   0x00002aaaaad3c41d <+317>:    callq  0x2aaaaad46ea0 <__GI___overflow>
+   0x00002aaaaad3c422 <+322>:    add    $0x1,%eax
+   0x00002aaaaad3c425 <+325>:    je     0x2aaaaad3c409 <_IO_puts+297>
+   0x00002aaaaad3c427 <+327>:    jmpq   0x2aaaaad3c3a9 <_IO_puts+201>
+
+43          && _IO_putc_unlocked ('\n', _IO_stdout) != EOF)
+   0x00002aaaaad3c3a9 <+201>:    add    $0x1,%rbp
+   0x00002aaaaad3c3ad <+205>:    mov    $0x7fffffff,%eax
+   0x00002aaaaad3c3b2 <+210>:    cmp    $0x7fffffff,%rbp
+   0x00002aaaaad3c3b9 <+217>:    cmova  %rax,%rbp
+
+44        result = MIN (INT_MAX, len + 1);
+45
+46      _IO_release_lock (_IO_stdout);
+47      return result;
+   0x00002aaaaad3c3f6 <+278>:    pop    %rbx
+   0x00002aaaaad3c3f7 <+279>:    mov    %ebp,%eax
+   0x00002aaaaad3c3f9 <+281>:    pop    %rbp
+   0x00002aaaaad3c3fa <+282>:    pop    %r12
+   0x00002aaaaad3c3fc <+284>:    retq
+   0x00002aaaaad3c3fd <+285>:    nopl   (%rax)
+   0x00002aaaaad3c42c <+332>:    testl  $0x8000,(%rbx)
+   0x00002aaaaad3c432 <+338>:    mov    %rax,%rsi
+   0x00002aaaaad3c435 <+341>:    jne    0x2aaaaad3c460 <_IO_puts+384>
+
+End of assembler dump.

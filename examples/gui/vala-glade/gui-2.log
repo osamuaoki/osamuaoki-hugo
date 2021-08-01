@@ -1,0 +1,25 @@
+$ valac -v --pkg gtk+-3.0 --pkg gmodule-2.0 gui-2.vala
+gui-2.vala:7.5-7.41: warning: method `HelloWorld.on_button1_clicked' never used
+    public static void on_button1_clicked (Button button) {
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gui-2.vala:12.5-12.41: warning: method `HelloWorld.on_window1_destroy' never used...
+    public static void on_window1_destroy (Window window) {
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/path/to/vala-glade/gui-2.vala.c: In function ‘main’:
+/path/to/vala-glade/gui-2.vala.c:208:2: warning: ‘g_type_init’ is deprecated (dec...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gtk+-3.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gio-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/atk.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/cairo.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gdk-pixbuf-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gdk-3.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/pango.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/pangocairo.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/x11.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gmodule-2.0.vapi'
+cc -o '/path/to/vala-glade/gui-2' '/path/to/vala-glade/gui-2.vala.c' -pthread -I/...
+Compilation succeeded - 2 warning(s)

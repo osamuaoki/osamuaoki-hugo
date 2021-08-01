@@ -1,0 +1,12 @@
+#!/bin/sh
+error ()
+{
+    echo "$@" >&2
+    exit 1
+}
+FOO=$1
+BAR=$2
+if [ ! "$FOO" = "$BAR" ]; then
+    error "E: FOO and BAR do not match."
+fi
+echo "Input matches: $FOO = $BAR"

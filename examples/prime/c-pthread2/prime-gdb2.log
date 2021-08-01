@@ -1,0 +1,219 @@
+$ cat prime.2.gdb
+set trace-commands on
+# start program with argument 1090 and stop at the first line
+start 1090
+# break at the start of  subthread.c
+break subthread.c:1
+# define macro pre-definition
+define xprint
+printf "thd->n0=%08X\n", thd->n0
+printf "thd->n1=%08X\n", thd->n1
+bt
+end
+# autorun xprint at breakpoint 2
+command 2
+xprint
+end
+# conditional breakpoint
+break prime.c:44 if i >= 3
+# one time break point
+tbreak 16
+c
+print tmax
+set tmax = 4
+print tmax
+bt full
+s
+bt f
+finish
+where f
+c
+c
+c
+c
+info thread
+thread apply all bt
+c
+print i
+c
+quit
+$ gdb -batch -x prime.2.gdb prime-gdb
++start 1090
+Temporary breakpoint 1 at 0x400883: file prime.c, line 7.
+warning: no loadable sections found in added symbol-file system-supplied DSO at 
+0x2aaaaaacc000
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Temporary breakpoint 1, main (argc=2, argv=0x7fffffffdf88) at prime.c:7
+7        primelist *p = NULL, *q = NULL;
++break subthread.c:1
+Breakpoint 2 at 0x4007c0: file subthread.c, line 1.
++define xprint
++command 2
++break prime.c:44 if i >= 3
+Breakpoint 3 at 0x400aef: file prime.c, line 44.
++tbreak 16
+Temporary breakpoint 4 at 0x4008f3: file prime.c, line 16.
++c
+
+Temporary breakpoint 4, main (argc=2, argv=0x7fffffffdf88) at prime.c:16
+16            if (checkprime(n)) {
++print tmax
+$1 = 64
++set tmax = 4
++print tmax
+$2 = 4
++bt full
+#0  main (argc=2, argv=0x7fffffffdf88) at prime.c:16
+        p = 0x0
+        q = 0x0
+        n = 3
+        n_max = 1090
+        i = 4195920
+        nd = 4197437
+        tmax = 4
++s
+checkprime (n=3) at checkprime.c:7
+7        flag = TRUE;
++bt f
+#0  checkprime (n=3) at checkprime.c:7
+        p = 0x7fffffffdf80
+        i = 140737488346784
+        n_div_i = 0
+        n_mod_i = 46912501095478
+        flag = 0
+#1  0x00000000004008ff in main (argc=2, argv=0x7fffffffdf88) at prime.c:16
+        p = 0x0
+        q = 0x0
+        n = 3
+        n_max = 1090
+        i = 4195920
+        nd = 4197437
+        tmax = 4
++finish
+0x00000000004008ff in main (argc=2, argv=0x7fffffffdf88) at prime.c:16
+16            if (checkprime(n)) {
+Value returned is $3 = 1
++where f
+#0  0x00000000004008ff in main (argc=2, argv=0x7fffffffdf88) at prime.c:16
+        p = 0x0
+        q = 0x0
+        n = 3
+        n_max = 1090
+        i = 4195920
+        nd = 4197437
+        tmax = 4
++c
+[New Thread 0x2aaaab497700 (LWP 30769)]
+[Switching to Thread 0x2aaaab497700 (LWP 30769)]
+
+Breakpoint 2, subthread (thd=0x6012a0 <thd>) at subthread.c:5
+5        primelist *p=NULL, *q=NULL;
++xprint
+++printf "thd->n0=%08X\n", thd->n0
+thd->n0=00000024
+++printf "thd->n1=%08X\n", thd->n1
+thd->n1=0000012B
+++bt
+#0  subthread (thd=0x6012a0 <thd>) at subthread.c:5
+#1  0x00002aaaaacd6e0e in start_thread (arg=0x2aaaab497700) at pthread_create.c:
+311
+#2  0x00002aaaaafd393d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:
+113
++c
+[New Thread 0x2aaaab698700 (LWP 30770)]
+[Thread 0x2aaaab497700 (LWP 30769) exited]
+[Switching to Thread 0x2aaaab698700 (LWP 30770)]
+
+Breakpoint 2, subthread (thd=0x6012c8 <thd+40>) at subthread.c:5
+5        primelist *p=NULL, *q=NULL;
++xprint
+++printf "thd->n0=%08X\n", thd->n0
+thd->n0=0000012C
+++printf "thd->n1=%08X\n", thd->n1
+thd->n1=00000233
+++bt
+#0  subthread (thd=0x6012c8 <thd+40>) at subthread.c:5
+#1  0x00002aaaaacd6e0e in start_thread (arg=0x2aaaab698700) at pthread_create.c:
+311
+#2  0x00002aaaaafd393d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:
+113
++c
+[New Thread 0x2aaaab899700 (LWP 30772)]
+[Thread 0x2aaaab698700 (LWP 30770) exited]
+[Switching to Thread 0x2aaaab899700 (LWP 30772)]
+
+Breakpoint 2, subthread (thd=0x6012f0 <thd+80>) at subthread.c:5
+5        primelist *p=NULL, *q=NULL;
++xprint
+++printf "thd->n0=%08X\n", thd->n0
+thd->n0=00000234
+++printf "thd->n1=%08X\n", thd->n1
+thd->n1=0000033B
+++bt
+#0  subthread (thd=0x6012f0 <thd+80>) at subthread.c:5
+#1  0x00002aaaaacd6e0e in start_thread (arg=0x2aaaab899700) at pthread_create.c:
+311
+#2  0x00002aaaaafd393d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:
+113
++c
+[Thread 0x2aaaab899700 (LWP 30772) exited]
+[New Thread 0x2aaaaba9a700 (LWP 30773)]
+[Switching to Thread 0x2aaaaba9a700 (LWP 30773)]
+
+Breakpoint 2, subthread (thd=0x601318 <thd+120>) at subthread.c:5
+5        primelist *p=NULL, *q=NULL;
++xprint
+++printf "thd->n0=%08X\n", thd->n0
+thd->n0=0000033C
+++printf "thd->n1=%08X\n", thd->n1
+thd->n1=00000442
+++bt
+#0  subthread (thd=0x601318 <thd+120>) at subthread.c:5
+#1  0x00002aaaaacd6e0e in start_thread (arg=0x2aaaaba9a700) at pthread_create.c:
+311
+#2  0x00002aaaaafd393d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:
+113
++info thread
+  Id   Target Id         Frame
+* 5    Thread 0x2aaaaba9a700 (LWP 30773) "prime-gdb" subthread (thd=0x601318 <th
+d+120>) at subthread.c:5
+  1    Thread 0x2aaaaaafcfc0 (LWP 30765) "prime-gdb" main (argc=2, argv=0x7fffff
+ffdf88) at prime.c:44
++thread apply all bt
+
+Thread 5 (Thread 0x2aaaaba9a700 (LWP 30773)):
++bt
+#0  subthread (thd=0x601318 <thd+120>) at subthread.c:5
+#1  0x00002aaaaacd6e0e in start_thread (arg=0x2aaaaba9a700) at pthread_create.c:
+311
+#2  0x00002aaaaafd393d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:
+113
+
+Thread 1 (Thread 0x2aaaaaafcfc0 (LWP 30765)):
++bt
+#0  main (argc=2, argv=0x7fffffffdf88) at prime.c:44
++c
+[Thread 0x2aaaaba9a700 (LWP 30773) exited]
+[Switching to Thread 0x2aaaaaafcfc0 (LWP 30765)]
+
+Breakpoint 3, main (argc=2, argv=0x7fffffffdf88) at prime.c:44
+44            if (thd[i].head != NULL) { /* prime found */
++print i
+$4 = 3
++c
+2
+3
+5
+7
+11
+13
+... (snip)
+1063
+1069
+1087
+[Inferior 1 (process 30765) exited normally]
++quit

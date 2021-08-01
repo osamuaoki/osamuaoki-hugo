@@ -1,0 +1,4 @@
+$ strace -e trace=open ./hello-gdb
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+Hello, world!

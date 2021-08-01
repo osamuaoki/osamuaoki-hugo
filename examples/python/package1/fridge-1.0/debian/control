@@ -1,0 +1,26 @@
+Source: fridge
+Section: unknown
+Priority: extra
+Maintainer: Osamu Aoki <osamu@debian.org>
+Build-Depends: python-all,
+	debhelper (>=9)
+Standards-Version: 3.9.4
+Homepage: <insert the upstream URL, if relevant>
+Vcs-Git: git://git.debian.org/collab-maint/fridge.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/fridge.git
+X-Python-Version: >= 2.6
+
+Package: fridge
+Architecture: all
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends},
+	${python:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+ <continued long description lines ...>
+ .
+ <continued long description line after a line break indicated by " .">
+ <continued long description lines ...>
+
+

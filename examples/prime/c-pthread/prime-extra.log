@@ -1,0 +1,3 @@
+$ unifdef -UDEBUG -o prime6.xxx prime6.c
+$ unifdef -UDEBUG -o prime7.xxx prime7.c
+$ unifdef -UDEBUG -o prime8.xxx prime8.c

@@ -1,0 +1,11 @@
+$ valac -v prime.vala|fold -s
+/path/to/vala/prime.vala.c: In function ‘main’:
+/path/to/vala/prime.vala.c:129:2: warning: ‘g_type_init’ is deprecated (declared ...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+cc -o '/path/to/vala/prime'
+'/path/to/vala/prime.vala.c'
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+-lgobject-2.0 -lglib-2.0

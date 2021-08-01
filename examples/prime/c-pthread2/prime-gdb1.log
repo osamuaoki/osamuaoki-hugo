@@ -1,0 +1,104 @@
+$ cat prime.1.gdb
+set trace-commands on
+file prime-gdb
+set arg 1090
+break prime.c:44 if i >= 61
+# define macro pre-definition
+define xprint
+print i
+print tail
+printf "thd[i].head=%08X\n", thd[i].head
+printf "thd[i-1].head=%08X\n", thd[i-1].head
+printf "thd[i-2].head=%08X\n", thd[i-2].head
+end
+# autorun xprint
+command 1
+xprint
+end
+# debug run start
+run
+cont
+cont
+cont
+quit
+$ gdb -batch -x prime.1.gdb
++file prime-gdb
++set arg 1090
++break prime.c:44 if i >= 61
+Breakpoint 1 at 0x400aef: file prime.c, line 44.
++define xprint
++command 1
++run
+warning: no loadable sections found in added symbol-file system-supplied DSO at 
+0x2aaaaaacc000
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x2aaaab497700 (LWP 30671)]
+[Thread 0x2aaaab497700 (LWP 30671) exited]
+[New Thread 0x2aaaab698700 (LWP 30672)]
+[Thread 0x2aaaab698700 (LWP 30672) exited]
+[New Thread 0x2aaaab899700 (LWP 30674)]
+[Thread 0x2aaaab899700 (LWP 30674) exited]
+[New Thread 0x2aaaaba9a700 (LWP 30675)]
+[Thread 0x2aaaaba9a700 (LWP 30675) exited]
+[New Thread 0x2aaaabc9b700 (LWP 30676)]
+ ... (snip)
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffdf88) at prime.c:44
+44            if (thd[i].head != NULL) { /* prime found */
++xprint
+++print i
+$1 = 61
+++print tail
+$2 = (primelist *) 0x2aaaac001dc0
+++printf "thd[i].head=%08X\n", thd[i].head
+thd[i].head=AC001DE0
+++printf "thd[i-1].head=%08X\n", thd[i-1].head
+thd[i-1].head=AC001D80
+++printf "thd[i-2].head=%08X\n", thd[i-2].head
+thd[i-2].head=AC001D20
++cont
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffdf88) at prime.c:44
+44            if (thd[i].head != NULL) { /* prime found */
++xprint
+++print i
+$3 = 62
+++print tail
+$4 = (primelist *) 0x2aaaac001de0
+++printf "thd[i].head=%08X\n", thd[i].head
+thd[i].head=00000000
+++printf "thd[i-1].head=%08X\n", thd[i-1].head
+thd[i-1].head=AC001DE0
+++printf "thd[i-2].head=%08X\n", thd[i-2].head
+thd[i-2].head=AC001D80
++cont
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffdf88) at prime.c:44
+44            if (thd[i].head != NULL) { /* prime found */
++xprint
+++print i
+$5 = 63
+++print tail
+$6 = (primelist *) 0x2aaaac001de0
+++printf "thd[i].head=%08X\n", thd[i].head
+thd[i].head=00000000
+++printf "thd[i-1].head=%08X\n", thd[i-1].head
+thd[i-1].head=00000000
+++printf "thd[i-2].head=%08X\n", thd[i-2].head
+thd[i-2].head=AC001DE0
++cont
+2
+3
+5
+7
+11
+13
+... (snip)
+1063
+1069
+1087
+[Inferior 1 (process 30667) exited normally]
++quit

@@ -1,0 +1,44 @@
+$ ./sigtrap &
+$ ps
+  PID TTY          TIME CMD
+ 6764 pts/4    00:00:00 sh
+ 6765 pts/4    00:00:00 sh
+ 6766 pts/4    00:00:00 sigtrap
+ 6767 pts/4    00:00:00 ps
+ 6768 pts/4    00:00:00 sleep
+$ jobs
+[1] + Running
+$ killall -s HUP sigtrap
+SIGHUP detected.
+$ killall -s TSTP sigtrap
+SIGTSTP detected.
+$ killall -s 1 sigtrap
+SIGHUP detected.
+$ killall -HUP sigtrap
+$ ps
+SIGHUP detected.
+  PID TTY          TIME CMD
+ 6764 pts/4    00:00:00 sh
+ 6765 pts/4    00:00:00 sh
+ 6766 pts/4    00:00:00 sigtrap
+ 6825 pts/4    00:00:00 ps
+ 6826 pts/4    00:00:00 sleep
+$ jobs
+[1] + Running
+$ killall -s TERM sigtrap
+$ ps
+  PID TTY          TIME CMD
+ 6764 pts/4    00:00:00 sh
+ 6765 pts/4    00:00:00 sh
+ 6766 pts/4    00:00:00 sigtrap
+ 6829 pts/4    00:00:00 ps
+$ jobs
+[1] + Running
+$ killall -s KILL sigtrap
+$ ps
+  PID TTY          TIME CMD
+ 6764 pts/4    00:00:00 sh
+ 6765 pts/4    00:00:00 sh
+ 6832 pts/4    00:00:00 ps
+$ jobs
+[1] + Killed

@@ -1,0 +1,33 @@
+#!/usr/bin/lua
+n_max = tonumber(arg[1])
+True = 1
+False = 0
+function iter(a) -- ordered iterator
+  local i = 0
+  return function()
+    i = i + 1
+    return a[i]
+  end
+end
+p = {}; -- list containing all primes found
+for n = 2, n_max do
+    flag_prime = True
+    -- search for all pimes found
+    for i in iter(p) do
+        n_div_i = math.floor(n / i)
+        n_mod_i = n % i
+        if n_mod_i == 0 then
+            flag_prime = False
+            break -- found not to be prime
+        end
+        if n_div_i < i then
+            break -- no use doing more i-loop if n < i*i
+        end
+    end
+    if flag_prime == True then
+        table.insert(p,n)
+    end
+end
+for i in iter(p) do
+    print(i)
+end

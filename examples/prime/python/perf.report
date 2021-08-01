@@ -1,0 +1,78 @@
+# ========
+# captured on: Sat Aug 17 23:42:47 2013
+# hostname : goofy
+# os release : 3.11-rc4-amd64
+# perf version : 3.11.0-rc4
+# arch : x86_64
+# nrcpus online : 8
+# nrcpus avail : 8
+# cpudesc : Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+# cpuid : GenuineIntel,6,42,7
+# total memory : 16375452 kB
+# cmdline : /usr/bin/perf_3.11 record ./prime 65536 
+# event : name = cycles, type = 0, config = 0x0, config1 = 0x0, config2 = 0x0, excl_usr = 0, excl_kern = 0, excl_host = 0, excl_guest = 1, precise_ip = 0
+# HEADER_CPU_TOPOLOGY info available, use -I to display
+# HEADER_NUMA_TOPOLOGY info available, use -I to display
+# pmu mappings: cpu = 4, software = 1, tracepoint = 2, uncore_cbox_0 = 6, uncore_cbox_1 = 7, uncore_cbox_2 = 8, uncore_cbox_3 = 9, breakpoint = 5
+# ========
+#
+# Samples: 709  of event 'cycles'
+# Event count (approx.): 554088399
+#
+# Overhead  Command      Shared Object                            Symbol
+# ........  .......  .................  ................................
+#
+    39.25%    prime  python3.3          [.] 0x00000000001a2e1f          
+    30.29%    prime  python3.3          [.] PyEval_EvalFrameEx          
+     8.19%    prime  python3.3          [.] PyDict_GetItem              
+     5.69%    prime  python3.3          [.] PyDict_SetItem              
+     2.22%    prime  python3.3          [.] _PyLong_New                 
+     2.22%    prime  python3.3          [.] PyTuple_New                 
+     1.39%    prime  python3.3          [.] PyArg_UnpackTuple           
+     1.11%    prime  python3.3          [.] PyObject_Free               
+     0.97%    prime  libc-2.17.so       [.] __memset_sse2               
+     0.75%    prime  libc-2.17.so       [.] __memcpy_ssse3_back         
+     0.56%    prime  python3.3          [.] PyLong_FromLong             
+     0.49%    prime  [kernel.kallsyms]  [k] radix_tree_lookup_element   
+     0.43%    prime  libc-2.17.so       [.] _int_free                   
+     0.42%    prime  [kernel.kallsyms]  [k] clear_page_c                
+     0.38%    prime  python3.3          [.] PyUnicode_DecodeUTF8Stateful
+     0.35%    prime  libc-2.17.so       [.] __memcmp_sse4_1             
+     0.32%    prime  python3.3          [.] PyUnicode_FromString        
+     0.29%    prime  [kernel.kallsyms]  [k] __kmalloc                   
+     0.28%    prime  python3.3          [.] PyDict_Next                 
+     0.28%    prime  python3.3          [.] PyTuple_Pack                
+     0.28%    prime  libc-2.17.so       [.] _int_malloc                 
+     0.27%    prime  [kernel.kallsyms]  [k] copy_page_rep               
+     0.22%    prime  [kernel.kallsyms]  [k] spin_unlock                 
+     0.18%    prime  python3.3          [.] _PyObject_SetAttrId         
+     0.14%    prime  python3.3          [.] PyNumber_AsSsize_t          
+     0.14%    prime  [kernel.kallsyms]  [k] __do_page_fault             
+     0.14%    prime  python3.3          [.] PyGrammar_AddAccelerators   
+     0.14%    prime  python3.3          [.] memset@plt                  
+     0.14%    prime  python3.3          [.] PyObject_GetAttr            
+     0.14%    prime  python3.3          [.] PyObject_Malloc             
+     0.14%    prime  [kernel.kallsyms]  [k] do_raw_spin_lock            
+     0.14%    prime  libc-2.17.so       [.] malloc                      
+     0.14%    prime  [kernel.kallsyms]  [k] hpage_nr_pages              
+     0.14%    prime  [kernel.kallsyms]  [k] handle_pte_fault            
+     0.14%    prime  python3.3          [.] _PyDict_GetItemId           
+     0.14%    prime  libc-2.17.so       [.] free                        
+     0.14%    prime  python3.3          [.] PyCFunction_Call            
+     0.14%    prime  libc-2.17.so       [.] __strcmp_sse42              
+     0.14%    prime  python3.3          [.] PySys_GetObject             
+     0.14%    prime  [kernel.kallsyms]  [k] __d_lookup_rcu              
+     0.14%    prime  [kernel.kallsyms]  [k] walk_component              
+     0.14%    prime  [kernel.kallsyms]  [k] need_resched                
+     0.14%    prime  [kernel.kallsyms]  [k] arch_read_lock              
+     0.14%    prime  [kernel.kallsyms]  [k] list_del                    
+     0.14%    prime  python3.3          [.] _PyDict_LoadGlobal          
+     0.14%    prime  [kernel.kallsyms]  [k] audit_get_context           
+     0.14%    prime  python3.3          [.] PyBuffer_Release            
+     0.02%    prime  [kernel.kallsyms]  [k] perf_event_header__init_id  
+     0.00%    prime  [kernel.kallsyms]  [k] native_write_msr_safe       
+
+
+#
+# (For a higher level overview, try: perf report --sort comm,dso)
+#

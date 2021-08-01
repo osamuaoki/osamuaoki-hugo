@@ -1,0 +1,16 @@
+$ gcc -Wall -o lprintf lprintf.c
+$ ./lprintf
+init        %i  -> 12345678
+init        %'i -> 12345678
+env         %i  -> 12345678
+env         %'i -> 12,345,678
+C           %i  -> 12345678
+C           %'i -> 12345678
+en_US.UTF-8 %i  -> 12345678
+en_US.UTF-8 %'i -> 12,345,678
+fr_FR.UTF-8 %i  -> 12345678
+fr_FR.UTF-8 %'i -> 12 345 678
+de_DE.UTF-8 %i  -> 12345678
+de_DE.UTF-8 %'i -> 12.345.678
+ja_JP.UTF-8 %i  -> 12345678
+ja_JP.UTF-8 %'i -> 12,345,678

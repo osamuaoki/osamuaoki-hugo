@@ -1,0 +1,13 @@
+$ autoreconf -i -v -f
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal --force
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:10: installing './install-sh'
+configure.ac:10: installing './missing'
+Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `.'

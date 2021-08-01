@@ -1,0 +1,35 @@
+#!/usr/bin/lua
+verbose = 0
+i = 1
+while (i <= #arg) do
+    if (arg[i] == '-a') then
+        print("Option a")
+    elseif (arg[i] == '-f' or arg[i] == '--file') then
+        i = i +1
+        for line in io.lines(arg[i]) do
+            print(line)
+        end
+    elseif (arg[i] == '-v') then
+        verbose = 1
+    elseif (arg[i] == '--long') then
+        print("Option long")
+    elseif (string.sub(arg[i],1,11) == '--longextra') then
+        print("Option longextra with " .. string.sub(arg[i], 13))
+    elseif (arg[i] == '--') then
+        i = i +1
+        break
+    elseif (string.sub(arg[i], 1, 1) == '-') then
+        print("Unknown option: " .. arg[i])
+        print("Usage: " .. arg[0] .. 
+            " [-a] [-f|--file file] [-v] [--long] [--longextra=value] [args...]")
+        return(1)
+    else
+        break
+    end
+    i = i + 1
+end
+i0 = i - 1
+for i = 1, #arg - i0, 1 do
+    print("ARG[" .. i .. "] = " .. arg[i + i0])
+end
+

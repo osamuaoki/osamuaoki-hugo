@@ -1,0 +1,11 @@
+|Performance counter stats|char|block|block big|mmap memcpy|mmap write
+|seconds time elapsed|0.002350776|0.001894332|0.001848917|0.002023421|0.002016262
+|task-clock|1.335467|1.008275|0.954096|1.053580|1.013171
+|context-switches|1|1|1|1|1
+|cpu-migrations|0|0|0|0|0
+|page-faults|132|132|132|117|111
+|cycles|<not counted>|731,955|769,188|606,346|616,053
+|stalled-cycles-frontend|696,792|625,996|648,758|579,552|552,678
+|stalled-cycles-backend|536,087|495,138|513,756|455,248|434,162
+|branches|153,252|125,526|127,090|102,813|99,467
+|branch-misses|3,292|<not counted>|2,232|2,474|<not counted>

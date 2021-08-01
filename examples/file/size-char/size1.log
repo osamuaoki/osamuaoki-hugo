@@ -1,0 +1,20 @@
+$ perf stat ./size /vmlinuz
+
+File size: 2,391,728
+
+ Performance counter stats for './size /vmlinuz':
+
+         59.126037 task-clock                #    0.983 CPUs utilized
+                 5 context-switches          #    0.085 K/sec
+                 1 cpu-migrations            #    0.017 K/sec
+               193 page-faults               #    0.003 M/sec
+       154,305,859 cycles                    #    2.610 GHz                     [...
+        32,413,607 stalled-cycles-frontend   #  33m 21.01%m frontend cycles idle ...
+         3,089,296 stalled-cycles-backend    #    2.00% backend  cycles idle    [...
+       301,059,342 instructions              #    1.95  insns per cycle
+                                             #    0.11  stalled cycles per insn [...
+        87,138,178 branches                  # 1473.770 M/sec                   [...
+            14,795 branch-misses             #    0.02% of all branches         [...
+
+       0.060168937 seconds time elapsed
+

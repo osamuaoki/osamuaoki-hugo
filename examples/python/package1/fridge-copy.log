@@ -1,0 +1,63 @@
+$ tar -xvzf fridge/dist/fridge-1.0.tar.gz -C dist
+fridge-1.0/
+fridge-1.0/scripts/
+fridge-1.0/scripts/jane
+fridge-1.0/scripts/joe
+fridge-1.0/scripts/tom
+fridge-1.0/fridge.py
+fridge-1.0/PKG-INFO
+fridge-1.0/setup.py
+fridge-1.0/README
+$ cd dist/fridge-1.0; python setup.py install --user;cd -
+/path/to/package1/dist/fridge-1.0
+running install
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.7
+copying fridge.py -> build/lib.linux-x86_64-2.7
+running build_scripts
+creating build/scripts-2.7
+copying and adjusting scripts/jane -> build/scripts-2.7
+copying and adjusting scripts/joe -> build/scripts-2.7
+copying and adjusting scripts/tom -> build/scripts-2.7
+changing mode of build/scripts-2.7/jane from 664 to 775
+changing mode of build/scripts-2.7/joe from 664 to 775
+changing mode of build/scripts-2.7/tom from 664 to 775
+running install_lib
+copying build/lib.linux-x86_64-2.7/fridge.py -> /home/osamu/.local/lib/python2.7/...
+byte-compiling /home/osamu/.local/lib/python2.7/site-packages/fridge.py to fridge...
+running install_scripts
+copying build/scripts-2.7/jane -> /home/osamu/.local/bin
+copying build/scripts-2.7/joe -> /home/osamu/.local/bin
+copying build/scripts-2.7/tom -> /home/osamu/.local/bin
+changing mode of /home/osamu/.local/bin/jane to 775
+changing mode of /home/osamu/.local/bin/joe to 775
+changing mode of /home/osamu/.local/bin/tom to 775
+running install_egg_info
+Writing /home/osamu/.local/lib/python2.7/site-packages/fridge-1.0.egg-info
+/path/to/package1
+$ jane|fold
+['/home/osamu/.local/bin', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_64
+-linux-gnu', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/li
+b/python2.7/lib-dynload', '/home/osamu/.local/lib/python2.7/site-packages', '/us
+r/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/usr/
+lib/python2.7/dist-packages/PIL', '/usr/lib/python2.7/dist-packages/gst-0.10', '
+/usr/lib/python2.7/dist-packages/gtk-2.0', '/usr/lib/pymodules/python2.7', '/usr
+/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode']
+Jane bought a new fridge.
+Jane wishes to have 6 cans of beer
+Jane stocks 12 can(s) of beer.
+Jane tries to consume 5 can(s) of beer
+Jane has 7 can(s) of beer in stock.
+Jane tries to consume 5 can(s) of beer
+Jane has 2 can(s) of beer in stock.
+4 extra can(s) of beer needed for good stocking.
+Jane tries to consume 5 can(s) of beer
+No more beer after drinking 2 can(s) of beer!
+Jane has 0 can(s) of beer in stock.
+6 extra can(s) of beer needed for good stocking.
+Jane stocks 8 can(s) of beer.
+Jane tries to consume 3 can(s) of beer
+Jane has 5 can(s) of beer in stock.
+1 extra can(s) of beer needed for good stocking.

@@ -1,0 +1,15 @@
+$ ./test_scope|fold
+Start  Error: global name 'spam' is not defined
+Scope Error: local variable 'spam' referenced before assignment
+Assign Valid: scope_test spam
+local Valid: scope_test spam
+local IN Valid: scope_test spam
+local EXT Error: global name 'spam' is not defined
+nonlocal Valid: nonlocal spam
+nonlocal IN Valid: nonlocal spam
+nonlocal EXT Error: global name 'spam' is not defined
+nonlocal after del Error: local variable 'spam' referenced before assignment
+nonlocal after del IN Error free variable 'spam' referenced before assignment in
+ enclosing scope
+Global  Error: local variable 'spam' referenced before assignment
+End    Valid: global spam

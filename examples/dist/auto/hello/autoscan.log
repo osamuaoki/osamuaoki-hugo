@@ -1,0 +1,2 @@
+autoscan: warning: missing AC_CHECK_HEADERS([stdlib.h]) wanted by: 
+	hello.c:1

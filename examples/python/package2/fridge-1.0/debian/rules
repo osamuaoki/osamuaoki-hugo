@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+# uncomment to enable verbose mode for debhelper
+#DH_VERBOSE = 1
+# uncomment to exclude VCS paths
+#DH_ALWAYS_EXCLUDE=CVS:.svn:.git
+
+%:
+	dh $@ --with "python2,python3"
+
+# special work around for python3 (#538978 and #597105 bugs)
+PY3REQUESTED := $(shell py3versions -r)
+PY3DEFAULT := $(shell py3versions -d)
+PYTHON3 := $(filter-out $(PY3DEFAULT),$(PY3REQUESTED)) python3
+
+override_dh_auto_clean:
+	-rm -rf build
+
+override_dh_auto_build:
+	set -ex; for python in $(PYTHON3); do \
+	    $$python setup.py build; \
+	done
+
+override_dh_auto_install:
+	set -ex; for python in $(PYTHON3); do \
+	    $$python setup.py install \
+	        --root=debian/fridge\
+	        --force\
+	        --install-layout=deb; \
+	done
+
+# Customize by adding override scripts
+

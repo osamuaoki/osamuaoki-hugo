@@ -1,0 +1,19 @@
+$ g++ -Wall -lboost_program_options -o cli cli.cxx
+$ ./cli -avf BOGUS.txt --long --longextra=FOO X1 X2
+append mode
+verbose mode
+Filename: BOGUS.txt
+long mode
+Longextra: FOO
+Input files are: X1 X2
+$ ./cli -b
+E: unknown option -b
+$ ./cli --help
+SYNTAX: cli [OPTION ...] files ...:
+  -a [ --append ]       append option
+  -h [ --help ]         help message
+  -v [ --verbose ]      verbose option
+  -f [ --file ] arg     file option
+  --long                long option
+  --longextra arg       longextra option
+

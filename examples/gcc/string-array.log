@@ -1,0 +1,6 @@
+$ gcc -o string-array string-array.c
+$ ./string-array
+Before foo[] = 'abcdefgh'
+
+After  foo[] = 'abc@efgh'
+

@@ -1,0 +1,39 @@
+[cols="3,3,2,2,2,2,2", frame="topbot",options="header"]
+|=====
+|section |type |`hello.o` | `hello-gdb.o` |`hello` | `hello-gdb` | `size`
+| |NULL |0 |0 |0 |0 |
+|.interp |PROGBITS |N/A |N/A |0x1c |0x1c |text
+|.note.ABI-tag |NOTE |N/A |N/A |0x20 |0x20 |text
+|.note.gnu.build-i |NOTE |N/A |N/A |0x24 |0x24 |text
+|.dynsym |DYNSYM |N/A |N/A |0x60 |0x60 |text
+|.dynstr |STRTAB |N/A |N/A |0x3d |0x3d |text
+|.gnu.hash |GNU_HASH |N/A |N/A |0x1c |0x1c |text
+|.gnu.version |VERSYM |N/A |N/A |0x8 |0x8 |text
+|.gnu.version_r |VERNEED |N/A |N/A |0x20 |0x20 |text
+|.rela.dyn |RELA |N/A |N/A |0x18 |0x18 |text
+|.rela.plt |RELA |N/A |N/A |0x48 |0x48 |text
+|.init |PROGBITS |N/A |N/A |0x1a |0x1a |text
+|.plt |PROGBITS |N/A |N/A |0x40 |0x40 |text
+|.text |PROGBITS |0x15 |0x15 |0x1a2 |0x1a2 |text
+|.fini |PROGBITS |N/A |N/A |0x9 |0x9 |text
+|.rodata |PROGBITS |0xe |0xe |0x12 |0x12 |text
+|.eh_frame |PROGBITS |0x38 |0x38 |0xd4 |0xd4 |text
+|.eh_frame_hdr |PROGBITS |N/A |N/A |0x34 |0x34 |text
+|.dynamic |DYNAMIC |N/A |N/A |0x1d0 |0x1d0 |data
+|.got |PROGBITS |N/A |N/A |0x8 |0x8 |data
+|.got.plt |PROGBITS |N/A |N/A |0x30 |0x30 |data
+|.data |PROGBITS |0 |0 |0x10 |0x10 |data
+|.jcr |PROGBITS |N/A |N/A |0x8 |0x8 |data
+|.fini_array |FINI_ARRAY |N/A |N/A |0x8 |0x8 |data
+|.init_array |INIT_ARRAY |N/A |N/A |0x8 |0x8 |data
+|.bss |NOBITS |0 |0 |0x8 |0x8 |bss
+|.comment |PROGBITS |0x1d |0x1d |0x38 |0x38 |???
+|.debug_info |PROGBITS |N/A |0x9f |N/A |0x9f |???
+|.debug_abbrev |PROGBITS |N/A |0x42 |N/A |0x42 |???
+|.debug_aranges |PROGBITS |N/A |0x30 |N/A |0x30 |???
+|.debug_line |PROGBITS |N/A |0x3c |N/A |0x3c |???
+|.debug_str |PROGBITS |N/A |0xf5 |N/A |0xbc |???
+|.symtab |SYMTAB |0x108 |0x180 |0x618 |0x690 |???
+|.strtab |STRTAB |0x13 |0x13 |0x237 |0x237 |???
+|.shstrtab |STRTAB |0x61 |0xb0 |0x108 |0x148 |???
+|=====

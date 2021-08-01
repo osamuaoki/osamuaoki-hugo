@@ -1,0 +1,3 @@
+p 'objdump -s hello'
+
+

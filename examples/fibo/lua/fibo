@@ -1,0 +1,8 @@
+#!/usr/bin/lua
+    n = arg[1] +0;
+    a = 0;
+    b = 1;
+    while ( b < n ) do
+        print(b);
+        a, b = b, a + b;
+    end

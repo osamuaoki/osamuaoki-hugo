@@ -1,0 +1,20 @@
+$ gcc -g -Wall -lpthread -c prime.c
+$ gcc -g -Wall -lpthread -c checkprime.c
+$ gcc -g -Wall -lpthread -c subthread.c
+$ gcc -g -Wall -lpthread checkprime.o subthread.o prime.o -o prime-gdb
+$ ./prime-gdb "1090">/dev/null; echo $?
+0
+$ ./prime-gdb "3"
+2
+3
+$ ./prime-gdb "4"
+2
+3
+$ ./prime-gdb "5"
+2
+3
+5
+$ ./prime-gdb "6"
+2
+3
+5

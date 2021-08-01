@@ -1,0 +1,36 @@
+$ gcc -Wall -o cli-log cli-log.c
+$ ./cli-log Hello
+W: cli-log.c:33: 1 arg(s) / 2 args needed
+logerr_level = 0
+Oops!
+$ ./cli-log Hello World
+logerr_level = 0
+Hello World!
+$ ./cli-log -v Hello World
+N: cli-log.c:27: optind = 2
+logerr_level = 1
+Hello World!
+$ ./cli-log -vv Hello World
+N: cli-log.c:27: optind = 2
+I: cli-log.c:28: argc = 4
+logerr_level = 2
+Hello World!
+$ ./cli-log -vvv Hello World
+N: cli-log.c:27: optind = 2
+I: cli-log.c:28: argc = 4
+D: cli-log.c:29: argv[0] = ./cli-log
+logerr_level = 3
+Hello World!
+$ ./cli-log -vvv Hello World EXT
+N: cli-log.c:27: optind = 2
+I: cli-log.c:28: argc = 5
+D: cli-log.c:29: argv[0] = ./cli-log
+W: cli-log.c:33: 3 arg(s) / 2 args needed
+logerr_level = 3
+Oops!
+$ DEBUG=2 ./cli-log -v Hello World
+N: cli-log.c:27: optind = 2
+I: cli-log.c:28: argc = 4
+D: cli-log.c:29: argv[0] = ./cli-log
+logerr_level = 3
+Hello World!

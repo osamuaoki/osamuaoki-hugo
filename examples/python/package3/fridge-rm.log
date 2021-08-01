@@ -1,0 +1,5 @@
+$ rm -rf dist
+$ rm -r ~/.local/bin/jane ~/.local/bin/joe ~/.local/bin/tom
+$ rm -rf ~/.local/lib/python3.2/site-packages/fridge
+$ rm -r ~/.local/lib/python3.2/site-packages/fridge-1.0.egg-info
+rm: cannot remove ‘/home/osamu/.local/lib/python3.2/site-packages/fridge-1.0.egg-...

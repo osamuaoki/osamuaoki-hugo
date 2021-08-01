@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+var counter = 0;
+
+function popup() {
+alert("callback local JavaScript function in head via onclick!");
+counter =+ 1;
+}
+</script>
+</head>
+<body>
+
+<noscript>JavaScript is OFF!</noscript>
+<script>document.write("JavaScript is ON!<br/>counter: " + counter)</script>
+<br/>
+
+<input type="button" onclick="popup();" value="Click me! counted.">
+<br/>
+
+<input type="button" onclick="alert('callback alart() via onclick!');" value="Click me!">
+<br/>
+
+<form>
+Text: <input type='text' id='tx'/>
+<input type='button' 
+onclick="
+let yy = document.getElementById('tx').value;
+alert('TEXT = ' + yy);"
+value="Print field"/>
+</form>
+</body>
+</html>

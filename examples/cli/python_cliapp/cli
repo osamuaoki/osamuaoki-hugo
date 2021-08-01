@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# vim:se tw=0 sts=4 ts=4 et cindent:
+'''
+Example using cliapp framework. (Python2 only)
+'''
+import cliapp
+import logging
+
+class ExampleApp(cliapp.Application):
+
+    def add_settings(self):
+        self.settings.boolean(['append', 'a'], 'append mode')
+        self.settings.string(['file', 'f'], 'configuration filename',
+                metavar='FILENAME')
+        self.settings.boolean(['verbose', 'v'], 'verbose mode')
+        self.settings.boolean(['long'], 'long mode')
+        self.settings.string(['longextra'], 'longextra mode',
+                metavar='LONG')
+    def process_inputs(self, args):
+        self.counts = 0
+        cliapp.Application.process_inputs(self, args)
+        self.output.write('There were %s lines in %s.\n'
+            % (self.counts, args))
+        print('append=%s' % self.settings['append'])
+        print('verbose=%s' % self.settings['verbose'])
+        print('long=%s' % self.settings['long'])
+        print('longextra=%s' % self.settings['longextra'])
+        if self.settings['file']:
+           print("filename = %s" % self.settings['file'])
+           with open(self.settings['file']) as f:
+               for line in f:
+                   print (line[:-1])
+
+    def process_input_line(self, name, line):
+        self.counts += 1
+
+if __name__ == '__main__':
+    app = ExampleApp('Cli', version='0.1',
+        description="Cli as a command line program example",
+        epilog="Copyright (C) 2012 Osamu Aoki")
+    app.settings.config_files = ['example.conf']
+    app.run()
+

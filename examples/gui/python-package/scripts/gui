@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+import gui.gui
+
+def main():
+    gui.gui.gui()
+
+if __name__ == '__main__':
+    main()
+

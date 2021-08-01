@@ -1,0 +1,53 @@
+$ ls -lR fridge
+fridge:
+total 16
+-rw-r--r-- 1 osamu osamu 1579 Apr  8 21:16 fridge.py
+-rw-rw-r-- 1 osamu osamu   31 Mar 28 22:17 README
+drwxrwxr-x 2 osamu osamu 4096 Apr  6 18:14 scripts
+-rwxr-xr-x 1 osamu osamu  361 Apr  8 21:13 setup.py
+
+fridge/scripts:
+total 12
+-rw-r--r-- 1 osamu osamu 124 Apr  6 18:14 jane
+-rw-r--r-- 1 osamu osamu  93 Mar 28 20:18 joe
+-rw-r--r-- 1 osamu osamu  81 Mar 28 20:19 tom
+$
+$ cat fridge/setup.py
+#!/usr/bin/python
+# vi:se ts=4 sts=4 et si:
+from distutils.core import setup
+setup(name='fridge',
+    version='1.0',
+    description='Python Distutils practice',
+    author='Osamu Aoki',
+    author_email='osamu@debian.org',
+    url='http://people.debian.org/~osamu/',
+    py_modules=['fridge'],
+    scripts=['scripts/jane', 'scripts/joe', 'scripts/tom'],
+    )
+$
+$ cat fridge/README
+python source package practice
+$
+$ cat fridge/scripts/jane
+#!/usr/bin/python3
+import fridge
+import sys
+
+if __name__ == '__main__':
+    print(sys.path)
+    fridge.test(name = "Jane")
+$
+$ cat fridge/scripts/joe
+#!/usr/bin/python3
+import fridge
+
+if __name__ == '__main__':
+    fridge.test(name = "Joe")
+$
+$ cat fridge/scripts/tom
+#!/usr/bin/python3
+import fridge
+
+if __name__ == '__main__':
+    fridge.test()

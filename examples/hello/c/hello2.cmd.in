@@ -1,0 +1,29 @@
+list
+disas main
+disas/m main
+disas/r main
+# pos1
+x/s 0x40067c
+x/14x 0x40067c
+# pos2
+start
+disas/m
+# pos3
+info reg edi
+nexti
+disas/m
+info reg edi
+print /x $edi
+x/s $edi
+set $edi=$edi+1
+x/s $edi
+# pos4
+step
+disas/m
+# pos5
+finish
+disas/m
+# pos6
+cont
+quit
+# pos7

@@ -1,0 +1,62 @@
+$ gcc -Wall -o sigaction sigaction.c
+$ ./sigaction &
+$  jobs
+[1] + Running
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6478  6467  0  80   0 -  1019 -      pts/4    00:00:00 sigaction
+0 R  1000  6485  6483  0  80   0 -  2655 -      pts/4    00:00:00 ps
+$ killall -v -s INT sigaction
+PID=6478
+=== SIGNAL 2 handler ===
+First round ... ignored.  Next round activated.
+Killed sigaction(6478) with signal 2
+$  jobs
+[1] + Running
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6478  6467  0  80   0 -  1019 -      pts/4    00:00:00 sigaction
+0 R  1000  6498  6496  0  80   0 -  2655 -      pts/4    00:00:00 ps
+$ killall -v -s INT sigaction
+Killed sigaction(6478) with signal 2
+$  jobs
+[1] + Interrupt
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 R  1000  6511  6509  0  80   0 -  2655 -      pts/4    00:00:00 ps
+$ ./sigaction &
+$  jobs
+[1] + Running
+$ ./sigaction &
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6512  6467  0  80   0 -  1019 -      pts/4    00:00:00 sigaction
+0 R  1000  6519  6517  0  80   0 -  2655 -      pts/4    00:00:00 ps
+$ killall -v -s HUP sigaction
+Killed sigaction(6512) with signal 1
+$  jobs
+[1] + Running
+$ ./sigaction &
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6512  6467  0  80   0 -  1019 -      pts/4    00:00:00 sigaction
+0 R  1000  6532  6530  0  80   0 -  2655 -      pts/4    00:00:00 ps
+$ killall -v -s KILL sigaction
+Killed sigaction(6512) with signal 9
+$  jobs
+[1] + Killed
+$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  6466  6465  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 S  1000  6467  6466  0  80   0 -  1079 -      pts/4    00:00:00 sh
+0 R  1000  6545  6543  0  80   0 -  2655 -      pts/4    00:00:00 ps

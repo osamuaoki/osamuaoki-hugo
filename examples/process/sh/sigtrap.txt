@@ -1,0 +1,42 @@
+$ ./sigtrap &
+[1] 12692
+$ kill -s HUP %1
+SIGHUP detected.
+$ kill -s TSTP %1
+SIGTSTP detected.
+$ kill -n 1 %1
+SIGHUP detected.
+$ kill -1 %1
+SIGHUP detected.
+$ ps
+  PID TTY          TIME CMD
+12589 pts/9    00:00:00 bash
+12692 pts/9    00:00:31 sigtrap
+12697 pts/9    00:00:00 ps
+$ jobs
+[1]+  Running                 ./sigtrap &
+$ kill -s INT %1
+$ jobs
+[1]+  Interrupt               ./sigtrap
+$ jobs
+$ dash
+$ ./sigtrap &
+$ ps
+  PID TTY          TIME CMD
+12589 pts/9    00:00:00 bash
+12705 pts/9    00:00:00 dash
+12710 pts/9    00:00:10 sigtrap
+12712 pts/9    00:00:00 ps
+$ kill -s INT 12710
+$ ps
+  PID TTY          TIME CMD
+12589 pts/9    00:00:00 bash
+12705 pts/9    00:00:00 dash
+12733 pts/9    00:00:00 ps
+[1] + Interrupt                  ./sigtrap
+$ ps
+  PID TTY          TIME CMD
+12589 pts/9    00:00:00 bash
+12705 pts/9    00:00:00 dash
+12734 pts/9    00:00:00 ps
+

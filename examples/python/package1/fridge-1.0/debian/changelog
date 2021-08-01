@@ -1,0 +1,7 @@
+fridge (1.0-1) UNRELEASED; urgency=low
+
+  * Initial release. Closes: #nnnn
+    <nnnn is the bug number of your ITP>
+
+ -- Osamu Aoki <osamu@debian.org>  Sat, 17 Aug 2013 23:43:31 +0900
+

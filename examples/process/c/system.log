@@ -1,0 +1,9 @@
+$ gcc -Wall -o system system.c
+$ ./system
+main    HOME    = /home/osamu
+main    PATH    = /path/to/c/../../bin:(CURDIR)/bin:/home/osamu/bin:/home/osamu/....
+main    TERM    = dumb
+main    DISPLAY = :0
+--- Let's fake shell command prompt with system
+$ ls -li system.c
+3558352 -rw-rw-r-- 1 osamu osamu 545 Mar 12 21:26 system.c

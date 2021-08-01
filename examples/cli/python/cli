@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+# vim:se tw=0 sts=4 ts=4 et cindent:
+def main():
+    import argparse, sys
+    parser = argparse.ArgumentParser(description='This is skelton program.')
+    parser.add_argument('-a', action="store_true", dest="opt_a", 
+                    default=False, help='operation mode')
+    parser.add_argument('-f', '--file', action="store", dest="filename", 
+                    help='input filename')
+    parser.add_argument('-v', action="store_true", dest="verbose", 
+                    default=False, help='vebosity')
+    parser.add_argument('args', nargs='*', help='arguments')
+    parser.add_argument('--long', action="store_true", dest="opt_long", 
+                    help='long mode')
+    parser.add_argument('--longextra', action="store", dest="long", 
+                    help='long extra mode')
+    args = parser.parse_args()
+    if args.opt_a:
+        print("option a")
+    if args.filename:
+        print("filename = " + args.filename)
+        with open(args.filename) as f:
+            for line in f:
+                print (line[:-1])
+    if args.verbose:
+        print("option verbose")
+    if args.opt_long:
+        print("option long")
+    if args.long:
+        print("longextra = " + args.long)
+    if args.args:
+        print("args = " , args.args)
+
+if __name__ == '__main__': 
+    main()

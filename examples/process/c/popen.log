@@ -1,0 +1,32 @@
+$ gcc -Wall -o popen popen.c
+$ echo PID=$$
+PID=6435
+$ echo PPID=$PPID
+PPID=6434
+$ ./popen
+main    PID     = 6446
+main    PPID    = 6435
+--- Let's fake shell command prompt with popen.
+$ ls -li *.c; echo PPID=$PPID; echo PID=$$
+--- Let's print result of popen.
+3546581 -rw-rw-r-- 1 osamu osamu 2056 Mar 12 22:12 forkexec.c
+3546585 -rw-rw-r-- 1 osamu osamu  942 Mar 12 22:16 popen.c
+3561347 -rw-rw-r-- 1 osamu osamu 1292 Mar 17 00:58 sigaction.c
+3545799 -rw-rw-r-- 1 osamu osamu  723 Mar 16 23:00 signal.c
+3558352 -rw-rw-r-- 1 osamu osamu  545 Mar 12 21:26 system.c
+PPID=6446
+PID=6447
+$ ./popen 2>/dev/null
+$ ./popen >/dev/null
+main    PID     = 6452
+main    PPID    = 6435
+--- Let's fake shell command prompt with popen.
+$ ls -li *.c; echo PPID=$PPID; echo PID=$$
+--- Let's print result of popen.
+3546581 -rw-rw-r-- 1 osamu osamu 2056 Mar 12 22:12 forkexec.c
+3546585 -rw-rw-r-- 1 osamu osamu  942 Mar 12 22:16 popen.c
+3561347 -rw-rw-r-- 1 osamu osamu 1292 Mar 17 00:58 sigaction.c
+3545799 -rw-rw-r-- 1 osamu osamu  723 Mar 16 23:00 signal.c
+3558352 -rw-rw-r-- 1 osamu osamu  545 Mar 12 21:26 system.c
+PPID=6452
+PID=6453

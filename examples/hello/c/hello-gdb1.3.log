@@ -1,0 +1,13 @@
+(gdb) run
+warning: no loadable sections found in added symbol-file system-supplied DSO at 
+0x2aaaaaacc000
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+
+Breakpoint 1, main () at hello.c:6
+6        printf("Hello, world!\n");
+(gdb) cont
+Hello, world!
+[Inferior 1 (process 30593) exited normally]
+(gdb) quit
+$

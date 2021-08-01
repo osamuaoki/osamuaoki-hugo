@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+def main():
+    import sys
+    arg = sys.argv[1]
+    assert int(arg) >= 0, "argument should be positive but " + arg
+    print("argument is " + arg)
+
+if __name__ == '__main__': 
+    main()

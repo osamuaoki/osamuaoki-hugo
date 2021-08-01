@@ -1,0 +1,54 @@
+# ========
+# captured on: Sat Aug 17 23:43:23 2013
+# hostname : goofy
+# os release : 3.11-rc4-amd64
+# perf version : 3.11.0-rc4
+# arch : x86_64
+# nrcpus online : 8
+# nrcpus avail : 8
+# cpudesc : Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+# cpuid : GenuineIntel,6,42,7
+# total memory : 16375452 kB
+# cmdline : /usr/bin/perf_3.11 record ./prime 1048576 
+# event : name = cycles, type = 0, config = 0x0, config1 = 0x0, config2 = 0x0, excl_usr = 0, excl_kern = 0, excl_host = 0, excl_guest = 1, precise_ip = 0
+# HEADER_CPU_TOPOLOGY info available, use -I to display
+# HEADER_NUMA_TOPOLOGY info available, use -I to display
+# pmu mappings: cpu = 4, software = 1, tracepoint = 2, uncore_cbox_0 = 6, uncore_cbox_1 = 7, uncore_cbox_2 = 8, uncore_cbox_3 = 9, breakpoint = 5
+# ========
+#
+# Samples: 2K of event 'cycles'
+# Event count (approx.): 1715302511
+#
+# Overhead  Command               Shared Object                                Symbol
+# ........  .......  ..........................  ....................................
+#
+    77.30%    prime  prime                       [.] _vala_main                      
+     5.60%    prime  libglib-2.0.so.0.3600.4     [.] g_datalist_get_flags            
+     4.28%    prime  libgobject-2.0.so.0.3600.4  [.] g_object_unref                  
+     3.84%    prime  libgee.so.2.0.0             [.] gee_array_list_real_get         
+     2.27%    prime  libgee.so.2.0.0             [.] gee_abstract_list_get           
+     2.22%    prime  libgobject-2.0.so.0.3600.4  [.] g_type_check_instance_is_a      
+     1.45%    prime  libgobject-2.0.so.0.3600.4  [.] g_object_ref                    
+     0.85%    prime  libgee.so.2.0.0             [.] gee_abstract_collection_get_size
+     0.61%    prime  libc-2.17.so                [.] vfprintf                        
+     0.26%    prime  libc-2.17.so                [.] _IO_file_xsputn@@GLIBC_2.2.5    
+     0.22%    prime  prime                       [.] _g_object_ref0                  
+     0.17%    prime  libc-2.17.so                [.] _itoa_word                      
+     0.13%    prime  libgee.so.2.0.0             [.] gee_array_list_real_add         
+     0.13%    prime  libc-2.17.so                [.] free                            
+     0.13%    prime  [kernel.kallsyms]           [k] page_fault                      
+     0.12%    prime  libc-2.17.so                [.] __libc_calloc                   
+     0.10%    prime  [kernel.kallsyms]           [k] perf_event_aux_ctx              
+     0.09%    prime  libgobject-2.0.so.0.3600.4  [.] g_datalist_get_flags@plt        
+     0.04%    prime  prime                       [.] g_object_unref@plt              
+     0.04%    prime  libgee.so.2.0.0             [.] gee_array_list_real_get_size    
+     0.04%    prime  [kvm]                       [k] pvclock_gtod_notify             
+     0.04%    prime  [kernel.kallsyms]           [k] read_hpet                       
+     0.04%    prime  libc-2.17.so                [.] fprintf                         
+     0.02%    prime  [kernel.kallsyms]           [k] flush_tlb_mm_range              
+     0.00%    prime  [kernel.kallsyms]           [k] native_write_msr_safe           
+
+
+#
+# (For a higher level overview, try: perf report --sort comm,dso)
+#

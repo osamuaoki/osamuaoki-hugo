@@ -1,0 +1,11 @@
+$ valac -v fibo.vala|fold -s
+/path/to/vala/fibo.vala.c: In function ‘main’:
+/path/to/vala/fibo.vala.c:76:2: warning: ‘g_type_init’ is deprecated (declared at...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+cc -o '/path/to/vala/fibo'
+'/path/to/vala/fibo.vala.c'
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+-lgobject-2.0 -lglib-2.0

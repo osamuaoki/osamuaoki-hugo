@@ -1,0 +1,315 @@
+$ cd deb/fridge-1.0; debuild -us -uc; cd -
+/path/to/package1/deb/fridge-1.0
+ dpkg-buildpackage -rfakeroot -D -us -uc -I -i
+dpkg-buildpackage: source package fridge
+dpkg-buildpackage: source version 1.0-1
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by Osamu Aoki <osamu@debian.org>
+ dpkg-source -I -i --before-build fridge-1.0
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --with python2
+   dh_testdir
+   dh_auto_clean
+running clean
+'build/lib.linux-x86_64-2.7' does not exist -- can't clean it
+'build/bdist.linux-x86_64' does not exist -- can't clean it
+'build/scripts-2.7' does not exist -- can't clean it
+   dh_clean
+ dpkg-source -I -i -b fridge-1.0
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building fridge using existing ./fridge_1.0.orig.tar.xz
+dpkg-source: info: building fridge in fridge_1.0-1.debian.tar.gz
+dpkg-source: info: building fridge in fridge_1.0-1.dsc
+ debian/rules build
+dh build --with python2
+   dh_testdir
+   dh_auto_configure
+   dh_auto_build
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.7
+copying fridge.py -> build/lib.linux-x86_64-2.7
+running build_scripts
+creating build/scripts-2.7
+copying and adjusting scripts/jane -> build/scripts-2.7
+copying and adjusting scripts/joe -> build/scripts-2.7
+copying and adjusting scripts/tom -> build/scripts-2.7
+changing mode of build/scripts-2.7/jane from 644 to 755
+changing mode of build/scripts-2.7/joe from 644 to 755
+changing mode of build/scripts-2.7/tom from 644 to 755
+   dh_auto_test
+ fakeroot debian/rules binary
+dh binary --with python2
+   dh_testroot
+   dh_prep
+   dh_auto_install
+running install
+running build
+running build_py
+running build_scripts
+running install_lib
+creating /path/to/package1/deb/fridge-1.0/debian/fridge/usr
+creating /path/to/package1/deb/fridge-1.0/debian/fridge/usr/lib
+creating /path/to/package1/deb/fridge-1.0/debian/fridge/usr/lib/python2.7
+creating /path/to/package1/deb/fridge-1.0/debian/fridge/usr/lib/python2.7/dist-pa...
+copying build/lib.linux-x86_64-2.7/fridge.py -> /path/to/package1/deb/fridge-1.0/...
+running install_scripts
+creating /path/to/package1/deb/fridge-1.0/debian/fridge/usr/bin
+copying build/scripts-2.7/jane -> /path/to/package1/deb/fridge-1.0/debian/fridge/...
+copying build/scripts-2.7/joe -> /path/to/package1/deb/fridge-1.0/debian/fridge/u...
+copying build/scripts-2.7/tom -> /path/to/package1/deb/fridge-1.0/debian/fridge/u...
+changing mode of /path/to/package1/deb/fridge-1.0/debian/fridge/usr/bin/jane to 7...
+changing mode of /path/to/package1/deb/fridge-1.0/debian/fridge/usr/bin/joe to 75...
+changing mode of /path/to/package1/deb/fridge-1.0/debian/fridge/usr/bin/tom to 75...
+running install_egg_info
+Writing /path/to/package1/deb/fridge-1.0/debian/fridge/usr/lib/python2.7/dist-pac...
+   dh_installdocs
+   dh_installchangelogs
+   dh_python2
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: Depends field of package fridge: unknown substitution v...
+dpkg-gencontrol: warning: package fridge: unused substitution variable ${python:V...
+dpkg-gencontrol: warning: package fridge: unused substitution variable ${python:D...
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `fridge' in `../fridge_1.0-1_all.deb'.
+ dpkg-genchanges  >../fridge_1.0-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source -I -i --after-build fridge-1.0
+dpkg-buildpackage: full upload (original source is included)
+Now running lintian...
+W: fridge source: superfluous-clutter-in-homepage <insert the upstream URL, if re...
+N:
+N:    The "Homepage:" field in this package's control file contains
+N:    superfluous markup around the URL, like enclosing < and >. This is
+N:    unnecessary and needlessly complicates using this information.
+N:
+N:    Refer to Debian Policy Manual section 5.6.23 (Homepage) for details.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: fields, Type: binary, udeb, source
+N:
+W: fridge source: bad-homepage <insert the upstream URL, if relevant>
+N:
+N:    The "Homepage:" field in this package's control file does not contain a
+N:    valid absolute URL. Most probably you forgot to specify the scheme (e.g.
+N:    http).
+N:
+N:    This tag is also triggered if the scheme is not known by Lintian.
+N:
+N:    Please file a bug against Lintian, if this tag is triggered for a valid
+N:    homepage URL.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: fields, Type: binary, udeb, source
+N:
+W: fridge source: out-of-date-standards-version 3.9.3 (current is 3.9.4)
+N:
+N:    The source package refers to a Standards-Version older than the one that
+N:    was current at the time the package was created (according to the
+N:    timestamp of the latest debian/changelog entry). Please consider
+N:    updating the package to current Policy and setting this control field
+N:    appropriately.
+N:
+N:    If the package is already compliant with the current standards, you
+N:    don't have to re-upload the package just to adjust the Standards-Version
+N:    control field. However, please remember to update this field next time
+N:    you upload the package.
+N:
+N:    See /usr/share/doc/debian-policy/upgrading-checklist.txt.gz in the
+N:    debian-policy package for a summary of changes in newer versions of
+N:    Policy.
+N:
+N:    Refer to http://www.debian.org/doc/debian-policy/upgrading-checklist for
+N:    details.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: standards-version, Type: source
+N:
+W: fridge: wrong-bug-number-in-closes l3:#nnnn
+N:
+N:    Bug numbers can only contain digits.
+N:
+N:    Refer to Debian Policy Manual section 4.4 (Debian changelog:
+N:    debian/changelog) for details.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: changelog-file, Type: binary
+N:
+W: fridge: new-package-should-close-itp-bug
+N:
+N:    This package appears to be the first packaging of a new upstream
+N:    software package (there is only one changelog entry and the Debian
+N:    revision is 1), but it does not close any bugs. The initial upload of a
+N:    new package should close the corresponding ITP bug for that package.
+N:
+N:    This warning can be ignored if the package is not intended for Debian or
+N:    if it is a split of an existing Debian package.
+N:
+N:    Refer to Debian Developer's Reference section 5.1 (New packages) for
+N:    details.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: changelog-file, Type: binary
+N:
+E: fridge: helper-templates-in-copyright
+N:
+N:    The /usr/share/doc/<pkg>/copyright file still contains template markers
+N:    from a packaging helper. Please fill in the actual license, upstream
+N:    copyright holders, and download information about the package and remove
+N:    any remaining templates generated by the packaging helper.
+N:
+N:    Severity: important, Certainty: certain
+N:
+N:    Check: copyright-file, Type: binary
+N:
+W: fridge: copyright-has-url-from-dh_make-boilerplate
+N:
+N:    There is "url://example.com" in your copyright file. This was most
+N:    likely a remnant from the dh_make template.
+N:
+N:    Make sure you include the real location where you obtained the upstream
+N:    sources (if any).
+N:
+N:    Refer to Debian Policy Manual section 12.5 (Copyright information) for
+N:    details.
+N:
+N:    Severity: normal, Certainty: certain
+N:
+N:    Check: copyright-file, Type: binary
+N:
+E: fridge: copyright-contains-dh_make-todo-boilerplate
+N:
+N:    The string "Please also look if..." appears in the copyright file, which
+N:    indicates that you either didn't check the whole source to find
+N:    additional copyright/license, or that you didn't remove that paragraph
+N:    after having done so.
+N:
+N:    Refer to Debian Policy Manual section 12.5 (Copyright information) for
+N:    details.
+N:
+N:    Severity: serious, Certainty: possible
+N:
+N:    Check: copyright-file, Type: binary
+N:
+E: fridge: description-is-dh_make-template
+N:
+N:    The synopsis or the extended description has not been changed from the
+N:    template provided by dh_make.
+N:
+N:    Severity: serious, Certainty: certain
+N:
+N:    Check: description, Type: binary, udeb
+N:
+E: fridge: section-is-dh_make-template
+N:
+N:    The "Section:" field in this package's control file is set to unknown.
+N:    This is not a valid section, and usually means a dh_make template
+N:    control file was used and never modified to set the correct section.
+N:
+N:    Refer to Debian Policy Manual section 2.4 (Sections) for details.
+N:
+N:    Severity: serious, Certainty: certain
+N:
+N:    Check: fields, Type: binary, udeb, source
+N:
+W: fridge: superfluous-clutter-in-homepage <insert the upstream URL, if relevant>...
+W: fridge: bad-homepage <insert the upstream URL, if relevant>
+W: fridge: binary-without-manpage usr/bin/jane
+N:
+N:    Each binary in /usr/bin, /usr/sbin, /bin, /sbin or /usr/games should
+N:    have a manual page
+N:
+N:    Note that though the man program has the capability to check for several
+N:    program names in the NAMES section, each of these programs should have
+N:    its own manual page (a symbolic link to the appropriate manual page is
+N:    sufficient) because other manual page viewers such as xman or tkman
+N:    don't support this.
+N:
+N:    If the name of the man page differs from the binary by case, man may be
+N:    able to find it anyway; however, it is still best practice to make the
+N:    case of the man page match the case of the binary.
+N:
+N:    If the man pages are provided by another package on which this package
+N:    depends, lintian may not be able to determine that man pages are
+N:    available. In this case, after confirming that all binaries do have man
+N:    pages after this package and its dependencies are installed, please add
+N:    a lintian override.
+N:
+N:    Refer to Debian Policy Manual section 12.1 (Manual pages) for details.
+N:
+N:    Severity: normal, Certainty: possible
+N:
+N:    Check: manpages, Type: binary
+N:
+W: fridge: binary-without-manpage usr/bin/joe
+W: fridge: binary-without-manpage usr/bin/tom
+E: fridge: python-script-but-no-python-dep usr/bin/jane
+N:
+N:    Packages with Python scripts should depend on the package python. Those
+N:    with scripts that specify a specific version of Python must depend on
+N:    that version of Python (exactly).
+N:
+N:    For example, if a script in the package uses #!/usr/bin/python, the
+N:    package needs a dependency on python. If a script uses
+N:    #!/usr/bin/python2.6, the package needs a dependency on python2.6. A
+N:    dependency on python (>= 2.6) is not correct, since later versions of
+N:    Python may not provide the /usr/bin/python2.6 binary.
+N:
+N:    If you are using debhelper, adding ${python:Depends} to the Depends
+N:    field and ensuring dh_pysupport or dh_pycentral are run during the build
+N:    should take care of adding the correct dependency.
+N:
+N:    In some cases a weaker relationship, such as Suggests or Recommends,
+N:    will be more appropriate.
+N:
+N:    Severity: important, Certainty: certain
+N:
+N:    Check: scripts, Type: binary
+N:
+E: fridge: python-script-but-no-python-dep usr/bin/joe
+E: fridge: python-script-but-no-python-dep usr/bin/tom
+Finished running lintian.
+/path/to/package1
+$ ls -l deb
+total 36
+drwxrwxr-x 5 osamu osamu  4096 Aug 17 23:43 fridge-1.0
+-rw-r--r-- 1 osamu osamu  3364 Aug 17 23:43 fridge_1.0-1_all.deb
+-rw-r--r-- 1 osamu osamu 11908 Aug 17 23:43 fridge_1.0-1_amd64.build
+-rw-r--r-- 1 osamu osamu  1419 Aug 17 23:43 fridge_1.0-1_amd64.changes
+-rw-r--r-- 1 osamu osamu  1993 Aug 17 23:43 fridge_1.0-1.debian.tar.gz
+-rw-r--r-- 1 osamu osamu   808 Aug 17 23:43 fridge_1.0-1.dsc
+-rw-rw-r-- 1 osamu osamu  1212 Aug 17 23:43 fridge_1.0.orig.tar.xz
+$ dpkg -c deb/fridge_1.0-1_all.deb
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/lib/
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/lib/python2.7/
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/lib/python2.7/dist-packages...
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/bin/
+-rwxr-xr-x root/root       124 2013-08-17 23:43 ./usr/bin/jane
+-rwxr-xr-x root/root        93 2013-08-17 23:43 ./usr/bin/joe
+-rwxr-xr-x root/root        81 2013-08-17 23:43 ./usr/bin/tom
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/share/
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/share/doc/
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/share/doc/fridge/
+-rw-r--r-- root/root      1668 2013-04-06 22:36 ./usr/share/doc/fridge/copyright
+-rw-r--r-- root/root       120 2013-04-06 23:03 ./usr/share/doc/fridge/README.Deb...
+-rw-r--r-- root/root       172 2013-04-06 22:36 ./usr/share/doc/fridge/changelog....
+drwxr-xr-x root/root         0 2013-08-17 23:43 ./usr/share/pyshared/
+-rw-r--r-- root/root       233 2013-08-17 23:43 ./usr/share/pyshared/fridge-1.0.e...
+-rw-r--r-- root/root      1579 2013-04-08 21:16 ./usr/share/pyshared/fridge.py
+lrwxrwxrwx root/root         0 2013-08-17 23:43 ./usr/lib/python2.7/dist-packages...
+lrwxrwxrwx root/root         0 2013-08-17 23:43 ./usr/lib/python2.7/dist-packages...

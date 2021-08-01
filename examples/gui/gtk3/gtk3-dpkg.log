@@ -1,0 +1,6 @@
+$ dpkg -L libgtk-3-dev|grep '/pkgconfig/'
+/usr/lib/x86_64-linux-gnu/pkgconfig/gdk-3.0.pc
+/usr/lib/x86_64-linux-gnu/pkgconfig/gtk+-x11-3.0.pc
+/usr/lib/x86_64-linux-gnu/pkgconfig/gtk+-3.0.pc
+/usr/lib/x86_64-linux-gnu/pkgconfig/gdk-x11-3.0.pc
+/usr/lib/x86_64-linux-gnu/pkgconfig/gtk+-unix-print-3.0.pc

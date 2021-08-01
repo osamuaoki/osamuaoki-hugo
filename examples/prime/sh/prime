@@ -1,0 +1,23 @@
+#!/bin/sh
+N_MAX=$1
+P="" # list containing all primes found
+for N in $(seq 2 $N_MAX); do
+    FLAG_PRIME=1 # True
+    # search for all pimes found
+    for I in $P; do
+        N_DIV_I=$(($N / $I))
+        N_MOD_I=$(($N % $I))
+        if [ $N_MOD_I = 0 ]; then
+            FLAG_PRIME=0 # False
+            break # found not to be prime
+        fi
+        if [ $N_DIV_I -lt $I ]; then
+            break # no use doing more i-loop if N < I*I
+        fi
+    done
+    if [ $FLAG_PRIME = 1 ] ; then
+        P="$P $N"
+    fi
+done
+# space separated to line break separated
+echo "$P" |xargs -n1 echo

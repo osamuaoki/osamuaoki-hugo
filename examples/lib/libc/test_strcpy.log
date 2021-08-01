@@ -1,0 +1,17 @@
+$ gcc -Wall -o test_strcpy safe_strncpy.c test_strcpy.c
+$ ./test_strcpy
+Constant strings
+    sc1 = 0123456789
+    sc2 = I gotcha!
+Copied strings: safe_strncpy
+        It should drop 9 at the end to be safe.
+    s1  = 012345678
+    s2  = I gotcha!
+Copied strings: strncpy(s1, sc1, 10)
+        printf(..., s1) can not stop at the end.
+    s1  = 0123456789
+    s2  = I gotcha!
+Copied strings: strcpy(s1, sc1)
+        strcpy overwrites onto s2.
+    s1  = 0123456789
+    s2  = I gotcha!

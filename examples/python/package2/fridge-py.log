@@ -1,0 +1,17 @@
+$ python3 fridge/fridge.py
+Tom bought a new fridge.
+Tom wishes to have 6 cans of beer
+Tom stocks 12 can(s) of beer.
+Tom tries to consume 5 can(s) of beer
+Tom has 7 can(s) of beer in stock.
+Tom tries to consume 5 can(s) of beer
+Tom has 2 can(s) of beer in stock.
+4 extra can(s) of beer needed for good stocking.
+Tom tries to consume 5 can(s) of beer
+No more beer after drinking 2 can(s) of beer!
+Tom has 0 can(s) of beer in stock.
+6 extra can(s) of beer needed for good stocking.
+Tom stocks 8 can(s) of beer.
+Tom tries to consume 3 can(s) of beer
+Tom has 5 can(s) of beer in stock.
+1 extra can(s) of beer needed for good stocking.

@@ -1,0 +1,8 @@
+$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Debian 4.8.1-9' --with-bu...
+Thread model: posix
+gcc version 4.8.1 (Debian 4.8.1-9)

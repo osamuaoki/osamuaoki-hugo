@@ -1,0 +1,7 @@
+$ chmod 755 hello
+$ ls -l ./hello
+-rwxr-xr-x 1 osamu osamu 68 Mar 11 21:52 ./hello
+$ file ./hello
+./hello: Perl script, ASCII text executable
+$ ./hello
+Hello, world!

@@ -1,0 +1,2 @@
+This is BOGUS.txt here.
+EOF here :-)

@@ -1,0 +1,17 @@
+#!/bin/sh
+# execute in script under dash
+#  this capture both STDOUT, STDERR, ... anything way they are displayed
+#  tail-end is eliminated within 80 char/line
+#
+# log with terminated lines with ...
+# $1: script name without .sh
+#     log    name without .log
+#
+DIRNAME=$(dirname $(pwd))
+PROJECT=$1
+TMPFN=$(mktemp -p .)
+#
+script -q -c ./$PROJECT.sh $TMPFN
+col -x < $TMPFN | sed -e '1d' | sed -e 's/\t/    /g' -e "s#${DIRNAME}#/path/to#g" | \
+sed -e 's/\(^.................................................................................\).*$/\1.../' >$PROJECT.log
+rm $TMPFN

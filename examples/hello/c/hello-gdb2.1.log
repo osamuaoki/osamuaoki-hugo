@@ -1,0 +1,55 @@
+$ COLUMNS=80 dpkg -l libc6-dbg:amd64
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version      Architecture Description
++++-==============-============-============-=================================
+ii  libc6-dbg:amd6 2.17-92      amd64        Embedded GNU C Library: detached
+$ gdb -q hello-gdb
+(gdb) list
+1    #include <stdio.h>
+2    #include <stdlib.h>
+3    /* my first C program */
+4    int main()
+5    {
+6        printf("Hello, world!\n");
+7        return EXIT_SUCCESS;
+8    }
+(gdb) disas main
+Dump of assembler code for function main:
+   0x00000000004004fd <+0>:    push   %rbp
+   0x00000000004004fe <+1>:    mov    %rsp,%rbp
+   0x0000000000400501 <+4>:    mov    $0x4005c4,%edi
+   0x0000000000400506 <+9>:    callq  0x4003e0 <puts@plt>
+   0x000000000040050b <+14>:    mov    $0x0,%eax
+   0x0000000000400510 <+19>:    pop    %rbp
+   0x0000000000400511 <+20>:    retq
+End of assembler dump.
+(gdb) disas/m main
+Dump of assembler code for function main:
+5    {
+   0x00000000004004fd <+0>:    push   %rbp
+   0x00000000004004fe <+1>:    mov    %rsp,%rbp
+
+6        printf("Hello, world!\n");
+   0x0000000000400501 <+4>:    mov    $0x4005c4,%edi
+   0x0000000000400506 <+9>:    callq  0x4003e0 <puts@plt>
+
+7        return EXIT_SUCCESS;
+   0x000000000040050b <+14>:    mov    $0x0,%eax
+
+8    }
+   0x0000000000400510 <+19>:    pop    %rbp
+   0x0000000000400511 <+20>:    retq
+
+End of assembler dump.
+(gdb) disas/r main
+Dump of assembler code for function main:
+   0x00000000004004fd <+0>:    55    push   %rbp
+   0x00000000004004fe <+1>:    48 89 e5    mov    %rsp,%rbp
+   0x0000000000400501 <+4>:    bf c4 05 40 00    mov    $0x4005c4,%edi
+   0x0000000000400506 <+9>:    e8 d5 fe ff ff    callq  0x4003e0 <puts@plt>
+   0x000000000040050b <+14>:    b8 00 00 00 00    mov    $0x0,%eax
+   0x0000000000400510 <+19>:    5d    pop    %rbp
+   0x0000000000400511 <+20>:    c3    retq
+End of assembler dump.

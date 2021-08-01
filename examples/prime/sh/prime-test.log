@@ -1,0 +1,4 @@
+$ /usr/bin/time -p ./prime "$(echo 2^16 | bc)">/dev/null
+real 23.91
+user 19.38
+sys 0.48

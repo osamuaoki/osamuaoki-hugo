@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import sys
+n_max = int(sys.argv[1])
+p = [] # list containing all primes found
+for n in range(2, n_max):
+    flag_prime = True
+    # search for all pimes found
+    for i in p:
+        (n_div_i, n_mod_i) = divmod(n,i)
+        if n_mod_i == 0:
+            flag_prime = False
+            break # found not to be prime
+        if n_div_i < i:
+            break # no loop over i if n < i*i
+    if flag_prime:
+        p.append(n)
+for i in p:
+    print(i)

@@ -1,0 +1,11 @@
+|Performance counter stats|char|block|lseek|stat
+|seconds time elapsed|0.060168937|0.004092420|0.002638296|0.002588425
+|task-clock|59.126037|3.051782|1.616662|1.634113
+|context-switches|5|0|0|0
+|cpu-migrations|1|1|0|1
+|page-faults|193|193|191|191
+|cycles|154,305,859|2,428,799|<not counted>|1,297,107
+|stalled-cycles-frontend|32,413,607|1,237,525|787,158|805,663
+|stalled-cycles-backend|3,089,296|828,200|612,162|627,711
+|branches|87,138,178|382,322|209,395|208,836
+|branch-misses|14,795|<not counted>|9,023|<not counted>

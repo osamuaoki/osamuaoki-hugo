@@ -1,0 +1,4 @@
+$ ls
+configure.ac
+hello.c
+Makefile.am

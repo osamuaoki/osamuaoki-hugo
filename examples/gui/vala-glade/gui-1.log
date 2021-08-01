@@ -1,0 +1,18 @@
+$ valac -v --pkg gtk+-3.0 --pkg gmodule-2.0 gui-1.vala
+/path/to/vala-glade/gui-1.vala.c: In function ‘main’:
+/path/to/vala-glade/gui-1.vala.c:118:2: warning: ‘g_type_init’ is deprecated (dec...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gtk+-3.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gio-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/atk.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/cairo.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gdk-pixbuf-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gdk-3.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/pango.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/pangocairo.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/x11.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gmodule-2.0.vapi'
+cc -o '/path/to/vala-glade/gui-1' '/path/to/vala-glade/gui-1.vala.c' -pthread -I/...

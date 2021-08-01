@@ -1,0 +1,14 @@
+# Overhead  Command            Shared Object                                    Symbol
+# ........  .......  .......................  ........................................
+#
+    95.20%    prime  libglib-2.0.so.0.3600.4  [.] g_list_last                         
+     4.17%    prime  prime                    [.] _vala_main                          
+     0.21%    prime  [kernel.kallsyms]        [k] read_hpet                           
+     0.04%    prime  libc-2.17.so             [.] vfprintf                            
+     0.03%    prime  libglib-2.0.so.0.3600.4  [.] g_list_append                       
+     0.03%    prime  libglib-2.0.so.0.3600.4  [.] g_private_get_impl                  
+     0.02%    prime  libglib-2.0.so.0.3600.4  [.] g_slice_alloc                       
+     0.02%    prime  libpthread-2.17.so       [.] pthread_getspecific                 
+     0.01%    prime  libc-2.17.so             [.] _itoa_word                          
+     0.01%    prime  libglib-2.0.so.0.3600.4  [.] g_private_get                       
+     0.01%    prime  [kernel.kallsyms]        [k] do_timer                            

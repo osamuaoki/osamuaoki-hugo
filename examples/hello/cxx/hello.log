@@ -1,0 +1,7 @@
+$ g++ -Wall -o hello hello.cxx
+$ ls -l ./hello
+-rwxrwxr-x 1 osamu osamu 8368 Aug 17 23:41 ./hello
+$ file ./hello
+./hello: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked...
+$ ./hello
+Hello World!

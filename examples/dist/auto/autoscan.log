@@ -1,0 +1,4 @@
+$ autoscan
+configure.ac: warning: missing AC_CHECK_HEADERS([stdlib.h]) wanted by: hello.c:1
+$ mv configure.scan configure.ac
+$ vim configure.ac

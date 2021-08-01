@@ -1,0 +1,113 @@
+$ tar -xvzf fridge/dist/fridge-1.0.tar.gz -C deb
+fridge-1.0/
+fridge-1.0/scripts/
+fridge-1.0/scripts/jane
+fridge-1.0/scripts/joe
+fridge-1.0/scripts/tom
+fridge-1.0/fridge.py
+fridge-1.0/PKG-INFO
+fridge-1.0/setup.py
+fridge-1.0/README
+$ cd deb/fridge-1.0; dh_make -s --createorig --yes; cd -
+/path/to/package1/deb/fridge-1.0
+Maintainer name  : Osamu Aoki
+Email-Address    : osamu@debian.org
+Date             : Sat, 17 Aug 2013 23:43:26 +0900
+Package Name     : fridge
+Version          : 1.0
+License          : blank
+Type of Package  : Single
+Currently there is no top level Makefile. This may require additional tuning.
+Done. Please edit the files in the debian/ subdirectory now. You should also
+check that the fridge Makefiles install into $DESTDIR and not in / .
+/path/to/package1
+$ ls -lR deb
+deb:
+total 8
+drwxrwxr-x 4 osamu osamu 4096 Aug 17 23:43 fridge-1.0
+-rw-rw-r-- 1 osamu osamu 1212 Aug 17 23:43 fridge_1.0.orig.tar.xz
+
+deb/fridge-1.0:
+total 24
+drwxr-xr-x 3 osamu osamu 4096 Aug 17 23:43 debian
+-rw-r--r-- 1 osamu osamu 1579 Apr  8 21:16 fridge.py
+-rw-rw-r-- 1 osamu osamu  233 Aug 17 23:43 PKG-INFO
+-rw-rw-r-- 1 osamu osamu   31 Mar 28 22:17 README
+drwxrwxr-x 2 osamu osamu 4096 Aug 17 23:43 scripts
+-rwxr-xr-x 1 osamu osamu  361 Apr  8 21:13 setup.py
+
+deb/fridge-1.0/debian:
+total 104
+-rw-rw-r-- 1 osamu osamu   180 Aug 17 23:43 changelog
+-rw-rw-r-- 1 osamu osamu     2 Aug 17 23:43 compat
+-rw-rw-r-- 1 osamu osamu   505 Aug 17 23:43 control
+-rw-rw-r-- 1 osamu osamu  1668 Aug 17 23:43 copyright
+-rw-rw-r-- 1 osamu osamu     7 Aug 17 23:43 docs
+-rw-rw-r-- 1 osamu osamu   128 Aug 17 23:43 fridge.cron.d.ex
+-rw-rw-r-- 1 osamu osamu   232 Aug 17 23:43 fridge.default.ex
+-rw-rw-r-- 1 osamu osamu   504 Aug 17 23:43 fridge.doc-base.EX
+-rw-rw-r-- 1 osamu osamu  4675 Aug 17 23:43 init.d.ex
+-rw-rw-r-- 1 osamu osamu  1625 Aug 17 23:43 manpage.1.ex
+-rw-rw-r-- 1 osamu osamu  4648 Aug 17 23:43 manpage.sgml.ex
+-rw-rw-r-- 1 osamu osamu 11003 Aug 17 23:43 manpage.xml.ex
+-rw-rw-r-- 1 osamu osamu   123 Aug 17 23:43 menu.ex
+-rw-rw-r-- 1 osamu osamu   956 Aug 17 23:43 postinst.ex
+-rw-rw-r-- 1 osamu osamu   929 Aug 17 23:43 postrm.ex
+-rw-rw-r-- 1 osamu osamu   689 Aug 17 23:43 preinst.ex
+-rw-rw-r-- 1 osamu osamu   876 Aug 17 23:43 prerm.ex
+-rw-rw-r-- 1 osamu osamu   173 Aug 17 23:43 README.Debian
+-rw-rw-r-- 1 osamu osamu   191 Aug 17 23:43 README.source
+-rwxr-xr-x 1 osamu osamu   442 Aug 17 23:43 rules
+drwxr-xr-x 2 osamu osamu  4096 Aug 17 23:43 source
+-rw-rw-r-- 1 osamu osamu   775 Aug 17 23:43 watch.ex
+
+deb/fridge-1.0/debian/source:
+total 4
+-rw-rw-r-- 1 osamu osamu 12 Aug 17 23:43 format
+
+deb/fridge-1.0/scripts:
+total 12
+-rw-r--r-- 1 osamu osamu 124 Apr  6 18:14 jane
+-rw-r--r-- 1 osamu osamu  93 Mar 28 20:18 joe
+-rw-r--r-- 1 osamu osamu  81 Mar 28 20:19 tom
+$
+
+  ... update debian/control
+  ... update debian/rules
+  ... touch up template files
+  ... remove unused template files
+
+$ ls -l deb/fridge-1.0/debian
+total 32
+-rw-rw-r-- 1 osamu osamu  180 Apr  6 22:36 changelog
+-rw-rw-r-- 1 osamu osamu    2 Apr  6 22:36 compat
+-rw-rw-r-- 1 osamu osamu  554 Apr  8 21:18 control
+-rw-rw-r-- 1 osamu osamu 1668 Apr  6 22:36 copyright
+-rw-rw-r-- 1 osamu osamu  440 Apr  6 23:03 manpage.1
+-rw-rw-r-- 1 osamu osamu  120 Apr  6 23:03 README.Debian
+-rwxr-xr-x 1 osamu osamu   67 Apr  9 20:33 rules
+drwxr-xr-x 2 osamu osamu 4096 Apr  6 22:36 source
+$ cat deb/fridge-1.0/debian/control
+Source: fridge
+Section: unknown
+Priority: extra
+Maintainer: Osamu Aoki <osamu@debian.org>
+Build-Depends: debhelper (>= 8.0.0), python-minimal, python
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/fridge.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/fridge.git;a=summary
+
+Package: fridge
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+$ cat deb/fridge-1.0/debian/rules
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+%:
+    dh $@ --with python2
+

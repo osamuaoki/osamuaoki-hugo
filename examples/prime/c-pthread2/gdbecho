@@ -1,0 +1,78 @@
+#!/usr/bin/python3
+# vim: set sts=4 expandtab:
+
+"""
+gdbecho - expand gdb command file template with echo
+
+    normal section:
+        echo command first with fake prompt "(gdb) "
+        execute command
+
+    define section: in definition
+        echo command first with fake prompt ">"
+        define command
+    define section: in execution
+        echo command first with fake prompt "----- "
+        execute defined command
+
+
+
+Copyright (C) 2012 Osamu Aoki, public domain (GPL/BSD/... anything license)
+"""
+
+import sys, os, re
+
+VERSION = '1.0.1'
+
+if __name__ == '__main__':
+
+    defmode = "normal"
+
+    for line in sys.stdin.readlines():
+        line=line[0:-1]
+        linex=re.sub(r'\\',r'\\\\',line)
+        if defmode == "normal" and re.match('def', line):
+            # start define section
+            defmode = "define"
+            argx = re.sub("^def[ine]*\s*","",line)
+            print((r'echo (gdb) define %s\n'
+                  r'Type commands for definition of "xprint".\n'
+                  r'End with a line saying just "end".\n') % argx)
+            defbuf = 'define %s\n' % argx
+        elif defmode == "normal" and re.match('comm', line):
+            # start command section
+            defmode = "command"
+            argx = re.sub("^comm[and]*\s*","",line)
+            print((r'echo (gdb) command %s\n'
+                  r'Type commands for when breakpoint %s is hit, one per line.\n'
+                  r'End with a line saying just "end".\n')%(argx,argx))
+            defbuf = 'command %s\n' % argx
+        elif defmode == "normal":
+            # normal section
+            print(r"echo (gdb) %s\n" % linex)
+            print(linex)
+        elif defmode == "define" and re.match('end', line):
+            # end define section
+            defmode = "normal"
+            print(r'echo >end\n')
+            defbuf = defbuf + "end"
+            print(defbuf)
+        elif defmode == "define":
+            # define section
+            print(r"echo >echo ---- %s\\n\n" % linex)
+            print(r"echo >%s\n" % linex)
+            defbuf = defbuf + ("echo ---- %s\\n\n%s\n" % (linex, line))
+        elif defmode == "command" and re.match('end', line):
+            # end define section
+            defmode = "normal"
+            print(r'echo >end\n')
+            defbuf = defbuf + "end"
+            print(defbuf)
+        elif defmode == "command":
+            # define section
+            print(r"echo >echo **** %s\\n\n" % linex)
+            print(r"echo >%s\n" % linex)
+            defbuf = defbuf + ("echo **** %s\\n\n%s\n" % (linex, line))
+        else:
+            raise("InvalidMode")
+

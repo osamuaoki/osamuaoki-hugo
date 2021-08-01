@@ -1,0 +1,62 @@
+$ tar -xvzf fridge/dist/fridge-1.0.tar.gz -C dist
+fridge-1.0/
+fridge-1.0/scripts/
+fridge-1.0/scripts/jane
+fridge-1.0/scripts/joe
+fridge-1.0/scripts/tom
+fridge-1.0/src/
+fridge-1.0/src/fridge/
+fridge-1.0/src/fridge/__init__.py
+fridge-1.0/PKG-INFO
+fridge-1.0/setup.py
+fridge-1.0/README
+$ cd dist/fridge-1.0; python3 setup.py install --user;cd -
+/path/to/package3/dist/fridge-1.0
+running install
+running build
+running build_py
+creating build
+creating build/lib
+creating build/lib/fridge
+copying src/fridge/__init__.py -> build/lib/fridge
+running build_scripts
+creating build/scripts-3.3
+copying and adjusting scripts/jane -> build/scripts-3.3
+copying and adjusting scripts/joe -> build/scripts-3.3
+copying and adjusting scripts/tom -> build/scripts-3.3
+changing mode of build/scripts-3.3/jane from 664 to 775
+changing mode of build/scripts-3.3/joe from 664 to 775
+changing mode of build/scripts-3.3/tom from 664 to 775
+running install_lib
+running install_scripts
+copying build/scripts-3.3/jane -> /home/osamu/.local/bin
+copying build/scripts-3.3/joe -> /home/osamu/.local/bin
+copying build/scripts-3.3/tom -> /home/osamu/.local/bin
+changing mode of /home/osamu/.local/bin/jane to 775
+changing mode of /home/osamu/.local/bin/joe to 775
+changing mode of /home/osamu/.local/bin/tom to 775
+running install_egg_info
+Removing /home/osamu/.local/lib/python3.3/site-packages/fridge-1.0.egg-info
+Writing /home/osamu/.local/lib/python3.3/site-packages/fridge-1.0.egg-info
+/path/to/package3
+$ jane|fold
+['/home/osamu/.local/bin', '/usr/lib/python3.3', '/usr/lib/python3.3/plat-x86_64
+-linux-gnu', '/usr/lib/python3.3/lib-dynload', '/home/osamu/.local/lib/python3.3
+/site-packages', '/usr/local/lib/python3.3/dist-packages', '/usr/lib/python3/dis
+t-packages']
+Jane bought a new fridge.
+Jane wishes to have 6 cans of beer
+Jane stocks 12 can(s) of beer.
+Jane tries to consume 5 can(s) of beer
+Jane has 7 can(s) of beer in stock.
+Jane tries to consume 5 can(s) of beer
+Jane has 2 can(s) of beer in stock.
+4 extra can(s) of beer needed for good stocking.
+Jane tries to consume 5 can(s) of beer
+No more beer after drinking 2 can(s) of beer!
+Jane has 0 can(s) of beer in stock.
+6 extra can(s) of beer needed for good stocking.
+Jane stocks 8 can(s) of beer.
+Jane tries to consume 3 can(s) of beer
+Jane has 5 can(s) of beer in stock.
+1 extra can(s) of beer needed for good stocking.

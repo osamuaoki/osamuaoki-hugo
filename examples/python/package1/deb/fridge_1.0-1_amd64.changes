@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sat, 06 Apr 2013 22:36:12 +0900
+Source: fridge
+Binary: fridge
+Architecture: source all
+Version: 1.0-1
+Distribution: unstable
+Urgency: low
+Maintainer: Osamu Aoki <osamu@debian.org>
+Changed-By: Osamu Aoki <osamu@debian.org>
+Description: 
+ fridge     - <insert up to 60 chars description>
+Changes: 
+ fridge (1.0-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1: 
+ 8d987296794e4a27587ed8de9b43819e3d4727c4 808 fridge_1.0-1.dsc
+ b715f7b9dbdaf3813abdd8f1e8943b418572793b 1212 fridge_1.0.orig.tar.xz
+ cb196d8a2f1dc39373f53a5dbd6854e5862edf39 1993 fridge_1.0-1.debian.tar.gz
+ 81b2bcdbd692d0ee59e21ae41d54da317951bed2 3364 fridge_1.0-1_all.deb
+Checksums-Sha256: 
+ 9fcc09ca932bed4d02a2656bf09978d4f5cb76b2eb2349e5e8ffc65b5a496d44 808 fridge_1.0-1.dsc
+ 49a9853460b30f56ae44373f1c48878db00fe0b716ae971c11858ef98878b7c8 1212 fridge_1.0.orig.tar.xz
+ 22ced8e002d190d562161f032ecd8c3a0e9b8c728942615920dcb80abcd61a17 1993 fridge_1.0-1.debian.tar.gz
+ f40ad40bc3529629e9682fcb59941fd0581ad5b6d533479d35b610368910e9db 3364 fridge_1.0-1_all.deb
+Files: 
+ 713250d06ad00dd64cc15e6c56fc00fb 808 unknown extra fridge_1.0-1.dsc
+ 23659d1a3aa60a27ab5941df3b5d7e6e 1212 unknown extra fridge_1.0.orig.tar.xz
+ dcd9a90b496e8c67fdc0badccc1bec5a 1993 unknown extra fridge_1.0-1.debian.tar.gz
+ 25b7365c24f9baf0bf91c084848a5be3 3364 unknown extra fridge_1.0-1_all.deb

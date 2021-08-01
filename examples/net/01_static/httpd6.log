@@ -1,0 +1,101 @@
+LOG: httpd starting with parent pid=7498.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd starting with parent pid=7582.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=7618.
+ERROR: 403 Forbidden: zero length request, hit=1 exiting pid=7618.
+LOG: httpd hit=2.
+LOG: httpd forked child pid=7619.
+ERROR: 403 Forbidden: zero length request, hit=2 exiting pid=7619.
+LOG: httpd hit=3.
+LOG: httpd forked child pid=7622.
+ERROR: 403 Forbidden: zero length request, hit=3 exiting pid=7622.
+LOG: httpd hit=4.
+LOG: httpd forked child pid=7633.
+ERROR: 403 Forbidden: zero length request, hit=4 exiting pid=7633.
+LOG: httpd starting with parent pid=7678.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=7710.
+READ(1): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(1): index.html as text/html
+CLOSE(1)
+LOG: httpd hit=2.
+LOG: httpd forked child pid=7733.
+READ(2): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(2): index.html as text/html
+CLOSE(2)
+LOG: httpd starting with parent pid=7788.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd starting with parent pid=7903.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=7911.
+READ(1): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(1): index.html as text/html
+CLOSE(1)
+LOG: httpd starting with parent pid=7982.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=7990.
+READ(1): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(1): index.html as text/html
+CLOSE(1)
+LOG: httpd starting with parent pid=8085.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=8093.
+READ(1): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(1): index.html as text/html
+CLOSE(1)
+LOG: httpd hit=2.
+LOG: httpd hit=3.
+LOG: httpd forked child pid=8136.
+ERROR: 403 Forbidden: zero length request, hit=2 exiting pid=8136.
+LOG: httpd forked child pid=8137.
+ERROR: 403 Forbidden: zero length request, hit=3 exiting pid=8137.
+LOG: httpd starting with parent pid=8200.
+LOG: bind: with IPv6 accept, port=8080.
+LOG: httpd successfuly bind and listen at port 8080.
+LOG: httpd hit=1.
+LOG: httpd forked child pid=8208.
+READ(1): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(1): index.html as text/html
+CLOSE(1)
+LOG: httpd hit=2.
+LOG: httpd hit=3.
+LOG: httpd forked child pid=8222.
+ERROR: 403 Forbidden: zero length request, hit=2 exiting pid=8222.
+LOG: httpd forked child pid=8223.
+ERROR: 403 Forbidden: zero length request, hit=3 exiting pid=8223.
+LOG: httpd hit=4.
+LOG: httpd forked child pid=8256.
+LOG: httpd hit=5.
+ERROR: 403 Forbidden: zero length request, hit=4 exiting pid=8256.
+LOG: httpd forked child pid=8257.
+ERROR: 403 Forbidden: zero length request, hit=5 exiting pid=8257.
+LOG: httpd hit=6.
+LOG: httpd forked child pid=8284.
+ERROR: 403 Forbidden: zero length request, hit=6 exiting pid=8284.
+LOG: httpd hit=7.
+LOG: httpd forked child pid=8285.
+ERROR: 403 Forbidden: zero length request, hit=7 exiting pid=8285.
+LOG: httpd hit=8.
+LOG: httpd forked child pid=8336.
+READ(8): GET / HTTP/1.1__User-Agent: Wget/1.14 (linux-gnu)__Accept: */*__Host: localhost:8080__Connection: Keep-Alive____
+SEND(8): index.html as text/html
+CLOSE(8)
+LOG: httpd hit=9.
+LOG: httpd hit=10.
+LOG: httpd forked child pid=8365.
+ERROR: 403 Forbidden: zero length request, hit=9 exiting pid=8365.
+LOG: httpd forked child pid=8366.
+ERROR: 403 Forbidden: zero length request, hit=10 exiting pid=8366.

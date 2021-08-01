@@ -1,0 +1,46 @@
+$ gdb hello-gdb
+GNU gdb (GDB) 7.6 (Debian 7.6-5)
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /path/to/c/hello-gdb...done.
+(gdb) # pos1
+(gdb) list
+1    #include <stdio.h>
+2    #include <stdlib.h>
+3    /* my first C program */
+4    int main()
+5    {
+6        printf("Hello, world!\n");
+7        return EXIT_SUCCESS;
+8    }
+(gdb) break 3
+Breakpoint 1 at 0x400501: file hello.c, line 3.
+(gdb) break 5
+Breakpoint 2 at 0x400501: file hello.c, line 5.
+(gdb) break 6
+Breakpoint 3 at 0x400501: file hello.c, line 6.
+(gdb) info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000400501 in main at hello.c:3
+2       breakpoint     keep y   0x0000000000400501 in main at hello.c:5
+3       breakpoint     keep y   0x0000000000400501 in main at hello.c:6
+(gdb) # pos2
+(gdb) run
+warning: no loadable sections found in added symbol-file system-supplied DSO at 
+0x2aaaaaacc000
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+
+Breakpoint 1, main () at hello.c:6
+6        printf("Hello, world!\n");
+(gdb) cont
+Hello, world!
+[Inferior 1 (process 30593) exited normally]
+(gdb) quit
+$

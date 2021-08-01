@@ -1,0 +1,23 @@
+$ ./printpath2
+dir() = ['__builtins__', '__doc__', '__file__', '__name__', '__package__', 'sys'
+]
+dir(sys) = ['__displayhook__', '__doc__', '__excepthook__', '__name__', '__packa
+ge__', '__stderr__', '__stdin__', '__stdout__', '_clear_type_cache', '_current_f
+rames', '_getframe', '_mercurial', '_multiarch', 'api_version', 'argv', 'builtin
+_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright', 'displayh
+ook', 'dont_write_bytecode', 'exc_clear', 'exc_info', 'exc_type', 'excepthook', 
+'exec_prefix', 'executable', 'exit', 'flags', 'float_info', 'float_repr_style', 
+'getcheckinterval', 'getdefaultencoding', 'getdlopenflags', 'getfilesystemencodi
+ng', 'getprofile', 'getrecursionlimit', 'getrefcount', 'getsizeof', 'gettrace', 
+'hexversion', 'long_info', 'maxint', 'maxsize', 'maxunicode', 'meta_path', 'modu
+les', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'py3kwa
+rning', 'pydebug', 'setcheckinterval', 'setdlopenflags', 'setprofile', 'setrecur
+sionlimit', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion', 'version', 'v
+ersion_info', 'warnoptions']
+sys.path = ['/path/to/path', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_
+64-linux-gnu', '/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old', '/usr/
+lib/python2.7/lib-dynload', '/home/osamu/.local/lib/python2.7/site-packages', '/
+usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages', '/us
+r/lib/python2.7/dist-packages/PIL', '/usr/lib/python2.7/dist-packages/gst-0.10',
+ '/usr/lib/python2.7/dist-packages/gtk-2.0', '/usr/lib/pymodules/python2.7', '/u
+sr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode']

@@ -1,0 +1,9 @@
+$ gcc -Wall -o hello hello.c
+$ ls -l ./hello
+-rwxrwxr-x 1 osamu osamu 6687 Aug 17 23:41 ./hello
+$ file ./hello
+./hello: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linke
+d (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0e6a4d2048e4d49278a909
+8394272f2138f9cf14, not stripped
+$ ./hello
+Hello, world!

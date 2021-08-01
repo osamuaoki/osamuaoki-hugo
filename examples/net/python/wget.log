@@ -1,0 +1,16 @@
+$ ./httpd 8080 &
+Serving HTTP on 0.0.0.0 port 8080 ...
+$ wget -O index2.html localhost:8080
+--2013-03-25 22:03:26--  http://localhost:8080/
+Resolving localhost (localhost)... ::1, 127.0.0.1
+Connecting to localhost (localhost)|::1|:8080... failed: Connection refused.
+Connecting to localhost (localhost)|127.0.0.1|:8080... connected.
+127.0.0.1 - - [25/Mar/2013 22:03:27] "GET / HTTP/1.1" 200 -
+HTTP request sent, awaiting response... 200 OK
+Length: 2175 (2.1K) [text/html]
+Saving to: ‘index2.html’
+
+     0K ..                                                    100% 5.23M=0s
+
+2013-03-25 22:03:26 (5.23 MB/s) - ‘index2.html’ saved [2175/2175]
+

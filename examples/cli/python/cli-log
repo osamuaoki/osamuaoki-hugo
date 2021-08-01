@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+import sys,os,inspect
+try:
+    DEBUG = os.environ["DEBUG"]
+except KeyError:
+    DEBUG = 0
+
+def debug (msg):
+    """Outputs to sys.stderr if DEBUG is non-zero."""
+    if (DEBUG):
+        print(msg, file=sys.stderr)
+
+def lineno():
+    """Returns the current line number."""
+    return inspect.currentframe().f_back.f_lineno
+
+def main():
+    foo = sys.argv[1]
+    bar = sys.argv[2]
+    if (foo != bar):
+        debug("L: line=%i, foo=%s, bar=%s" % (lineno(), foo, bar))
+    print(foo + " " + bar +'!')
+
+if __name__ == '__main__': 
+    main()

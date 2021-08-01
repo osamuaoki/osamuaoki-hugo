@@ -1,0 +1,9 @@
+$ gcc -Wall `pkg-config --cflags --libs gtk+-3.0` -o gui gui.c
+gui.c: In function ‘main’:
+gui.c:38:12: error: ‘EXIT_SUCCESS’ undeclared (first use in this function)
+     return EXIT_SUCCESS;
+            ^
+gui.c:38:12: note: each undeclared identifier is reported only once for each func...
+gui.c:39:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

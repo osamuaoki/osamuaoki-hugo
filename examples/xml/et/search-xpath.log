@@ -1,0 +1,19 @@
+$ ./search-xpath.py
+search_retext(root, '^一覧')
+=> html/body[1]/div[3]/div[3]/div[4]/div[1]/ul[1]/li[1]/a[1]/span[2]
+with '^一覧': '一覧'
+=> html/body[1]/div[3]/div[3]/div[4]/h2[1]/span[1]
+with '^一覧': '一覧'
+search_retext(root, '^本表')
+=> html/body[1]/div[3]/div[3]/div[4]/div[1]/ul[1]/li[1]/ul[1]/li[1]/a[1]/span[2]
+with '^本表': '本表'
+=> html/body[1]/div[3]/div[3]/div[4]/h3[1]/span[1]
+with '^本表': '本表'
+search_retext(root, '^亜')
+=> html/body[1]/div[3]/div[3]/div[4]/table[2]/tr[2]/td[2]/a[1]
+with '^亜': '亜'
+search_retext(root, '^葛')
+=> html/body[1]/div[3]/div[3]/div[4]/ul[1]/li[7]/ul[1]/li[20]/span[1]
+with '^葛': '葛'
+=> html/body[1]/div[3]/div[3]/div[4]/table[2]/tr[239]/td[2]/a[1]
+with '^葛': '葛'

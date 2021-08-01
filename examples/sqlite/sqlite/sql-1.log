@@ -1,0 +1,46 @@
+$ rm -f private.db # Initialize :-)
+$ cat sql-1.sql | sqlite3 -echo private.db
+.explain ON
+.header ON
+create table phone(
+    name string NOT NULL,
+    phone string NOT NULL);
+insert into phone values('Napoleon Bonaparte', '+33-(0)1.01.01.01.01');
+insert into phone values('George Washington', '+1-800-START-USA');
+insert into phone values('John Adams', '+1-800-LOVE-BEER');
+insert into phone values('Thomas Jefferson', '+1-800-4-FREEDOM');
+.width 8 20 20
+.show
+     echo: on
+  explain: on
+  headers: on
+     mode: explain
+nullvalue: ""
+   output: stdout
+separator: "|"
+    stats: off
+    width: 8 20 20 4 4 13 2 13
+.schema
+CREATE TABLE phone(
+    name string NOT NULL,
+    phone string NOT NULL);
+.dump phone
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE phone(
+    name string NOT NULL,
+    phone string NOT NULL);
+INSERT INTO "phone" VALUES('Napoleon Bonaparte','+33-(0)1.01.01.01.01');
+INSERT INTO "phone" VALUES('George Washington','+1-800-START-USA');
+INSERT INTO "phone" VALUES('John Adams','+1-800-LOVE-BEER');
+INSERT INTO "phone" VALUES('Thomas Jefferson','+1-800-4-FREEDOM');
+COMMIT;
+select rowid,* from phone;
+rowid     name                  phone
+--------  --------------------  --------------------
+1         Napoleon Bonaparte    +33-(0)1.01.01.01.01
+2         George Washington     +1-800-START-USA
+3         John Adams            +1-800-LOVE-BEER
+4         Thomas Jefferson      +1-800-4-FREEDOM
+$ ls -l private.db
+-rw-r--r-- 1 osamu osamu 2048 Aug 17 23:41 private.db

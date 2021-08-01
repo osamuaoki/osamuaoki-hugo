@@ -1,0 +1,6 @@
+$ gcc -Wall -rdynamic -omath-dl math-dl.c -ldl
+$ ./math-dl
+Load libm.so library, success!
+Load sin symbol, success!
+angle = 60.000000 degree, sin(angle) = 0.866025
+Unload, success!

@@ -1,0 +1,3 @@
+$ gcc -o string-pointer string-pointer.c
+$ ./string-pointer
+Segmentation fault

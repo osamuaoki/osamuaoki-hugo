@@ -1,0 +1,2 @@
+$ ldd math
+ldd: ./math: No such file or directory

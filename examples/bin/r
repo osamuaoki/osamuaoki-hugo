@@ -1,0 +1,16 @@
+#!/bin/sh
+# execute in script under dash
+#  this capture both STDOUT, STDERR, ... anything way they are displayed
+#  tail-end is folded within 80 char/line
+#
+# log with wrapped lines
+# $1: script name without .sh
+#     log    name without .log
+#
+DIRNAME=$(dirname $(pwd))
+PROJECT=$1
+TMPFN=$(mktemp -p .)
+#
+script -q -c ./$PROJECT.sh $TMPFN
+col -x < $TMPFN | sed -e '1d' | sed -e 's/\t/    /g' -e "s#${DIRNAME}#/path/to#g" | fold >$PROJECT.log
+rm $TMPFN

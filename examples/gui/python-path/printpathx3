@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import sys
+print("$ ./printpath3 |fold -s")
+sys.path[0]="/path/to/this_script_dir"
+print(sys.path)

@@ -1,0 +1,9 @@
+# Overhead  Command      Shared Object                            Symbol
+# ........  .......  .................  ................................
+#
+    93.41%    prime  prime              [.] main                        
+     1.34%    prime  libc-2.17.so       [.] vfprintf                    
+     0.90%    prime  libc-2.17.so       [.] _itoa_word                  
+     0.89%    prime  libc-2.17.so       [.] _int_malloc                 
+     0.75%    prime  libc-2.17.so       [.] free                        
+     0.75%    prime  libc-2.17.so       [.] _IO_file_xsputn@@GLIBC_2.2.5

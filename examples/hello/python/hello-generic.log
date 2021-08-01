@@ -1,0 +1,7 @@
+$ chmod 755 hello-generic
+$ ls -l ./hello-generic
+-rwxr-xr-x 1 osamu osamu 143 Mar 11 21:52 ./hello-generic
+$ file ./hello-generic
+./hello-generic: Python script, ASCII text executable
+$ ./hello-generic
+Hello, world!

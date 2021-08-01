@@ -1,0 +1,21 @@
+$ ./printpath3
+dir() = ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__n
+ame__', '__package__', 'sys']
+dir(sys) = ['__displayhook__', '__doc__', '__excepthook__', '__loader__', '__nam
+e__', '__package__', '__stderr__', '__stdin__', '__stdout__', '_clear_type_cache
+', '_current_frames', '_debugmallocstats', '_getframe', '_home', '_mercurial', '
+_xoptions', 'abiflags', 'api_version', 'argv', 'base_exec_prefix', 'base_prefix'
+, 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright',
+ 'displayhook', 'dont_write_bytecode', 'exc_info', 'excepthook', 'exec_prefix', 
+'executable', 'exit', 'flags', 'float_info', 'float_repr_style', 'getcheckinterv
+al', 'getdefaultencoding', 'getdlopenflags', 'getfilesystemencoding', 'getprofil
+e', 'getrecursionlimit', 'getrefcount', 'getsizeof', 'getswitchinterval', 'gettr
+ace', 'hash_info', 'hexversion', 'implementation', 'int_info', 'intern', 'maxsiz
+e', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_c
+ache', 'platform', 'prefix', 'setcheckinterval', 'setdlopenflags', 'setprofile',
+ 'setrecursionlimit', 'setswitchinterval', 'settrace', 'stderr', 'stdin', 'stdou
+t', 'thread_info', 'version', 'version_info', 'warnoptions']
+sys.path = ['/path/to/path', '/usr/lib/python3.3', '/usr/lib/python3.3/plat-x86_
+64-linux-gnu', '/usr/lib/python3.3/lib-dynload', '/home/osamu/.local/lib/python3
+.3/site-packages', '/usr/local/lib/python3.3/dist-packages', '/usr/lib/python3/d
+ist-packages']

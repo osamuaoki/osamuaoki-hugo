@@ -1,0 +1,10 @@
+file prime8-gdb
+run 1090
+print i
+print tail
+print thd[i].head
+print thd[i-1].head
+print thd[i-2].head
+list
+kill
+quit

@@ -1,0 +1,5 @@
+(gdb) cont
+ello, world!
+[Inferior 1 (process 30633) exited normally]
+(gdb) quit
+$

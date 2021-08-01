@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Practice 4</title>
+</head>
+<body>
+<h1>Static form examples</h1>
+<h2>CGI script called with method="GET"</h2>
+<h3>Debian BTS: number form</h3>
+<p>Good for sending parameters encoded in URL, running a CGI program with parameters passed via environment variables, and GET its result.</p>
+<form method="get" action="http://bugs.debian.org/cgi-bin/bugreport.cgi">
+<input type="text" size="9" name="bug" value="">
+<input type="submit" value="Search for Bug#">
+(try like "500000")
+</form>
+<h2>CGI script called with method="POST"</h2>
+<h3>Debian BTS: package form</h3>
+<form method="POST" action="http://bugs.debian.org/cgi-bin/pkgreport.cgi">
+<div>dist: <input type="text" name="dist"> (type like "sid")</div>
+<div>package: <input type="text" name="package"> (type like "debian-reference")</div>
+<input type="submit" value="Search for package">
+<input type="reset" value="Reset">
+</form>
+<h3>Dummy example form</h3>
+<form method="post" action="URIofCGI">
+<p>
+Name: <input type="text" name="name" />
+</p>
+<p>
+Sex:
+ <input type="radio" name="sex" value="male" checked="checked" /> male
+ <input type="radio" name="sex" value="female" /> female
+</p>
+<p>
+Properties:
+ <input type="checkbox" name="properties" value="car" /> Car
+ <input type="checkbox" name="properties" value="home" /> Home
+ <input type="checkbox" name="properties" value="cach" /> Cash
+</p>
+<p>
+City:
+ <select name="city">
+   <option>Tokyo</option>
+   <option>NYC</option>
+   <option>London</option>
+   <option>Paris</option>
+ </select>
+</p>
+<p>
+ <textarea name="freeans" rows="4" cols="40">Describe here ...</textarea>
+</p>
+<p>
+ <input type="submit" value="Submit" />　
+ <input type="reset" value="Reset" />
+</p>
+</form>
+</body>
+</html>

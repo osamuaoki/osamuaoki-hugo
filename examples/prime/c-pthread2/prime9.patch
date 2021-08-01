@@ -1,0 +1,15 @@
+--- prime8.c	2013-02-23 23:14:45.943466837 +0900
++++ prime9.c	2013-02-23 23:16:41.144054858 +0900
+@@ -105,8 +105,10 @@
+         if (pthread_join(thd[i].th, (void *) NULL) ) {
+             printf ("E: error joining thread at %li\n", i);
+         }
+-        tail->next = thd[i].head;
+-        tail = thd[i].tail;
++        if (thd[i].head != NULL) { /* prime found */
++            tail->next = thd[i].head;
++            tail = thd[i].tail;
++        }
+     }
+ 
+     p=head;

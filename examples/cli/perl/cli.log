@@ -1,0 +1,15 @@
+$ ./cli --help
+Usage: ./cli [-a] [-v] [-f|--file name] [--long] [--longextra extra]...
+$ ./cli -a -v -f BOGUS.txt --long --longextra=FOO cli BOGUS.txt
+Option a
+Option f with BOGUS.txt
+This is BOGUS.txt here.
+EOF here :-)
+Option long
+Option f with FOO
+Other things found on the command line:
+ARG=cli
+ARG=BOGUS.txt
+$ ./cli -b
+Unknown option: b
+Usage: ./cli [-a] [-v] [-f|--file name] [--long] [--longextra extra]...

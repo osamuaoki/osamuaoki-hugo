@@ -1,0 +1,10 @@
+$ readelf -wL hello-gdb
+Decoded dump of debug contents of section .debug_line:
+
+CU: hello.c:
+File name                            Line number    Starting address
+hello.c                                        5            0x4004fd
+hello.c                                        6            0x400501
+hello.c                                        7            0x40050b
+hello.c                                        8            0x400510
+

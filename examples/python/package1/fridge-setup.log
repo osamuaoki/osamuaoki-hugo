@@ -1,0 +1,20 @@
+$ cd fridge; python setup.py sdist; cd -
+/path/to/package1/fridge
+running sdist
+running check
+warning: sdist: manifest template 'MANIFEST.in' does not exist (using default fil...
+
+writing manifest file 'MANIFEST'
+creating fridge-1.0
+creating fridge-1.0/scripts
+making hard links in fridge-1.0...
+hard linking README -> fridge-1.0
+hard linking fridge.py -> fridge-1.0
+hard linking setup.py -> fridge-1.0
+hard linking scripts/jane -> fridge-1.0/scripts
+hard linking scripts/joe -> fridge-1.0/scripts
+hard linking scripts/tom -> fridge-1.0/scripts
+creating dist
+Creating tar archive
+removing 'fridge-1.0' (and everything under it)
+/path/to/package1

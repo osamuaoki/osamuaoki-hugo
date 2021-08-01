@@ -1,0 +1,39 @@
+$ valac -v cli-1.vala
+/path/to/vala/cli-1.vala.c: In function ‘main’:
+/path/to/vala/cli-1.vala.c:204:2: warning: ‘g_type_init’ is deprecated (declared ...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+cc -o '/path/to/vala/cli-1' '/path/to/vala/cli-1.vala.c' -I/usr/include/glib-2.0 ...
+$ ./cli-1 -avf BOGUS.txt --long --longextra=FOO X1 X2
+command  = ./cli-1
+basename = cli-1
+Cli: verbose ON
+Cli: appemd ON
+Cli: long ON
+Cli: file = BOGUS.txt
+Cli: longextra = FOO
+sources[0]=X1
+sources[1]=X2
+$ ./cli-1 -b
+command  = ./cli-1
+basename = cli-1
+Unknown option -b
+Run './cli-1 --help' to see a full list of available command line options.
+$ ./cli-1 --help
+command  = ./cli-1
+basename = cli-1
+Usage:
+  cli-1 [OPTION...] FILE... - Cli
+
+Help Options:
+  -h, --help        Show help options
+
+Application Options:
+  -a, --append      Set append mode
+  -v, --verbose     Set verbose mode
+  -f, --file=F      Use F file
+  --long            Set long mode
+  --longextra=M     Set longextra to M
+

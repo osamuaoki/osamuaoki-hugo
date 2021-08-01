@@ -1,0 +1,34 @@
+#!/bin/sh
+# vi:set sts=4 ts=4 et:
+sudo apt-get update
+sudo apt-get install \
+    build-essential \
+    devscripts \
+    gcc \
+    gdb \
+    valac \
+    python \
+    python3 \
+    perl \
+    lua5.2 \
+    linux-base \
+    sudo \
+    bash \
+    dash \
+    debhelper \
+    autotools-dev \
+    pkg-config \
+    autoconf \
+    automake \
+    libc6-dev \
+    libc6-dbg \
+    libstdc++6-4.7-dev \
+    libboost-dev \
+    liblua5.2-dev \
+    libgee-dev \
+    libglib2.0-dev \
+# EOL    
+    
+    
+
+

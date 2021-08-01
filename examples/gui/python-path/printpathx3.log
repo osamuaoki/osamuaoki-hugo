@@ -1,0 +1,5 @@
+$ ./printpath3 |fold -s
+['/path/to/this_script_dir', '/usr/lib/python3.3', 
+'/usr/lib/python3.3/plat-x86_64-linux-gnu', '/usr/lib/python3.3/lib-dynload', 
+'/home/osamu/.local/lib/python3.3/site-packages', 
+'/usr/local/lib/python3.3/dist-packages', '/usr/lib/python3/dist-packages']

@@ -1,0 +1,7 @@
+$ chmod 755 hello-simple
+$ ls -l ./hello-simple
+-rwxr-xr-x 1 osamu osamu 85 Mar 11 21:52 ./hello-simple
+$ file ./hello-simple
+./hello-simple: Python script, ASCII text executable
+$ ./hello-simple
+Hello, world!

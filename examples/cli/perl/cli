@@ -1,0 +1,52 @@
+#!/usr/bin/perl -w
+use strict;
+use Getopt::Long;
+# Global variables
+use vars qw(%opt $verbose $helpmsg);
+%opt = ();
+$verbose = 0;
+$helpmsg = "Usage: $0 [-a] [-v] [-f|--file name] [--long] [--longextra extra]...\n";
+
+sub main()
+{
+    &GetOptions(
+        "a"=>\$opt{'a'},
+        "f|file=s"=>\$opt{'f'},
+        "h|help"=>\$opt{'h'},
+        "v"=>\$opt{'v'},
+        "long"=>\$opt{'long'},
+        "longextra=s"=>\$opt{'longextra'}) or die $helpmsg; 
+    if ($opt{'a'}) {
+        print "Option a\n";
+    }
+    if ($opt{'h'}) {
+        print $helpmsg;
+    }
+    if ($opt{'f'}) {
+        print("Option f with $opt{'f'}\n");
+        open(INPUT_FILE, $opt{'f'})
+            or die "Couldn't open $opt{'f'}!";
+        while (<INPUT_FILE>) {
+            print "$_";
+        }
+        close(INPUT_FILE)
+    }
+    if ($opt{'v'}) {
+        $verbose = 1;
+    }
+    if ($opt{'long'}) {
+        print "Option long\n";
+    }
+    if ($opt{'longextra'}) {
+        print "Option f with $opt{'longextra'}\n";
+    }
+    if ($ARGV[0]) {
+        print "Other things found on the command line:\n";
+    }
+    foreach (@ARGV) {
+        print "ARG=$_\n";
+    }
+}
+
+main();
+

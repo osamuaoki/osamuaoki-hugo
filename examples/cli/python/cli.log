@@ -1,0 +1,30 @@
+$ ./cli --help
+usage: cli [-h] [-a] [-f FILENAME] [-v] [--long] [--longextra LONG]
+           [args [args ...]]
+
+This is skelton program.
+
+positional arguments:
+  args                  arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a                    operation mode
+  -f FILENAME, --file FILENAME
+                        input filename
+  -v                    vebosity
+  --long                long mode
+  --longextra LONG      long extra mode
+$ ./cli -avf BOGUS.txt --long --longextra=FOO cli BOGUS.txt
+option a
+filename = BOGUS.txt
+This is BOGUS.txt here.
+EOF here :-)
+option verbose
+option long
+longextra = FOO
+args =  ['cli', 'BOGUS.txt']
+$ ./cli -b
+usage: cli [-h] [-a] [-f FILENAME] [-v] [--long] [--longextra LONG]
+           [args [args ...]]
+cli: error: unrecognized arguments: -b

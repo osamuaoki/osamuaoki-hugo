@@ -1,0 +1,59 @@
+$ ./cli --help
+Usage: Cli [options]
+
+Cli as a command line program example
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  --output=FILE         write output to FILE, instead of standard output
+  -a, --append          append mode
+  --no-append
+  -f FILENAME, --file=FILENAME
+                        configuration filename
+  -v, --verbose         verbose mode
+  --no-verbose
+  --long                long mode
+  --no-long
+  --longextra=LONG      longextra mode
+
+  Configuration files and settings:
+    --dump-config       write out the entire current configuration
+    --no-default-configs
+                        clear list of configuration files to read
+    --config=FILE       add FILE to config files
+    --help-all          show all options
+
+  Logging:
+    --log=FILE          write log entries to FILE (default is to not write log
+                        files at all); use "syslog" to log to system log, or
+                        "none" to disable logging
+    --log-level=LEVEL   log at LEVEL, one of debug, info, warning, error,
+                        critical, fatal (default: debug)
+    --log-max=SIZE      rotate logs larger than SIZE, zero for never (default:
+                        0)
+    --log-keep=N        keep last N logs (10)
+    --log-mode=MODE     set permissions of new log files to MODE (octal;
+                        default 0600)
+
+  Peformance:
+    --dump-memory-profile=METHOD
+                        make memory profiling dumps using METHOD, which is one
+                        of: none, simple, meliae, or heapy (default: simple)
+    --memory-dump-interval=SECONDS
+                        make memory profiling dumps at least SECONDS apart
+
+Copyright (C) 2012 Osamu Aoki
+$ ./cli -avf BOGUS.txt --long --longextra=FOO cli BOGUS.txt
+There were 45 lines in ['cli', 'BOGUS.txt'].
+append=True
+verbose=True
+long=True
+longextra=FOO
+filename = BOGUS.txt
+This is BOGUS.txt here.
+EOF here :-)
+$ ./cli -b
+Usage: Cli [options]
+
+Cli: error: no such option: -b

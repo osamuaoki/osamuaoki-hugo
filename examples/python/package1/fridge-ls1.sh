@@ -1,0 +1,12 @@
+#!/bin/sh
+p 'ls -lR fridge'
+p ''
+p 'cat fridge/setup.py'
+p ''
+p 'cat fridge/README'
+p ''
+p 'cat fridge/scripts/jane'
+p ''
+p 'cat fridge/scripts/joe'
+p ''
+p 'cat fridge/scripts/tom'

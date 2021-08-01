@@ -1,0 +1,71 @@
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` -c average.c
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` -c luahost.c
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` dump.o average.o \
+    luahost.o -o luahost
+$ export SMALL
+$ SMALL="NO"
+$ ./luahost script.lua
+-- lua_State* L = luaL_newstate(); /* initialize Lua */
+-- luaL_openlibs(L); /* standard libraries */
+-- lua_register(L, "average", c_average); /* private library */
+-- luaL_loadfile(L, argv[1]) ...
+C: argument[ 4 or  -1]= 4
+C: argument[ 3 or  -2]= 3
+C: argument[ 2 or  -3]= 2
+C: argument[ 1 or  -4]= 1
+Lua: ave    = 2.5
+Lua: width  = 100
+Lua: height = 200
+-- script.lua load and executed.
+-- lua_getglobal(L, "width"); /* push Lua variable width */
+=== DUMP STACK top=[1] --> bottom=[1] ===
+C: stack[ 1 or  -1] type=    number;  value= 100
+-- lua_getglobal(L, "height"); /* push Lua variable height */
+=== DUMP STACK top=[2] --> bottom=[1] ===
+C: stack[ 2 or  -1] type=    number;  value= 200
+C: stack[ 1 or  -2] type=    number;  value= 100
+-- lua_getglobal(L, "ave"); /* push Lua variable ave */
+=== DUMP STACK top=[3] --> bottom=[1] ===
+C: stack[ 3 or  -1] type=    number;  value= 2.5
+C: stack[ 2 or  -2] type=    number;  value= 200
+C: stack[ 1 or  -3] type=    number;  value= 100
+-- a = lua_tonumber(L, -1); /* read ave at -1 in the stack */
+C: Average = 2.5
+-- h = lua_tonumber(L, -2); /* read height at -2 in the stack */
+C: Height  = 200
+-- h = lua_tonumber(L, -3); /* read width at -3 in the stack */
+C: Width   = 100
+C: Volume  100 * 200 * 2.5 = 50000
+$ SMALL="YES"
+$ ./luahost script.lua
+-- lua_State* L = luaL_newstate(); /* initialize Lua */
+-- luaL_openlibs(L); /* standard libraries */
+-- lua_register(L, "average", c_average); /* private library */
+-- luaL_loadfile(L, argv[1]) ...
+C: argument[ 4 or  -1]= 4
+C: argument[ 3 or  -2]= 3
+C: argument[ 2 or  -3]= 2
+C: argument[ 1 or  -4]= 1
+Lua: ave    = 2.5
+Lua: width  = 100
+Lua: height = 200
+-- script.lua load and executed.
+-- lua_getglobal(L, "width"); /* push Lua variable width */
+=== DUMP STACK top=[1] --> bottom=[1] ===
+C: stack[ 1 or  -1] type=    number;  value= 100
+-- lua_getglobal(L, "height"); /* push Lua variable height */
+=== DUMP STACK top=[2] --> bottom=[1] ===
+C: stack[ 2 or  -1] type=    number;  value= 200
+C: stack[ 1 or  -2] type=    number;  value= 100
+-- lua_getglobal(L, "ave"); /* push Lua variable ave */
+=== DUMP STACK top=[3] --> bottom=[1] ===
+C: stack[ 3 or  -1] type=    number;  value= 2.5
+C: stack[ 2 or  -2] type=    number;  value= 200
+C: stack[ 1 or  -3] type=    number;  value= 100
+-- a = lua_tonumber(L, -1); /* read ave at -1 in the stack */
+C: Average = 2.5
+-- h = lua_tonumber(L, -2); /* read height at -2 in the stack */
+C: Height  = 200
+-- h = lua_tonumber(L, -3); /* read width at -3 in the stack */
+C: Width   = 100
+C: Volume  100 * 200 * 2.5 = 50000

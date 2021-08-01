@@ -1,0 +1,26 @@
+$ /usr/lib/gcc/x86_64-linux-gnu/4.7/cc1 --help |grep "language C:" -A1
+The following options are specific to just the language C:
+ None found.  Use --help=C to show *all* the options supported by the C front-en
+d
+$ /usr/lib/gcc/x86_64-linux-gnu/4.7/cc1 --help=C
+The following options are supported by the language C:
+  --all-warnings
+  --ansi
+  --assert
+  --assert=
+  --comments
+  --comments-in-macros
+  --define-macro
+  --define-macro=
+   ... (snip)
+$ /usr/lib/gcc/x86_64-linux-gnu/4.7/collect2 --help
+Usage: collect2 [options]
+ Wrap linker and generate constructor code if needed.
+ Options:
+  -debug          Enable debug output
+  --help          Display this information
+  -v, --version   Display this program's version number
+
+Overview: http://gcc.gnu.org/onlinedocs/gccint/Collect2.html
+Report bugs: <file:///usr/share/doc/gcc-4.7/README.Bugs>
+   ... (snip)

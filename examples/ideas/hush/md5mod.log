@@ -1,0 +1,12 @@
+$ sed -i -e "s/r/R/" test.conf
+$ cat test.conf
+# im-config(8) geneRated on Sat, 26 Jun 2010 11:41:39 +0900
+Run_im default
+# config signituRe: b4adf8baabbc92cf765f58e30f74c5e5  -
+$ if [ "# config signiture: $(head -n -1 test.conf | md5sum)" = \
+        "$(tail -n 1 test.conf)" ]; then \
+    echo "... UNchanged" ; \
+  else \
+    echo "*** changed" ; \
+  fi
+*** changed

@@ -1,0 +1,13 @@
+$ ls -l foo.tmp
+ls: cannot access foo.tmp: No such file or directory
+$ ./traprm
++ trap echo "Exit! Removing foo.tmp."; rm foo.tmp EXIT HUP INT TERM
++ touch foo.tmp
++ ls -l foo.tmp
+-rw-rw-r-- 1 osamu osamu 0 Aug 17 23:43 foo.tmp
++ sleep 1
++ echo Exit! Removing foo.tmp.
+Exit! Removing foo.tmp.
++ rm foo.tmp
+$ ls -l foo.tmp
+ls: cannot access foo.tmp: No such file or directory

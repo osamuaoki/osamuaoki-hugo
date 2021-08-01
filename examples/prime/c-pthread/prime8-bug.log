@@ -1,0 +1,5 @@
+$ ./prime8 "1090">/dev/null; echo $?
+Segmentation fault
+139
+$ ./prime8 "1091">/dev/null; echo $?
+0

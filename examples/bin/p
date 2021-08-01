@@ -1,0 +1,7 @@
+#!/bin/sh
+# echo command and execute under dash
+# no folding
+DIRNAME=$(dirname $(pwd))
+echo "$ $@"
+eval "$@" 2>&1 | sed -e 's/\t/    /g' -e "s#${DIRNAME}#/path/to#g"
+

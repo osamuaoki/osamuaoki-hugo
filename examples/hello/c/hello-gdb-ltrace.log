@@ -1,0 +1,6 @@
+$ ltrace ./hello-gdb
+__libc_start_main(0x4004fd, 1, 0x7fff4e14a7b8, 0x400520, 0x4005b0 <unfinished ..
+.>
+puts("Hello, world!")                            = 14
+Hello, world!
++++ exited (status 0) +++

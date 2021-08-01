@@ -1,0 +1,28 @@
+$ bash -c kill
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill
+-l [sigspec]
+$ dash -c kill
+dash: 1: kill: Usage: kill [-s sigspec | -signum | -sigspec] [pid | job]... or
+kill -l [exitstatus]
+$ /bin/kill
+
+Usage:
+ kill [options] <pid> [...]
+
+Options:
+ <pid> [...]            send signal to every <pid> listed
+ -<signal>, -s, --signal <signal>
+                        specify the <signal> to be sent
+ -l, --list=[<signal>]  list all signal names, or convert one to a name
+ -L, --table            list all signal names in a nice table
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see kill(1).
+$ bash -c "kill -l 15"
+TERM
+$ dash -c "kill -l 15"
+TERM
+$ /bin/kill -l15
+TERM

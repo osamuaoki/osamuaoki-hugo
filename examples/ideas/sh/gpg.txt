@@ -1,0 +1,15 @@
+$ cat ./hello
+#!/bin/sh
+# my first shell program
+echo "Hello, world!"
+$ gpg -ca ./hello
+Enter passphrase: 
+Repeat passphrase: 
+$ cat ./hello.asc
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+jA0EAwMCz+Uhs2ZYpdRgyU8jzGO2hKSDOpQgXmUxsIJqgrjo+CQFiGw8z0CU5YIk
+163JjuP2U4IXl+np8z0TiVqzl1exf5zn1cExELFhuv8yho2RkvINGq0zXYYVDaqd
+=DjhI
+-----END PGP MESSAGE-----

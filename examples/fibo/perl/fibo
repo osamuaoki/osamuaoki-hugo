@@ -1,0 +1,10 @@
+#!/usr/bin/perl -w
+    $n = "$ARGV[0]" + 0;
+    $a = 0;
+    $b = 1;
+    while ( $b < $n ) {
+        print "$b\n";
+        $c = $b;
+        $b = $a + $b;
+        $a = $c;
+    }

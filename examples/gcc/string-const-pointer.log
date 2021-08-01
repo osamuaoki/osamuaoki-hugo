@@ -1,0 +1,5 @@
+$ gcc -o string-const-pointer string-const-pointer.c
+string-const-pointer.c: In function ‘main’:
+string-const-pointer.c:8:5: error: assignment of read-only location ‘*(bar + 3u)’...
+     bar[3] = '@';
+     ^

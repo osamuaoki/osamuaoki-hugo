@@ -1,0 +1,17 @@
+$ wget -4 -O - http://ja.wikipedia.org/wiki/%E5%B8%B8%E7%94%A8%E6%BC%A2%E5%AD%97
+%E4%B8%80%E8%A6%A7 |zcat - > jouyou.xml
+--2013-08-18 10:17:35--  http://ja.wikipedia.org/wiki/%E5%B8%B8%E7%94%A8%E6%BC%A
+2%E5%AD%97%E4%B8%80%E8%A6%A7
+Resolving ja.wikipedia.org (ja.wikipedia.org)... 208.80.154.225
+Connecting to ja.wikipedia.org (ja.wikipedia.org)|208.80.154.225|:80... connecte
+d.
+HTTP request sent, awaiting response... 200 OK
+Length: 102499 (100K) [text/html]
+Saving to: ‘STDOUT’
+
+     0K .......... .......... .......... .......... .......... 49%  134K 0s
+    50K .......... .......... .......... .......... .......... 99%  266K 0s
+   100K                                                       100%  184G=0.6s
+
+2013-08-18 10:17:36 (179 KB/s) - written to stdout [102499/102499]
+

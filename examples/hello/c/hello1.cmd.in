@@ -1,0 +1,11 @@
+# pos1
+list
+break 3
+break 5
+break 6
+info break
+# pos2
+run
+cont
+quit
+# pos3

@@ -1,0 +1,152 @@
+$ cd fridge; debmake -d -u 1.0 -b :python; cd -
+/path/to/package2/fridge
+running sdist
+running check
+warning: sdist: manifest template 'MANIFEST.in' does not exist (using default fil...
+
+writing manifest file 'MANIFEST'
+creating fridge-1.0
+creating fridge-1.0/scripts
+making hard links in fridge-1.0...
+hard linking README -> fridge-1.0
+hard linking fridge.py -> fridge-1.0
+hard linking setup.py -> fridge-1.0
+hard linking scripts/jane -> fridge-1.0/scripts
+hard linking scripts/joe -> fridge-1.0/scripts
+hard linking scripts/tom -> fridge-1.0/scripts
+Creating tar archive
+removing 'fridge-1.0' (and everything under it)
+fridge-1.0/
+fridge-1.0/scripts/
+fridge-1.0/scripts/jane
+fridge-1.0/scripts/joe
+fridge-1.0/scripts/tom
+fridge-1.0/fridge.py
+fridge-1.0/PKG-INFO
+fridge-1.0/setup.py
+fridge-1.0/README
+I: sanity check of parameters
+I: process "make dist" equivalent
+I: pwd = /path/to/package2/fridge
+I: setup.py (Python3): sdist
+I:  tar-ball made
+I: pwd = /path/to/package2
+I: create symlink at /path/to/package2/fridge_1.0.orig.tar.gz pointing to fridge/...
+I: process untar
+I: run "tar -xvzf fridge_1.0.orig.tar.gz".
+I: untared.
+I: pwd = /path/to/package2/fridge-1.0
+I: analyze source
+I: generate debian/*
+I: File written: debian/source/format
+I: File written: debian/source/local-options
+I: File written: debian/patches/series
+I: File written: debian/compat
+I: File written: debian/rules
+I: File written: debian/README.Debian
+I: File written: debian/changelog
+I: File written: debian/copyright
+I: File written: debian/control
+I: File written: debian/fridge.install
+I: run "debmake -x" to get more template files
+I: upon return to the shell, current directory becomes /path/to/package2/fridge
+I: please execute "cd /path/to/package2/fridge-1.0"
+I: before building binary package with dpkg-buildpackage (or debuild, pdebuild, s...
+/path/to/package2
+$ ls -lR fridge-1.0
+fridge-1.0:
+total 24
+drwxrwxr-x 4 osamu osamu 4096 Aug 17 23:43 debian
+-rw-r--r-- 1 osamu osamu 1586 Aug 17 23:43 fridge.py
+-rw-rw-r-- 1 osamu osamu  233 Aug 17 23:43 PKG-INFO
+-rw-rw-r-- 1 osamu osamu   31 Mar 28 22:17 README
+drwxrwxr-x 2 osamu osamu 4096 Aug 17 23:43 scripts
+-rwxr-xr-x 1 osamu osamu  362 Apr  5 23:58 setup.py
+
+fridge-1.0/debian:
+total 36
+-rw-rw-r-- 1 osamu osamu  185 Aug 17 23:43 changelog
+-rw-rw-r-- 1 osamu osamu    2 Aug 17 23:43 compat
+-rw-rw-r-- 1 osamu osamu  764 Aug 17 23:43 control
+-rw-rw-r-- 1 osamu osamu 1025 Aug 17 23:43 copyright
+-rw-rw-r-- 1 osamu osamu    1 Aug 17 23:43 fridge.install
+drwxrwxr-x 2 osamu osamu 4096 Aug 17 23:43 patches
+-rw-rw-r-- 1 osamu osamu  255 Aug 17 23:43 README.Debian
+-rwxr-xr-x 1 osamu osamu  763 Aug 17 23:43 rules
+drwxrwxr-x 2 osamu osamu 4096 Aug 17 23:43 source
+
+fridge-1.0/debian/patches:
+total 4
+-rw-rw-r-- 1 osamu osamu 211 Aug 17 23:43 series
+
+fridge-1.0/debian/source:
+total 8
+-rw-rw-r-- 1 osamu osamu  12 Aug 17 23:43 format
+-rw-rw-r-- 1 osamu osamu 123 Aug 17 23:43 local-options
+
+fridge-1.0/scripts:
+total 12
+-rw-r--r-- 1 osamu osamu 124 Apr  6 18:14 jane
+-rw-r--r-- 1 osamu osamu  93 Mar 28 20:18 joe
+-rw-r--r-- 1 osamu osamu  81 Mar 28 20:19 tom
+$ cat fridge-1.0/debian/control
+Source: fridge
+Section: unknown
+Priority: extra
+Maintainer: Osamu Aoki <osamu@debian.org>
+Build-Depends: debhelper (>=9),
+    python3-all
+Standards-Version: 3.9.4
+Homepage: <insert the upstream URL, if relevant>
+Vcs-Git: git://git.debian.org/collab-maint/fridge.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/fridge.git
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
+
+Package: fridge
+Architecture: all
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends},
+    ${python:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+ <continued long description lines ...>
+ .
+ <continued long description line after a line break indicated by " .">
+ <continued long description lines ...>
+
+
+$ cat fridge-1.0/debian/rules
+#!/usr/bin/make -f
+# uncomment to enable verbose mode for debhelper
+#DH_VERBOSE = 1
+# uncomment to exclude VCS paths
+#DH_ALWAYS_EXCLUDE=CVS:.svn:.git
+
+%:
+    dh $@ --with "python2,python3"
+
+# special work around for python3 (#538978 and #597105 bugs)
+PY3REQUESTED := $(shell py3versions -r)
+PY3DEFAULT := $(shell py3versions -d)
+PYTHON3 := $(filter-out $(PY3DEFAULT),$(PY3REQUESTED)) python3
+
+override_dh_auto_clean:
+    -rm -rf build
+
+override_dh_auto_build:
+    set -ex; for python in $(PYTHON3); do \
+        $$python setup.py build; \
+    done
+
+override_dh_auto_install:
+    set -ex; for python in $(PYTHON3); do \
+        $$python setup.py install \
+            --root=debian/fridge\
+            --force\
+            --install-layout=deb; \
+    done
+
+# Customize by adding override scripts
+

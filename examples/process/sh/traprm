@@ -1,0 +1,7 @@
+#!/bin/sh
+set -x
+trap 'echo "Exit! Removing foo.tmp."; rm foo.tmp' EXIT HUP INT TERM
+touch foo.tmp
+# actual code to use foo.tmp
+ls -l foo.tmp
+sleep 1 # timing to ensure ls output

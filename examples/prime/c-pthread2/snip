@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+# vim: set sts=4 expandtab:
+
+"""
+snip1 - snip similar lines repeating
+
+Copyright (C) 2012 Osamu Aoki, public domain (GPL/BSD/... anything license)
+"""
+
+import sys, os, re
+
+VERSION = '1.0.1'
+
+if __name__ == '__main__':
+
+    r = 0
+    rmax = 10
+    for line in sys.stdin.readlines():
+        line=line[0:-1]
+        if re.match('\[Thread', line) or re.match('\[New Thread', line):
+            r += 1
+        else:
+            r = 0
+        if r < rmax:
+            print(line)
+        elif r == rmax:
+            print(" ... (snip)")
+        else:
+            pass

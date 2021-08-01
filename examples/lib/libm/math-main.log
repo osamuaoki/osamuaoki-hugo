@@ -1,0 +1,5 @@
+$ gcc -Wall -c math-main.c
+$ gcc -Wall -c sindeg.c
+$ gcc -Wall -o math-main math-main.o sindeg.o -lm
+$ ./math-main
+angle = 60.000000 degree, sin(angle) = 0.866025

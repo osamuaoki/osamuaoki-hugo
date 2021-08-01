@@ -1,0 +1,14 @@
+| ELF executable (all)      | 2442
+| ELF executable (set*id)      | 37
+| ELF executable (linked to libc)     | 2350
+| ELF executable (linked to libstdc\++ = C++)| 361
+| ELF executable (linked to libX11 = X)  | 413
+| ELF executable (linked to gobject = GNOME)  | 329
+| ELF executable (linked to libQtCore = KDE)       | 101
+| ELF executable (linked to libncurses)  | 53
+| POSIX shell script        | 560
+| Perl script               | 508
+| Python script             | 240
+| Bash shell script         | 149
+| Ruby script               | 25
+| Lua script                | 1

@@ -1,0 +1,11 @@
+$ ls -l hello.o hello hello-gdb.o hello-gdb
+-rwxrwxr-x 1 osamu osamu 6687 Aug 17 23:41 hello
+-rwxrwxr-x 1 osamu osamu 7719 Aug 17 23:41 hello-gdb
+-rw-rw-r-- 1 osamu osamu 3296 Aug 17 23:41 hello-gdb.o
+-rw-rw-r-- 1 osamu osamu 1480 Aug 17 23:41 hello.o
+$ size  hello.o hello hello-gdb.o hello-gdb
+   text       data        bss        dec        hex    filename
+     91          0          0         91         5b    hello.o
+   1216        560          8       1784        6f8    hello
+     91          0          0         91         5b    hello-gdb.o
+   1216        560          8       1784        6f8    hello-gdb

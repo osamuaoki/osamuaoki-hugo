@@ -1,0 +1,9 @@
+$ ./cli-assert 1
+argument is 1
+$ ./cli-assert -1
+Traceback (most recent call last):
+  File "./cli-assert", line 9, in <module>
+    main()
+  File "./cli-assert", line 5, in main
+    assert int(arg) >= 0, "argument should be positive but " + arg
+AssertionError: argument should be positive but -1

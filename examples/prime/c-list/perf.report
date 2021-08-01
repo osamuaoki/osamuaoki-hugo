@@ -1,0 +1,44 @@
+# ========
+# captured on: Sat Aug 17 23:41:31 2013
+# hostname : goofy
+# os release : 3.11-rc4-amd64
+# perf version : 3.11.0-rc4
+# arch : x86_64
+# nrcpus online : 8
+# nrcpus avail : 8
+# cpudesc : Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz
+# cpuid : GenuineIntel,6,42,7
+# total memory : 16375452 kB
+# cmdline : /usr/bin/perf_3.11 record ./prime 1048576 
+# event : name = cycles, type = 0, config = 0x0, config1 = 0x0, config2 = 0x0, excl_usr = 0, excl_kern = 0, excl_host = 0, excl_guest = 1, precise_ip = 0
+# HEADER_CPU_TOPOLOGY info available, use -I to display
+# HEADER_NUMA_TOPOLOGY info available, use -I to display
+# pmu mappings: cpu = 4, software = 1, tracepoint = 2, uncore_cbox_0 = 6, uncore_cbox_1 = 7, uncore_cbox_2 = 8, uncore_cbox_3 = 9, breakpoint = 5
+# ========
+#
+# Samples: 660  of event 'cycles'
+# Event count (approx.): 515786617
+#
+# Overhead  Command      Shared Object                            Symbol
+# ........  .......  .................  ................................
+#
+    93.41%    prime  prime              [.] main                        
+     1.34%    prime  libc-2.17.so       [.] vfprintf                    
+     0.90%    prime  libc-2.17.so       [.] _itoa_word                  
+     0.89%    prime  libc-2.17.so       [.] _int_malloc                 
+     0.75%    prime  libc-2.17.so       [.] free                        
+     0.75%    prime  libc-2.17.so       [.] _IO_file_xsputn@@GLIBC_2.2.5
+     0.60%    prime  libc-2.17.so       [.] _int_free                   
+     0.45%    prime  libc-2.17.so       [.] __libc_calloc               
+     0.30%    prime  [kernel.kallsyms]  [k] cap_bprm_committing_creds   
+     0.15%    prime  [kernel.kallsyms]  [k] clear_page_c                
+     0.15%    prime  [kernel.kallsyms]  [k] list_del                    
+     0.15%    prime  libc-2.17.so       [.] __strchrnul                 
+     0.15%    prime  [kernel.kallsyms]  [k] page_fault                  
+     0.02%    prime  [kernel.kallsyms]  [k] __output_copy               
+     0.00%    prime  [kernel.kallsyms]  [k] native_write_msr_safe       
+
+
+#
+# (For a higher level overview, try: perf report --sort comm,dso)
+#

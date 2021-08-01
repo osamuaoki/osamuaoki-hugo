@@ -1,0 +1,8 @@
+1f2d4eaa5ac46a7e82bea647bad70409  usr/bin/jane
+abfe010f80ad587a5c375f689cc0176a  usr/bin/joe
+ef4986b240ceb47735a2c5519ba9f678  usr/bin/tom
+39254748320c34447051a16f9ec8a857  usr/share/doc/fridge/README.Debian
+92a8c73a716fa64fc29bac7172a618d8  usr/share/doc/fridge/changelog.Debian.gz
+cec3c0b4ef37bf321782a37a1981f6a3  usr/share/doc/fridge/copyright
+0f1b33fdd96bb5378debd2ccf34c2702  usr/share/pyshared/fridge-1.0.egg-info
+a05ef125129d02d4d0155a5db459f260  usr/share/pyshared/fridge.py

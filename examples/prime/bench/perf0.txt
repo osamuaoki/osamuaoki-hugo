@@ -1,0 +1,44 @@
+        167.373524 task-clock
+                 1 context-switches
+                 1 cpu-migrations
+               785 page-faults
+       514,939,216 cycles
+       177,126,811 stalled-cycles-frontend
+        25,597,018 stalled-cycles-backend
+       227,126,522 instructions
+        57,299,268 branches
+           431,965 branch-misses
+       0.167983287 seconds time elapsed
+        575.422353 task-clock
+                 1 context-switches
+                 1 cpu-migrations
+               643 page-faults
+     1,706,530,307 cycles
+       804,510,638 stalled-cycles-frontend
+       225,726,193 stalled-cycles-backend
+     1,422,995,903 instructions
+       270,933,180 branches
+           534,024 branch-misses
+       0.575971153 seconds time elapsed
+       5644.228565 task-clock
+                 9 context-switches
+                 3 cpu-migrations
+             3,380 page-faults
+    16,964,435,086 cycles
+     3,982,808,734 stalled-cycles-frontend
+     1,219,951,714 stalled-cycles-backend
+    39,339,493,334 instructions
+     7,548,747,415 branches
+        48,326,241 branch-misses
+       5.645002396 seconds time elapsed
+       9480.929621 task-clock
+                19 context-switches
+                 1 cpu-migrations
+             1,042 page-faults
+    27,931,279,895 cycles
+    23,873,332,537 stalled-cycles-frontend
+    18,391,463,018 stalled-cycles-backend
+    14,091,023,495 instructions
+     3,431,684,225 branches
+           616,496 branch-misses
+       9.481985276 seconds time elapsed

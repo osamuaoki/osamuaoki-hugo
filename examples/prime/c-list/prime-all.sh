@@ -1,0 +1,5 @@
+p "gcc -O9 -Wall -D'STYLE=0' -o prime0 prime-all.c"
+p "gcc -O9 -Wall -D'STYLE=1' -o prime1 prime-all.c"
+p "gcc -O9 -Wall -D'STYLE=2' -o prime2 prime-all.c"
+p "gcc -O9 -Wall -D'STYLE=3' -o prime3 prime-all.c"
+p "gcc -O9 -Wall -D'STYLE=4' -o prime4 prime-all.c"

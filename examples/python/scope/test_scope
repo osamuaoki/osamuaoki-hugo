@@ -1,0 +1,92 @@
+#!/usr/bin/python3
+# vi:se ts=4 sts=4 et:
+import sys
+#######################################################################
+def test_spam(context):
+    try:
+        print(context, "EXT Valid:", spam)
+    except:
+        print(context, "EXT Error:", sys.exc_info()[1])
+#######################################################################
+def scope_test():
+    def do_local():
+        spam = "local spam"
+    def do_nonlocal():
+        nonlocal spam
+        spam = "nonlocal spam"
+    def do_del_nonlocal():
+        nonlocal spam
+        del spam
+    def do_global():
+        global spam
+        spam = "global spam"
+    def test_spam_in(context):
+        try:
+            print(context, "IN Valid:", spam)
+        except:
+            print(context, "IN Error", sys.exc_info()[1])
+#----------------------------------------------------------------------
+### Check spam status before scope_test() INSIDE ###
+    try:
+        print("Scope", "Valid:", spam)
+    except:
+        print("Scope", "Error:", sys.exc_info()[1])
+### Make assignment INSIDE ###
+    spam = "scope_test spam"
+### Check spam status after assignment INSIDE ###
+    try:
+        print("Assign", "Valid:", spam)
+    except:
+        print("Assign", "Error:", sys.exc_info()[1])
+### Make local assignment INSIDE ###
+    do_local()
+### Check spam status after do_local INSIDE ###
+    try:
+        print("local", "Valid:", spam)
+    except:
+        print("local", "Error:", sys.exc_info()[1])
+### Check spam status after do_local INT ###
+    test_spam_in("local")
+### Check spam status after do_local EXT ###
+    test_spam("local")
+### Make nonlocal assignment INSIDE ###
+    do_nonlocal()
+### Check spam status after do_nonlocal INSIDE ###
+    try:
+        print("nonlocal", "Valid:", spam)
+    except:
+        print("nonlocal", "Error:", sys.exc_info()[1])
+### Check spam status after do_nonlocal INT ###
+    test_spam_in("nonlocal")
+### Check spam status after do_nonlocal EXT ###
+    test_spam("nonlocal")
+### Make nonlocal del INSIDE ###
+    do_del_nonlocal()
+### Check spam status after do_nonlocal INSIDE ###
+    try:
+        print("nonlocal after del", "Valid:", spam)
+    except:
+        print("nonlocal after del", "Error:", sys.exc_info()[1])
+### Check spam status after do_local INT ###
+    test_spam_in("nonlocal after del")
+### Make global assignment INSIDE ###
+    do_global()
+### Check spam status after do_global INSIDE ###
+    try:
+        print("Global ", "Valid:", spam)
+    except:
+        print("Global ", "Error:", sys.exc_info()[1])
+#######################################################################
+### Check spam status before scope_test() OUTSIDE ###
+try:
+    print("Start ", "Valid:", spam)
+except:
+    print("Start ", "Error:", sys.exc_info()[1])
+### Call scope_test() ###
+scope_test()
+### Check spam status after scope_test() OUTSIDE ###
+try:
+    print("End   ", "Valid:", spam)
+except:
+    print("End   ", "Error:", sys.exc_info()[1])
+

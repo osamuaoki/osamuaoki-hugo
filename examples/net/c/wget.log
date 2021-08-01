@@ -1,0 +1,13 @@
+$ ./httpd6 8080 ../01_static
+$ wget localhost:8080
+--2013-03-25 21:57:02--  http://localhost:8080/
+Resolving localhost (localhost)... ::1, 127.0.0.1
+Connecting to localhost (localhost)|::1|:8080... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2175 (2.1K) [text/html]
+Saving to: ‘index.html’
+
+     0K ..                                                    100% 86.8M=0s
+
+2013-03-25 21:57:02 (86.8 MB/s) - ‘index.html’ saved [2175/2175]
+

@@ -1,0 +1,4 @@
+$ perf record ./prime "$(echo 2^20 | bc)">/dev/null
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.104 MB perf.data (~4544 samples) ]
+$ perf report >perf.report

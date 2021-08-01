@@ -1,0 +1,20 @@
+#!/bin/sh
+verbose=0
+while getopts "af:v" opt ; do
+    case $opt in
+    a)	echo "Option a"
+    	;;
+    f)	cat "$OPTARG"
+    	;;
+    v)	verbose=1
+    	;;
+    -)	break
+    	;;
+    ?)	echo "Usage: $0: [-a] [-v] [-f file] args ..."
+    	exit 1
+    	;;
+    esac
+done
+shift $(($OPTIND - 1))
+printf "Remaining arguments are: %s\n" "$*"
+ 

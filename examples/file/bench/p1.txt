@@ -1,0 +1,55 @@
+         78.600617 task-clock
+                12 context-switches
+                 0 cpu-migrations
+               132 page-faults
+       213,622,432 cycles
+        46,249,968 stalled-cycles-frontend
+         8,069,075 stalled-cycles-backend
+       419,973,692 instructions
+       118,042,429 branches
+            20,800 branch-misses
+       0.089096423 seconds time elapsed                                          ...
+          5.916846 task-clock
+                 5 context-switches
+                 0 cpu-migrations
+               132 page-faults
+         8,787,602 cycles
+         5,289,960 stalled-cycles-frontend
+         3,617,957 stalled-cycles-backend
+         7,323,914 instructions
+         1,614,855 branches
+            12,048 branch-misses
+       0.015654253 seconds time elapsed                                          ...
+          7.286212 task-clock
+                 5 context-switches
+                 0 cpu-migrations
+               715 page-faults
+         9,975,035 cycles
+         4,939,101 stalled-cycles-frontend
+         3,660,122 stalled-cycles-backend
+         7,285,507 instructions
+         1,639,492 branches
+            10,295 branch-misses
+       0.016963338 seconds time elapsed                                          ...
+          8.114573 task-clock
+                 5 context-switches
+                 0 cpu-migrations
+             1,283 page-faults
+         9,506,449 cycles
+         4,771,343 stalled-cycles-frontend
+         3,965,894 stalled-cycles-backend
+         6,752,659 instructions
+         1,555,953 branches
+             8,539 branch-misses
+       0.018813373 seconds time elapsed                                          ...
+          6.747344 task-clock
+                 5 context-switches
+                 0 cpu-migrations
+               694 page-faults
+         8,258,812 cycles
+         4,421,422 stalled-cycles-frontend
+         3,223,960 stalled-cycles-backend
+         6,310,894 instructions
+         1,442,130 branches
+     <not counted> branch-misses
+       0.018040972 seconds time elapsed                                          ...

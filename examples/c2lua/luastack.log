@@ -1,0 +1,73 @@
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` -c dump.c
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` -c luastack.c
+$ gcc -Wall `pkg-config --cflags --libs lua5.1` dump.o luastack.o -o luastack
+$ ./luastack
+lua_pushboolean(L, TRUE)
+=== DUMP STACK top=[1] --> bottom=[1] ===
+C: stack[ 1 or  -1] type=   boolean;  value= true
+lua_pushnumber(L, 3.141592) -- push 3.141592
+=== DUMP STACK top=[2] --> bottom=[1] ===
+C: stack[ 2 or  -1] type=    number;  value= 3.14159
+C: stack[ 1 or  -2] type=   boolean;  value= true
+lua_pushinteger(L, -200) -- push -200
+=== DUMP STACK top=[3] --> bottom=[1] ===
+C: stack[ 3 or  -1] type=    number;  value= -200
+C: stack[ 2 or  -2] type=    number;  value= 3.14159
+C: stack[ 1 or  -3] type=   boolean;  value= true
+lua_pushnil(L) -- push nil
+=== DUMP STACK top=[4] --> bottom=[1] ===
+C: stack[ 4 or  -1] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -2] type=    number;  value= -200
+C: stack[ 2 or  -3] type=    number;  value= 3.14159
+C: stack[ 1 or  -4] type=   boolean;  value= true
+lua_pushstring(L, "Hello world!") -- push "Hello world!"
+=== DUMP STACK top=[5] --> bottom=[1] ===
+C: stack[ 5 or  -1] type=    string;  value= Hello world!
+C: stack[ 4 or  -2] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -3] type=    number;  value= -200
+C: stack[ 2 or  -4] type=    number;  value= 3.14159
+C: stack[ 1 or  -5] type=   boolean;  value= true
+lua_replace(L, 2) -- replace stack[2] with stack top
+=== DUMP STACK top=[4] --> bottom=[1] ===
+C: stack[ 4 or  -1] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -2] type=    number;  value= -200
+C: stack[ 2 or  -3] type=    string;  value= Hello world!
+C: stack[ 1 or  -4] type=   boolean;  value= true
+lua_pushvalue(L, 1) -- push value of stack[1]
+=== DUMP STACK top=[5] --> bottom=[1] ===
+C: stack[ 5 or  -1] type=   boolean;  value= true
+C: stack[ 4 or  -2] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -3] type=    number;  value= -200
+C: stack[ 2 or  -4] type=    string;  value= Hello world!
+C: stack[ 1 or  -5] type=   boolean;  value= true
+lua_pushvalue(L, -2) -- push value of stack[-2]
+=== DUMP STACK top=[6] --> bottom=[1] ===
+C: stack[ 6 or  -1] type=       nil;  value= nil (nil == 0)
+C: stack[ 5 or  -2] type=   boolean;  value= true
+C: stack[ 4 or  -3] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -4] type=    number;  value= -200
+C: stack[ 2 or  -5] type=    string;  value= Hello world!
+C: stack[ 1 or  -6] type=   boolean;  value= true
+lua_insert(L, 2) -- insert stack top to stack[2]
+=== DUMP STACK top=[6] --> bottom=[1] ===
+C: stack[ 6 or  -1] type=   boolean;  value= true
+C: stack[ 5 or  -2] type=       nil;  value= nil (nil == 0)
+C: stack[ 4 or  -3] type=    number;  value= -200
+C: stack[ 3 or  -4] type=    string;  value= Hello world!
+C: stack[ 2 or  -5] type=       nil;  value= nil (nil == 0)
+C: stack[ 1 or  -6] type=   boolean;  value= true
+lua_remove(L, 2) -- remove stack[2]
+=== DUMP STACK top=[5] --> bottom=[1] ===
+C: stack[ 5 or  -1] type=   boolean;  value= true
+C: stack[ 4 or  -2] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -3] type=    number;  value= -200
+C: stack[ 2 or  -4] type=    string;  value= Hello world!
+C: stack[ 1 or  -5] type=   boolean;  value= true
+lua_settop(L, -1) -- remove 1 item from stack top
+=== DUMP STACK top=[5] --> bottom=[1] ===
+C: stack[ 5 or  -1] type=   boolean;  value= true
+C: stack[ 4 or  -2] type=       nil;  value= nil (nil == 0)
+C: stack[ 3 or  -3] type=    number;  value= -200
+C: stack[ 2 or  -4] type=    string;  value= Hello world!
+C: stack[ 1 or  -5] type=   boolean;  value= true
+

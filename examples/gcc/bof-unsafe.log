@@ -1,0 +1,4 @@
+$ gcc -fno-stack-protector -o bof-unsafe bof.c
+$ ./bof-unsafe "0123456789"
+>>> Before the possible buffer over flow >>>
+<<< After the possible buffer over flow <<<

@@ -1,0 +1,8 @@
+$ /usr/bin/time -p ./prime7 "$(echo 2^16 | bc)">/dev/null
+real 0.77
+user 0.26
+sys 1.80
+$ /usr/bin/time -p ./prime7 "$(echo 2^20 | bc)">/dev/null
+real 12.01
+user 5.18
+sys 27.82

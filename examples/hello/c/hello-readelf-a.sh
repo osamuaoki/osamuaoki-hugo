@@ -1,0 +1,3 @@
+p 'readelf -a hello'
+
+

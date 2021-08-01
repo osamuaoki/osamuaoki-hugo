@@ -1,0 +1,35 @@
+$ gdb -q
+(gdb) file prime8-gdb
+(gdb) run 1090
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+... (snip thread dialog)
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000400b09 in main (argc=2, argv=0x7fffffffdf88) at prime8.c:108
+108            tail->next = thd[i].head;
+(gdb) print i
+$1 = 63
+(gdb) print tail
+$2 = (primelist *) 0x0
+(gdb) print thd[i].head
+$3 = (primelist *) 0x0
+(gdb) print thd[i-1].head
+$4 = (primelist *) 0x0
+(gdb) print thd[i-2].head
+$5 = (primelist *) 0x2aaaac001f40
+(gdb) list
+103        for (i=0; i < TMAX; i++) {
+104            /* TMAX thread of checkprime loop */
+105            if (pthread_join(thd[i].th, (void *) NULL) ) {
+106                printf ("E: error joining thread at %li\n", i);
+107            }
+108            tail->next = thd[i].head;
+109            tail = thd[i].tail;
+110        }
+111
+112        p=head;
+(gdb) kill
+Kill the program being debugged? (y or n) [answered Y; input not from terminal]
+(gdb) quit

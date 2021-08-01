@@ -1,0 +1,8 @@
+#!/bin/sh
+trap_hup() {
+    echo "SIGHUP detected."
+}
+trap trap_hup HUP
+trap "echo 'SIGTSTP detected.'" TSTP
+trap "" TERM
+while true; do sleep 0.01;done

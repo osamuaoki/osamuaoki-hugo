@@ -1,0 +1,32 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: fridge
+Source: <url://example.com>
+
+#----------------------------------------------------------------------------
+Files: ./fridge.py
+	./PKG-INFO
+	./setup.py
+	./scripts/jane
+	./scripts/joe
+	./scripts/tom
+	./debian/compat
+	./debian/rules
+	./debian/source/format
+	./debian/source/local-options
+	./debian/patches/series
+Copyright: NO_COPYRIGHT_INFO_FOUND
+License: NO_LICENSE_TEXT_FOUND
+
+#----------------------------------------------------------------------------
+# This is meant only as a template example.
+#
+# Edit this accordinng to the "Machine-readable debian/copyright file" as
+# http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/ .
+#
+# Generate typical license templates with the "debmake -x" and merge them 
+# into here as needed.  See "man 8 debmake" for more.
+#
+# Please avoid to pick license terms that are more restrictive than the
+# packaged work, as it may make Debian's contributions unacceptable upstream.
+
+

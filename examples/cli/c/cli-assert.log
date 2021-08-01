@@ -1,0 +1,12 @@
+$ gcc -Wall -o cli-assert cli-assert.c
+$ ./cli-assert 1
+Argument is a single non-negative value: 1
+$ ./cli-assert -1
+cli-assert: cli-assert.c:11: main: Assertion `i >= 0' failed.
+Aborted
+$ ./cli-assert
+cli-assert: cli-assert.c:8: main: Assertion `argv[1] != ((void *)0)' failed.
+Aborted
+$ ./cli-assert 1 2
+cli-assert: cli-assert.c:9: main: Assertion `argv[2] == ((void *)0)' failed.
+Aborted

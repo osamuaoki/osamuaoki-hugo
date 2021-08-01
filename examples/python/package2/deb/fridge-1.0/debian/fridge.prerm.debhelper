@@ -1,0 +1,7 @@
+
+# Automatically added by dhpython:
+if which py3clean >/dev/null 2>&1; then
+	py3clean -p fridge 
+fi
+
+# End automatically added section

@@ -1,0 +1,27 @@
+$ valac --pkg gee-1.0 -v prime.vala|fold -s
+/path/to/vala-gee/prime.vala.c: In function ‘_vala_main’:
+/path/to/vala-gee/prime.vala.c:78:6: warning: passing argument 1 of ‘gee_abstract...
+      _tmp12_ = gee_abstract_collection_get_size ((GeeCollection*) _tmp11_);
+      ^
+In file included from /path/to/vala-gee/prime.vala.c:9:0:
+/usr/include/gee-1.0/gee.h:755:6: note: expected ‘struct GeeAbstractCollection *’...
+ gint gee_abstract_collection_get_size (GeeAbstractCollection* self);
+      ^
+/path/to/vala-gee/prime.vala.c:153:3: warning: passing argument 1 of ‘gee_abstrac...
+   _tmp33_ = gee_abstract_collection_get_size ((GeeCollection*) _tmp32_);
+   ^
+In file included from /path/to/vala-gee/prime.vala.c:9:0:
+/usr/include/gee-1.0/gee.h:755:6: note: expected ‘struct GeeAbstractCollection *’...
+ gint gee_abstract_collection_get_size (GeeAbstractCollection* self);
+      ^
+/path/to/vala-gee/prime.vala.c: In function ‘main’:
+/path/to/vala-gee/prime.vala.c:191:2: warning: ‘g_type_init’ is deprecated (decla...
+  g_type_init ();
+  ^
+Loaded package `/usr/share/vala-0.20/vapi/glib-2.0.vapi'
+Loaded package `/usr/share/vala-0.20/vapi/gobject-2.0.vapi'
+Loaded package `/usr/share/vala/vapi/gee-1.0.vapi'
+cc -o '/path/to/vala-gee/prime'
+'/path/to/vala-gee/prime.vala.c'
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
+-I/usr/include/gee-1.0  -lgee -lgobject-2.0 -lglib-2.0

@@ -1,0 +1,23 @@
+[cols="2,1,1,1,1", frame="topbot",options="header"]
+|=====
+|Item |`hello.o` |`hello-gdb.o` |`hello` |`hello-gdb`
+|Magic 4+|7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
+|Class 4+|ELF64
+|Data 4+|2's complement, little endian
+|Version (EI_VERSION) 4+|1 (current)
+|OS/ABI 4+|UNIX - System V
+|ABI Version 4+|0
+|Type 2+|REL (Relocatable file) 2+|EXEC (Executable file)
+|Machine 4+|Advanced Micro Devices X86-64
+|Version (e_version) |0x1 |0x1 |0x1 |0x1
+|Entry point address |0x0 |0x0 |0x400410 |0x400410
+|Start of program headers (bytes into file) |0 |0 |64 |64
+|Start of section headers (bytes into file) |288 |944 |2640 |3232
+|Flags |0x0 |0x0 |0x0 |0x0
+|Size of this header (bytes) |64 |64 |64 |64
+|Size of program headers (bytes) |0 |0 |56 |56
+|Number of program headers |0 |0 |8 |8
+|Size of section headers (bytes) |64 |64 |64 |64
+|Number of section headers |13 |21 |30 |35
+|Section header string table index |10 |18 |27 |32
+|=====
