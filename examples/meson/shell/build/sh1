@@ -1,0 +1,2 @@
+echo "motd=The programs included with the Debian GNU/Linux system are free software;"
+echo "motd=Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent"

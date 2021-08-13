@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "date=2021-08-13T16:58:55+00:00 version=0.1 -- Hello World!"

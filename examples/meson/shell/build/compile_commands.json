@@ -1,0 +1,158 @@
+[
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal exe --capture date1 -- /usr/bin/date --iso=sec -u",
+    "file": "/usr/bin/date",
+    "output": "date1"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal exe --capture date2 -- /usr/bin/sed -e 's/^/echo \"date=/' -e 's/$/\"/' date1",
+    "file": "date1",
+    "output": "date2"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal exe --capture foo1 -- /usr/bin/sed -e 's/@msg@/date=@timestamp@ version=@version@ -- Hello World!/' -e s/@timestamp@/2021-08-13T16:58:55+00:00/ -e s/@version@/0.1/ ../foo0",
+    "file": "../foo0",
+    "output": "foo1"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal exe --capture sh1 -- /usr/bin/sh -c 'cat /etc/motd | grep -e GNU | sed -e '\"'\"'s/^/echo \"motd=/'\"'\"' -e '\"'\"'s/$/\"/'\"'\"' '",
+    "file": "/etc/motd",
+    "output": "sh1"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal exe --capture foo -- /usr/bin/cat foo1 date2 sh1",
+    "file": "foo1",
+    "output": "foo"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson test --no-rebuild --print-errorlogs",
+    "file": "all",
+    "output": "meson-test"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-test",
+    "output": "test"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild",
+    "file": "all",
+    "output": "meson-benchmark"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-benchmark",
+    "output": "benchmark"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson install --no-rebuild",
+    "file": "PHONY",
+    "output": "meson-install"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-install",
+    "output": "install"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson dist",
+    "file": "PHONY",
+    "output": "meson-dist"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-dist",
+    "output": "dist"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal tags etags /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell",
+    "file": "PHONY",
+    "output": "meson-TAGS"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-TAGS",
+    "output": "TAGS"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal tags ctags /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell",
+    "file": "PHONY",
+    "output": "meson-ctags"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-ctags",
+    "output": "ctags"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal uninstall",
+    "file": "PHONY",
+    "output": "meson-uninstall"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-uninstall",
+    "output": "uninstall"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "foo",
+    "output": "all"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-clean",
+    "output": "clean"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal cleantrees /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build/meson-private/cleantrees.dat",
+    "file": "PHONY",
+    "output": "meson-clean-ctlist"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "",
+    "file": "meson-clean-ctlist",
+    "output": "clean-ctlist"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/ninja -t clean",
+    "file": "PHONY",
+    "output": "meson-clean"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal regenerate /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build --backend ninja",
+    "file": "../meson.build",
+    "output": "build.ninja"
+  },
+  {
+    "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
+    "command": "/usr/bin/meson --internal regenerate /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build --backend ninja",
+    "file": "PHONY",
+    "output": "reconfigure"
+  }
+]

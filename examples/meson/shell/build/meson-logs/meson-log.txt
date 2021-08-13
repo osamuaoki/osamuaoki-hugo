@@ -1,0 +1,33 @@
+Build started at 2021-08-14T01:58:55.092671
+Main binary: /usr/bin/python3
+Build Options: 
+Python system: Linux
+The Meson build system
+Version: 0.56.2
+Source dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell
+Build dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build
+Build type: native build
+Project name: foo
+Project version: 0.1
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Program date found: YES (/usr/bin/date)
+Program sed found: YES (/usr/bin/sed)
+Program sh found: YES (/usr/bin/sh)
+Program cat found: YES (/usr/bin/cat)
+Running command: /usr/bin/date --iso=sec -u
+--- stdout ---
+2021-08-13T16:58:55+00:00
+
+--- stderr ---
+
+
+Build targets in project: 5
+
+Found ninja-1.10.1 at /usr/bin/ninja
+None of 'STRIP' are defined in the environment, not changing global flags.
+None of 'STRIP' are defined in the environment, not changing global flags.
