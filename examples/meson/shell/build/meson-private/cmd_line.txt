@@ -1,4 +1,6 @@
 [options]
+prefix = ~/
+backend = ninja
 
 [properties]
 

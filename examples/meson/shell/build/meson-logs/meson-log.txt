@@ -1,6 +1,6 @@
-Build started at 2021-08-14T01:58:55.092671
+Build started at 2021-08-14T15:24:31.303970
 Main binary: /usr/bin/python3
-Build Options: 
+Build Options: '-Dprefix=~/' -Dbackend=ninja
 Python system: Linux
 The Meson build system
 Version: 0.56.2
@@ -21,7 +21,7 @@ Program sh found: YES (/usr/bin/sh)
 Program cat found: YES (/usr/bin/cat)
 Running command: /usr/bin/date --iso=sec -u
 --- stdout ---
-2021-08-13T16:58:55+00:00
+2021-08-14T06:24:31+00:00
 
 --- stderr ---
 

@@ -35,7 +35,7 @@ build date2: CUSTOM_COMMAND date1 | /usr/bin/sed
  description = Generating$ date2$ with$ a$ custom$ command$ (wrapped$ by$ meson$ to$ capture$ output)
 
 build foo1: CUSTOM_COMMAND ../foo0 | /usr/bin/sed
- COMMAND = /usr/bin/meson --internal exe --capture foo1 -- /usr/bin/sed -e 's/@msg@/date=@timestamp@$ version=@version@$ --$ Hello$ World!/' -e s/@timestamp@/2021-08-13T16:58:55+00:00/ -e s/@version@/0.1/ ../foo0
+ COMMAND = /usr/bin/meson --internal exe --capture foo1 -- /usr/bin/sed -e 's/@msg@/date=@timestamp@$ version=@version@$ --$ Hello$ World!/' -e s/@timestamp@/2021-08-14T06:24:31+00:00/ -e s/@version@/0.1/ ../foo0
  description = Generating$ foo1$ with$ a$ custom$ command$ (wrapped$ by$ meson$ to$ capture$ output)
 
 build sh1: CUSTOM_COMMAND /etc/motd | /usr/bin/sh

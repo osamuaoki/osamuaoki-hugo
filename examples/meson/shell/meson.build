@@ -37,6 +37,9 @@ foo = custom_target('default',
   input : [foo1, date2, sh1],
   build_by_default: true,
   capture : true,
+  install : true,
+  install_dir : 'bin',
+  install_mode : 'rwxr-xr-x',
   output : 'foo',
   command : [ cat, '@INPUT@'])
 

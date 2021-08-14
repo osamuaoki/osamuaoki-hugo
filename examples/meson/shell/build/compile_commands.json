@@ -13,7 +13,7 @@
   },
   {
     "directory": "/home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build",
-    "command": "/usr/bin/meson --internal exe --capture foo1 -- /usr/bin/sed -e 's/@msg@/date=@timestamp@ version=@version@ -- Hello World!/' -e s/@timestamp@/2021-08-13T16:58:55+00:00/ -e s/@version@/0.1/ ../foo0",
+    "command": "/usr/bin/meson --internal exe --capture foo1 -- /usr/bin/sed -e 's/@msg@/date=@timestamp@ version=@version@ -- Hello World!/' -e s/@timestamp@/2021-08-14T06:24:31+00:00/ -e s/@version@/0.1/ ../foo0",
     "file": "../foo0",
     "output": "foo1"
   },
