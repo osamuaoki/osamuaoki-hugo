@@ -1,5 +1,2 @@
-#!/bin/sh
-echo "date=2021-08-22T07:24:15+00:00 version=0.1 -- Hello World!"
-echo "date=2021-08-22T07:25:13+00:00"
 echo "motd=The programs included with the Debian GNU/Linux system are free software;"
 echo "motd=Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent"

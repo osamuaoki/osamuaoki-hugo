@@ -1,11 +1,11 @@
-Build started at 2021-08-22T16:24:15.041347
+Build started at 2021-08-22T16:35:00.948041
 Main binary: /usr/bin/python3
 Build Options: 
 Python system: Linux
 The Meson build system
 Version: 0.56.2
-Source dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell
-Build dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shell/build
+Source dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shellm
+Build dir: /home/osamu/src/public/osamu-blog/osamuaoki-hugo/examples/meson/shellm/build
 Build type: native build
 Project name: foo
 Project version: 0.1
@@ -21,7 +21,7 @@ Program sh found: YES (/usr/bin/sh)
 Program cat found: YES (/usr/bin/cat)
 Running command: /usr/bin/date --iso=sec -u
 --- stdout ---
-2021-08-22T07:24:15+00:00
+2021-08-22T07:35:00+00:00
 
 --- stderr ---
 

@@ -21,18 +21,26 @@ date2 = custom_target('date2',
   output : 'date2',
   command : [ sed, '-e', 's/^/echo "date=/', '-e', 's/$/"/', '@INPUT@' ])
 
+# Some NLs are OK and act as just whitespaces
 foo1 = custom_target('foo1',
   input : 'foo0',
   capture : true,
   output : 'foo1',
-  command : [ sed, '-e', hellox , '-e', datex, '-e', versionx, '@INPUT@'])
+  command : [ sh, '-c',
+      'sed -e \'' + hellox + '\' -e \'' + datex + '\' -e \''
+	  + versionx + '\' @INPUT@'
+    ])
 
+# Triple-single-quote disables escaping
+# NLs in triple-single-quotes become just whitespaces
 sh1 = custom_target('sh1',
   input : '/etc/motd',
   capture : true,
   output : 'sh1',
   command : [ sh, '-c',
-      'cat /etc/motd | grep -e GNU | sed -e \'s/^/echo "motd=/\' -e \'s/$/"/\' '
+      '''cat /etc/motd |
+      grep -e GNU |
+      sed -e 's/^/echo "motd=/' -e 's/$/"/' '''
     ])
 
 foo = custom_target('default',
@@ -44,4 +52,3 @@ foo = custom_target('default',
   install_mode : 'rwxr-xr-x',
   output : 'foo',
   command : [ cat, '@INPUT@'])
-
