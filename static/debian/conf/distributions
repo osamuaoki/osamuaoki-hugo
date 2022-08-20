@@ -1,7 +1,8 @@
-Origin: osamuaoki.github.io/debian
-Label: osamuaoki.github.io/debian
-Codename: bookworm
-Components: main
+Origin: Osamu
+Label: Osamu
+Codename: sid
 Architectures: amd64
-Description: Osamu's private package repo
-SignWith: 3133724D6207881579E95D621E1356881DD8D791
+Components: main
+Description: APT repository for Osamu's infrastructure
+SignWith: FDCAD8AB29E281A0E004B510A04CBCEEF08BEFAD
+
