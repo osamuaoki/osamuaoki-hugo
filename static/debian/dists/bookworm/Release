@@ -1,0 +1,19 @@
+Origin: osamuaoki.github.io/debian
+Label: osamuaoki.github.io/debian
+Codename: bookworm
+Date: Sat, 20 Aug 2022 13:13:54 UTC
+Architectures: amd64
+Components: main
+Description: Osamu's private package repo
+MD5Sum:
+ 0acfde86f047e0fe3f31db35551eda0e 1585 main/binary-amd64/Packages
+ ff6a77a0a2102df4aebdcdf125425a2c 908 main/binary-amd64/Packages.gz
+ a97ea3ee07a21a25734531eec9600a9a 147 main/binary-amd64/Release
+SHA1:
+ 69ab64afbb65e2cf5e0b1d1f879ce5624e0e955c 1585 main/binary-amd64/Packages
+ 0cd9a8621d77959f75155d3797ca4df6f6858b4b 908 main/binary-amd64/Packages.gz
+ b14c579f49e8fa3da1a126257be3e17acb5bc75e 147 main/binary-amd64/Release
+SHA256:
+ ca67a6fe93d31548579eac8d6ecc83bc1413548b9acdd82308e77e05cf81718c 1585 main/binary-amd64/Packages
+ 84d8c3581970244bda630a8f59a80bb5f1cbda21f56b37ffcdc886608b933b53 908 main/binary-amd64/Packages.gz
+ 447880cd6b3cd16e4fcbde553f545a1739c0b6391c12fad916b9f13bfb765fe0 147 main/binary-amd64/Release
