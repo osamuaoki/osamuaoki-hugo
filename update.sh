@@ -37,6 +37,8 @@ rm -rf public/*
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 ##############################################################################
 cd public
+rm -rf debian/db
+rm -rf debian/conf
 git add -A -- *
 if git commit -m "HTML rebuilt: $DATE"; then
   echo -e "\033[0;34mSome thing to commit for HTML .... :-)\033[0m"
