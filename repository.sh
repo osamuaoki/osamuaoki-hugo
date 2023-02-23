@@ -2,17 +2,12 @@
 # vim:set ai si sts=2 sw=2 et:
 # start with -f to force page rebuild
 
-
-# Directory name for repository found in the parent directory
-REPODIR0="packages"
-
 # can be started from sub-directory in this source
 cd "$(dirname "$(which "$0")")"
-BASEDIR="$(pwd)/static/debian"
-REPODIR="$(pwd)/../$REPODIR0"
+REPO_SOURCE_DIR="$(pwd)/../packages"
+REPO_DEST="$(pwd)/static/debian"
 
-cd "$REPODIR"
-
+cd "$REPO_SOURCE_DIR"
 rm -f ./*.deb
 rm -f ./*.changes
 rm -f ./*.dsc
@@ -23,20 +18,20 @@ rm -f ./*.xz
 if [ "$1" = "-c" ]; then
   exit 0
 fi
-rm -rf "$BASEDIR/static/debian/db"
-rm -rf "$BASEDIR/static/debian/pool"
-rm -rf "$BASEDIR/static/debian/dists"
+rm -rf "$REPO_DEST/db"
+rm -rf "$REPO_DEST/pool"
+rm -rf "$REPO_DEST/dists"
 #
 for d in * ; do 
   if [ -d "$d" ]; then
     cd "$d"
     git zap
-    debuild # -us -uc
+    debuild -us -uc
     cd ..
   fi
 done
 #
 for f in *.changes; do
   debsign "$f"
-  reprepro --ignore=wrongdistribution -b "$BASEDIR" include sid "$f"
+  reprepro --ignore=wrongdistribution -b "$REPO_DEST" include sid "$f"
 done
