@@ -38,4 +38,12 @@ total 16
 
 Copy header part from old pages to make them consistent.
 
+You need to run `git add ...` on new files.
 
+You update published web pages with `./update.sh` after changing their source files.
+
+## Adding personal package repository
+
+You create source Debian package source tree in `../packages/`.
+
+You update repository with `./repository.sh`.
