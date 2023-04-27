@@ -22,11 +22,13 @@ rm -rf "$REPO_DEST/db"
 rm -rf "$REPO_DEST/pool"
 rm -rf "$REPO_DEST/dists"
 #
-for d in * ; do 
+#DEBUILD_DPKG_BUILDPACKAGE_OPTS="-sa"
+#export DEBUILD_DPKG_BUILDPACKAGE_OPTS
+for d in * ; do
   if [ -d "$d" ]; then
     cd "$d"
     git zap
-    debuild -us -uc
+    debuild -us -uc -sa
     cd ..
   fi
 done
