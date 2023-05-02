@@ -7,6 +7,10 @@ cd "$(dirname "$(which "$0")")"
 REPO_SOURCE_DIR="$(pwd)/../packages"
 REPO_DEST="$(pwd)/static/debian"
 
+sudo aptitude update
+sudo aptitude install build-essential devscripts reprepro
+sudo apt-get build-dep unzip
+
 rm -rf "$REPO_SOURCE_DIR"
 mkdir -p "$REPO_SOURCE_DIR"
 cd "$REPO_SOURCE_DIR"
