@@ -46,7 +46,7 @@ footnotereturnlinkcontents = "↩"
 
 [params]
     description = "Random memos of Goofing Osamu"
-    footer = "&copy; 2013-2024 [Osamu Aoki](https://github.com/osamuaoki)"
+    footer = "&copy; 2013-2023 [Osamu Aoki](https://github.com/osamuaoki)"
 
 [markup]
   [markup.tableOfContents]
