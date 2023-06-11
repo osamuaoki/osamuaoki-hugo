@@ -27,7 +27,7 @@ else
   echo -e "\033[0;32mSource changed from the last commit\033[0m"
   git commit -a -m "source updated: $DATE"
 fi
-git push origin main
+git push -f origin main
 echo -e "\033[0;34mFinished recording to source\033[0m"
 
 ##############################################################################
