@@ -2,13 +2,34 @@
 # vim:set ai si sts=2 sw=2 et:
 # start with -f to force page rebuild
 
-# can be started from sub-directory in this source
 cd "$(dirname "$(which "$0")")"
-REPO_SOURCE_DIR="$(pwd)/../packages"
-REPO_DEST="$(pwd)/static/debian"
+BASE_DIR="$(pwd)"
+echo "${0##*/}: base_dir=$BASE_DIR"
+SOURCE_PACKAGES_DIR="$(pwd)/../packages"
+echo "${0##*/}: source_packages_dir=$SOURCE_PACKAGES_DIR"
+DEB_REPO="$(pwd)/static/debian"
+HTTP_REPO="$(pwd)/static/http"
 
-mkdir -p $REPO_DEST
-cd "$REPO_SOURCE_DIR"
+cd "$SOURCE_PACKAGES_DIR"
+echo "${0##*/}: cd to -> $(pwd)"
+
+mkdir -p "$DEB_REPO"
+rm -rf "$DEB_REPO/db"
+rm -rf "$DEB_REPO/dists"
+rm -rf "$DEB_REPO/pool"
 for f in *.changes; do
-  reprepro --ignore=wrongdistribution -b "$REPO_DEST" include sid "$f"
+  debsign "$f"
+  reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid "$f"
 done
+
+rm -rf "$HTTP_REPO"
+mkdir -p "$HTTP_REPO"
+for f in nvim*; do
+  cp $f "$HTTP_REPO/"
+done
+
+cd "$BASE_DIR"
+echo "${0##*/}: cd to -> $(pwd)"
+
+./index.sh http "File list"
+./index.sh img "File list"
