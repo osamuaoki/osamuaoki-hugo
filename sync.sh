@@ -31,5 +31,3 @@ done
 cd "$BASE_DIR"
 echo "${0##*/}: cd to -> $(pwd)"
 
-./index.sh http "File list"
-./index.sh img "File list"

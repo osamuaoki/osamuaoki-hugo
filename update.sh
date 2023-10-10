@@ -4,6 +4,8 @@
 
 # can be started from sub-directory
 cd "$(dirname "$(which "$0")")"
+BASE_DIR="$(pwd)"
+echo "${0##*/}: base_dir=$BASE_DIR"
 
 DATE=$(date -u --iso=sec)
 
@@ -29,6 +31,11 @@ else
 fi
 git push -f origin main
 echo -e "\033[0;34mFinished recording to source\033[0m"
+
+##############################################################################
+echo -e "\033[0;32mBuilding static index...\033[0m"
+./index.sh http "File list"
+./index.sh img "File list"
 
 ##############################################################################
 echo -e "\033[0;32mBuilding HTML pages...\033[0m"
