@@ -15,6 +15,16 @@ VERBOSE=""
 #VERBOSE="--verbose"
 BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
+help () {
+  echo "Syntax:"
+  echo "  ${0##*/} [-n|-d|-c]"
+  echo "Option:"
+  echo "  -n    no sych of repository contents"
+  echo "  -d    compile real deb packages only"
+  echo "  -c    compile CMAKE deb package for neovim"
+  exit
+}
+
 apt_update () {
   sudo aptitude update
   sudo aptitude install build-essential devscripts reprepro
@@ -123,36 +133,58 @@ Description: Locally build nvim (branch=$BRANCH)
   cp $DEB_ORIG ../../$DEB_BUILD
 }
 
+# command line
+action_compile="all" # deb cmake all
+action_sync="yes" # yes no
+while [ -n "$1" ]; do
+  case "$1" in
+    -n) action_sync="no" # yes no
+      ;;
+    -d) action_compile="deb" # deb cmake all
+      ;;
+    -c) action_compile="cmake" # deb cmake all
+      ;;
+    *) help
+      ;;
+  esac
+  shift
+done
+
 #apt_update
 cd "$SOURCE_PACKAGES_DIR"
 remove_packages
-cd "$SOURCE_PACKAGES_DIR"
-echo "##############################################################"
-echo "${0##*/}: pwd1 -> $(pwd)"
-echo "##############################################################"
-debian_native "git@github.com:osamuaoki/bss.git" main
-cd "$SOURCE_PACKAGES_DIR"
-echo "##############################################################"
-echo "${0##*/}: pwd2 -> $(pwd)"
-echo "##############################################################"
-debian_native "git@github.com:osamuaoki/osamu-task.git" main
-cd "$SOURCE_PACKAGES_DIR"
-echo "##############################################################"
-echo "${0##*/}: pwd3 -> $(pwd)"
-echo "##############################################################"
-gbp_non_native "git@github.com:osamuaoki/unzip.git" master
-cd "$SOURCE_PACKAGES_DIR"
-echo "##############################################################"
-echo "${0##*/}: pwd4 -> $(pwd)"
-echo "##############################################################"
-cmake_native "https://github.com/neovim/neovim.git" release-0.9
 
-cd "$BASE_DIR"
-echo "${0##*/}: cd to -> $(pwd)"
-
-if [ "$1" = "-c" ]; then
-  exit 0
+if [ "$action_compile" != "cmake" ]; then
+  cd "$SOURCE_PACKAGES_DIR"
+  echo "##############################################################"
+  echo "${0##*/}: pwd1 -> $(pwd)"
+  echo "##############################################################"
+  debian_native "git@github.com:osamuaoki/bss.git" main
+  cd "$SOURCE_PACKAGES_DIR"
+  echo "##############################################################"
+  echo "${0##*/}: pwd2 -> $(pwd)"
+  echo "##############################################################"
+  debian_native "git@github.com:osamuaoki/osamu-task.git" main
+  cd "$SOURCE_PACKAGES_DIR"
+  echo "##############################################################"
+  echo "${0##*/}: pwd3 -> $(pwd)"
+  echo "##############################################################"
+  gbp_non_native "git@github.com:osamuaoki/unzip.git" master
+  if [ "$action_sync" != "no" ]; then
+    cd "$BASE_DIR"
+    ./sync-deb.sh
+  fi
 fi
-
-./sync.sh
+if [ "$action_compile" != "deb" ]; then
+  cd "$SOURCE_PACKAGES_DIR"
+  echo "##############################################################"
+  echo "${0##*/}: pwd4 -> $(pwd)"
+  echo "##############################################################"
+  cmake_native "https://github.com/neovim/neovim.git" release-0.9
+  if [ "$action_sync" != "no" ]; then
+    cd "$BASE_DIR"
+    ./sync-nvim.sh
+  fi
+fi
+cd "$SOURCE_PACKAGES_DIR"
 
