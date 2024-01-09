@@ -4,5 +4,5 @@ Codename: sid
 Architectures: amd64 source
 Components: main
 Description: APT repository for Osamu's infrastructure
-SignWith: FDCAD8AB29E281A0E004B510A04CBCEEF08BEFAD
+SignWith: D89E6B09B42098CEAF081AB16D6D3809215F720D
 
