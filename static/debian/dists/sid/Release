@@ -1,28 +1,28 @@
 Origin: Osamu
 Label: Osamu
 Codename: sid
-Date: Wed, 10 Jan 2024 07:43:22 UTC
+Date: Wed, 10 Jan 2024 08:11:48 UTC
 Architectures: amd64
 Components: main
 Description: APT repository for Osamu's infrastructure
 MD5Sum:
- 892c574b94538ce5e632bc7894796fba 14994 main/binary-amd64/Packages
- 0022274947b68c70af85c0a7ee46fdf7 5203 main/binary-amd64/Packages.gz
+ 4f124a424045db16c9e7cd8e7b336a9b 14994 main/binary-amd64/Packages
+ f7fb0b3b681dd66f0ddc98603f6763f1 5201 main/binary-amd64/Packages.gz
  3311332d78f80527a36cbeab05ed4777 118 main/binary-amd64/Release
- 90601390a297cfc9951f63b9b7d4c666 3323 main/source/Sources
- 5c9262f20233353c33c1db17c310bc17 1334 main/source/Sources.gz
+ 466e172e778ae929b0fb93a35577c203 3323 main/source/Sources
+ c0d2f14faf4a358c0833baf8eaadf9f0 1335 main/source/Sources.gz
  89ea98ffa9be626deaa57fc57038ae13 119 main/source/Release
 SHA1:
- 30b7973e570123c4ef140498ef4c926164b7e088 14994 main/binary-amd64/Packages
- 3074f4fd583b9abe274b9a891e59f89ec01f24e3 5203 main/binary-amd64/Packages.gz
+ ab8a7beb44696f6515d6cac4689d779b8a436049 14994 main/binary-amd64/Packages
+ a17bef59a676023bfd08d64a86873c6d579a4d7c 5201 main/binary-amd64/Packages.gz
  b82106642ed1fcfba793a0b108d3e7a527ea2a02 118 main/binary-amd64/Release
- 8ce5cbda1aff1273c040c839b2a6b9804c49ce78 3323 main/source/Sources
- 304a8bd8e9a0a9fdcc67cb4ea5b6191bba57a91b 1334 main/source/Sources.gz
+ ec2088f1a6f57e1d606d099e0128acd22b65445b 3323 main/source/Sources
+ c37d118d0e874f8d2c159249d8d4bf4c99f75c22 1335 main/source/Sources.gz
  a616fd046dcd2d204ec74bdf178d32e8906eb1ff 119 main/source/Release
 SHA256:
- fef5e5e93a0befe274770547afc7f6c97f5e2eab68e451e141bd0f006d6039ec 14994 main/binary-amd64/Packages
- 4846cc643f540e2ce16c2c2b7bb7a61eb4763a6cd110b85809189fe37b10c815 5203 main/binary-amd64/Packages.gz
+ 27e97e8b07ebb4f5d2a8ee6ade16028b77fd19be59ca9ca06a6cf73bd751b8f6 14994 main/binary-amd64/Packages
+ c16a202536046c593a68a83ab67cd8c6916a44b08ad159f7acec0f34a1fd762b 5201 main/binary-amd64/Packages.gz
  0606093c887c7a1c3f7f59340dfd9eadae49b0c7aa297dba580b47b8228cdba8 118 main/binary-amd64/Release
- 200fbcda23a19dddedbaeecded049370929665eb15e0c6bd789a607de44b3978 3323 main/source/Sources
- bfc55e8f2a8f30b223776120d141cf2345a3fecd8c792695a82e72c36f6c7bbf 1334 main/source/Sources.gz
+ 59be3337259b445596393cbf1f2ddf995df34fd46c264a22b96b372aa2c0a187 3323 main/source/Sources
+ 4bda0a3cbaf8f17405580803e4ab28f27b98ad716d9b910bdcc4d6b4b884d78e 1335 main/source/Sources.gz
  1dccf2cf9d07dadb836a08c171260ee6136c3c0f2e1ea66c30d510a1c7dc19c7 119 main/source/Release

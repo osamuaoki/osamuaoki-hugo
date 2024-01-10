@@ -300,7 +300,7 @@ Description: Task to avoid adding TeX related packages
  capability.
 
 Package: bss
-Version: 2.0.1
+Version: 2.0.2
 Architecture: all
 Maintainer: Osamu Aoki <osamu@debian.org>
 Installed-Size: 160
@@ -309,11 +309,11 @@ Multi-Arch: foreign
 Homepage: https://github.com/osamuaoki/bss
 Priority: optional
 Section: utils
-Filename: pool/main/b/bss/bss_2.0.1_all.deb
-Size: 34252
-SHA256: f16659b9c71de00cdefcbc2b53e5ece0fd57b9da049951490764433f94674924
-SHA1: cda6c04c0bcb93247d42f5630a7c63e302bdf051
-MD5sum: 4e792e80fb974d340d4d0c1d1e96ac78
+Filename: pool/main/b/bss/bss_2.0.2_all.deb
+Size: 34284
+SHA256: 70bcb8ee0ba50399c124d6ad3799b403fa3ca293d598b68a97e423a3f489d4e6
+SHA1: 88fd00408e56f7ad75b6bc58f9fafbbce6f4bbe6
+MD5sum: 5a1842788272cf23f1b9c0dc94f84e1f
 Description: Btrfs Subvolume Snapshot Utility
  "bss" is basically a "btrfs subvolume ..." command wrapper to create and age
  historical snapshots with the intuitive snapshot subvolume name and flexible
