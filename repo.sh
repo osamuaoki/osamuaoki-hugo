@@ -40,7 +40,8 @@ debian_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git rm --cached -r .
+    git stash
+    #git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
@@ -63,7 +64,8 @@ gbp_non_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git rm --cached -r .
+    git stash
+    #git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
@@ -92,7 +94,8 @@ cmake_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git rm --cached -r .
+    git stash
+    #git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
@@ -169,8 +172,6 @@ while [ -n "$1" ]; do
     b*)
       remove_package bss
       debian_native "git@github.com:osamuaoki/bss.git" main
-      pwd
-      ls -la
       debrepo bss*.changes
       ;;
     u*)
