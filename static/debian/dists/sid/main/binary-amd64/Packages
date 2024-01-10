@@ -310,10 +310,10 @@ Homepage: https://github.com/osamuaoki/bss
 Priority: optional
 Section: utils
 Filename: pool/main/b/bss/bss_2.0.1_all.deb
-Size: 34184
-SHA256: a37e70b85d4742f7d46db2d935988f488bc4b58f84f20dcddc48b1d6b23483ed
-SHA1: e31e936f7d612639d2a7aec65ceae6f9e5fa591b
-MD5sum: 6f5c0bfa25791d884313567417bd01fc
+Size: 34252
+SHA256: f16659b9c71de00cdefcbc2b53e5ece0fd57b9da049951490764433f94674924
+SHA1: cda6c04c0bcb93247d42f5630a7c63e302bdf051
+MD5sum: 4e792e80fb974d340d4d0c1d1e96ac78
 Description: Btrfs Subvolume Snapshot Utility
  "bss" is basically a "btrfs subvolume ..." command wrapper to create and age
  historical snapshots with the intuitive snapshot subvolume name and flexible
