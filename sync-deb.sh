@@ -9,18 +9,32 @@ SOURCE_PACKAGES_DIR="$(pwd)/../packages"
 echo "${0##*/}: source_packages_dir=$SOURCE_PACKAGES_DIR"
 DEB_REPO="$(pwd)/static/debian"
 
-cd "$SOURCE_PACKAGES_DIR"
-echo "${0##*/}: cd to -> $(pwd)"
+debrepo () {
+  debsign "$1"
+  reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid "$1"
+}
+
 
 mkdir -p "$DEB_REPO"
 rm -rf "$DEB_REPO/db"
 rm -rf "$DEB_REPO/dists"
 rm -rf "$DEB_REPO/pool"
-for f in *.changes; do
-  debsign "$f"
-  reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid "$f"
-done
 
-cd "$BASE_DIR"
-echo "${0##*/}: cd to -> $(pwd)"
+cd "$SOURCE_PACKAGES_DIR"
+case $1 in
+  a*) # all
+    for f in *.changes; do
+      debrepo "$f"
+    done
+    ;;
+  b*) # bss
+    debrepo bss*.changes
+    ;;
+  o*) # osamu-task
+    debrepo osamu*.changes
+    ;;
+  u*) # unzip
+    debrepo unzip*.changes
+    ;;
+esac
 

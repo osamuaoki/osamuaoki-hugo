@@ -17,11 +17,7 @@ BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
 help () {
   echo "Syntax:"
-  echo "  ${0##*/} [-n|-d|-c]"
-  echo "Option:"
-  echo "  -n    no sych of repository contents"
-  echo "  -d    compile real deb packages only"
-  echo "  -c    compile CMAKE deb package for neovim"
+  echo "  ${0##*/} name1 name2 ..."
   exit
 }
 
@@ -31,12 +27,9 @@ apt_update () {
   sudo apt-get build-dep unzip
 }
 
-remove_packages () {
-  find . -maxdepth 1 \( -type f -o -type l \) -delete
-}
-
 # Native package
 debian_native () {
+  cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
   REPO_DIR="${REPO_URL##*/}"
@@ -54,10 +47,12 @@ debian_native () {
     git pull --all
   fi
   debuild -us -uc -sa
+  cd "$SOURCE_PACKAGES_DIR"
 }
 
 # GBP-based non-native package
 gbp_non_native () {
+  cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
   REPO_DIR="${REPO_URL##*/}"
@@ -76,10 +71,12 @@ gbp_non_native () {
   fi
   gbp export-orig
   debuild -us -uc -sa
+  cd "$SOURCE_PACKAGES_DIR"
 }
 
 # CMake-based non-Native package
 cmake_native () {
+  cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
   REPO_DIR="${REPO_URL##*/}"
@@ -131,60 +128,59 @@ Description: Locally build nvim (branch=$BRANCH)
   cd build
   cpack -G DEB $VERBOSE
   cp $DEB_ORIG ../../$DEB_BUILD
+  cd "$SOURCE_PACKAGES_DIR"
 }
 
-# command line
-action_compile="all" # deb cmake all
-action_sync="yes" # yes no
+remove_package () {
+  # $1 package name
+  cd "$SOURCE_PACKAGES_DIR"
+  find . -maxdepth 1 \( -type f -o -type l \) -name "$1*" -delete
+}
+
+nvim2http () {
+  rm -rf "$HTTP_REPO"
+  mkdir -p "$HTTP_REPO"
+  cd "$SOURCE_PACKAGES_DIR"
+  for f in nvim*; do
+    cp $f "$HTTP_REPO/"
+  done
+}
+
+debrepo () {
+  debsign $1
+  reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
+}
+
+
+cd "$SOURCE_PACKAGES_DIR"
 while [ -n "$1" ]; do
   case "$1" in
-    -n) action_sync="no" # yes no
+    n*)
+      remove_package nvim
+      cmake_native "https://github.com/neovim/neovim.git" release-0.9
+      nvim2http
       ;;
-    -d) action_compile="deb" # deb cmake all
+    o*)
+      remove_package osamu-task
+      debian_native "git@github.com:osamuaoki/osamu-task.git" main
+      debrepo osamu-task*.changes
+
       ;;
-    -c) action_compile="cmake" # deb cmake all
+    b*)
+      remove_package bss
+      debian_native "git@github.com:osamuaoki/bss.git" main
+      pwd
+      ls -la
+      debrepo bss*.changes
+      ;;
+    u*)
+      remove_package unzip
+      gbp_non_native "git@github.com:osamuaoki/unzip.git" master
+      debrepo unzip*.changes
       ;;
     *) help
       ;;
   esac
   shift
 done
-
-#apt_update
-cd "$SOURCE_PACKAGES_DIR"
-remove_packages
-
-if [ "$action_compile" != "cmake" ]; then
-  cd "$SOURCE_PACKAGES_DIR"
-  echo "##############################################################"
-  echo "${0##*/}: pwd1 -> $(pwd)"
-  echo "##############################################################"
-  debian_native "git@github.com:osamuaoki/bss.git" main
-  cd "$SOURCE_PACKAGES_DIR"
-  echo "##############################################################"
-  echo "${0##*/}: pwd2 -> $(pwd)"
-  echo "##############################################################"
-  debian_native "git@github.com:osamuaoki/osamu-task.git" main
-  cd "$SOURCE_PACKAGES_DIR"
-  echo "##############################################################"
-  echo "${0##*/}: pwd3 -> $(pwd)"
-  echo "##############################################################"
-  gbp_non_native "git@github.com:osamuaoki/unzip.git" master
-  if [ "$action_sync" != "no" ]; then
-    cd "$BASE_DIR"
-    ./sync-deb.sh all
-  fi
-fi
-if [ "$action_compile" != "deb" ]; then
-  cd "$SOURCE_PACKAGES_DIR"
-  echo "##############################################################"
-  echo "${0##*/}: pwd4 -> $(pwd)"
-  echo "##############################################################"
-  cmake_native "https://github.com/neovim/neovim.git" release-0.9
-  if [ "$action_sync" != "no" ]; then
-    cd "$BASE_DIR"
-    ./sync-nvim.sh
-  fi
-fi
-cd "$SOURCE_PACKAGES_DIR"
 
