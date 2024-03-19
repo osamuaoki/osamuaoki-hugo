@@ -46,4 +46,8 @@ You update published web pages with `./update.sh` after changing their source fi
 
 You create source Debian package source tree in `../packages/`.
 
-You update repository with `./repository.sh`.
+You update repository with:
+
+* `./repo.sh bss incus neovim osamu unzip` to build and update all packages (initial is enough)
+* `./update.sh` for update all web pages
+

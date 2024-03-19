@@ -1,4 +1,5 @@
 #!/bin/bash -e
+# This is called from ./update.sh
 DIR="$1"
 TITLE="$2"
 

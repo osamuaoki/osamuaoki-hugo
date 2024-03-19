@@ -12,17 +12,27 @@ DATE=$(date -u --iso=sec)
 echo -e "\033[0;32mOutstanding draft pages...\033[0m"
 hugo list drafts
 
+##############################################################################
+# add any changes under content/
 cd content
 git add -A -- *
 cd ..
 
+##############################################################################
+echo -e "\033[0;32mBuilding static index...\033[0m"
+./index.sh http "File list for Binary DEB"
+./index.sh img "File list for images"
+
+# add any changes under static/
 cd static
 git add -A -- *
 cd ..
 
+##############################################################################
 if git diff --cached --exit-code >/dev/null ; then
   echo -e "\033[0;31mSource not changed from the last commit\033[0m"
   if [ "$1" != "-f" ]; then
+    echo " Use '-f' option, if you wish to force to update web site"
     exit
   fi
 else
@@ -31,11 +41,6 @@ else
 fi
 git push -f origin main
 echo -e "\033[0;34mFinished recording to source\033[0m"
-
-##############################################################################
-echo -e "\033[0;32mBuilding static index...\033[0m"
-./index.sh http "File list"
-./index.sh img "File list"
 
 ##############################################################################
 echo -e "\033[0;32mBuilding HTML pages...\033[0m"
