@@ -33,6 +33,9 @@ case $1 in
   o*) # osamu-task
     debrepo osamu*.changes
     ;;
+  i*) # incus-ui-canonical
+    debrepo unzip*.changes
+    ;;
   u*) # unzip
     debrepo unzip*.changes
     ;;
