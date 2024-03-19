@@ -40,8 +40,8 @@ debian_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git stash
-    #git rm --cached -r .
+    #git stash
+    git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
@@ -64,8 +64,8 @@ gbp_non_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git stash
-    #git rm --cached -r .
+    #git stash
+    git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
@@ -94,8 +94,8 @@ cmake_native () {
     git checkout "$BRANCH"
   else
     cd "$REPO_DIR"
-    git stash
-    #git rm --cached -r .
+    #git stash
+    git rm --cached -r .
     git checkout "$BRANCH"
     git reset --hard HEAD
     git clean -d -f -x
