@@ -1,0 +1,18 @@
+Package: incus-ui-canonical
+Version: 0.6-1
+Architecture: all
+Maintainer: Osamu Aoki <osamu@debian.org>
+Installed-Size: 4924
+Multi-Arch: foreign
+Homepage: https://osamuaoki.github.com/incus-ui-canonical
+Priority: optional
+Section: admin
+Filename: pool/main/i/incus-ui-canonical/incus-ui-canonical_0.6-1_all.deb
+Size: 1019952
+SHA256: 00e902f9117ebd7197623767c912bc2669ef6477b52066a97288aa8e35bc0c0a
+SHA1: 18db0ac854e678b8bc291ef28e1b8b3e1c3a3fc0
+MD5sum: 4cb93dcb7a0d26a39e57ed98c15ea51a
+Description: tentative web page for incus
+ This is proof-of-concept package to provide a static web page
+ content for use with the Debian incus package.
+
