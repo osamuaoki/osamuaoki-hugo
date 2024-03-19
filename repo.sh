@@ -174,6 +174,11 @@ while [ -n "$1" ]; do
       debian_native "git@github.com:osamuaoki/bss.git" main
       debrepo bss*.changes
       ;;
+    i*)
+      remove_package incus-ui-canonical
+      gbp_non_native "git@github.com:osamuaoki/incus-ui-canonical.git" debian
+      debrepo incus-ui-canonical*.changes
+      ;;
     u*)
       remove_package unzip
       gbp_non_native "git@github.com:osamuaoki/unzip.git" master

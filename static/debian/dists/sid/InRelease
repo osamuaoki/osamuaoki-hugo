@@ -4,35 +4,35 @@ Hash: SHA256
 Origin: Osamu
 Label: Osamu
 Codename: sid
-Date: Sun, 14 Jan 2024 14:52:17 UTC
+Date: Tue, 19 Mar 2024 04:19:28 UTC
 Architectures: amd64
 Components: main
 Description: APT repository for Osamu's infrastructure
 MD5Sum:
- 21bd75b76f8356a802906be3cddb7138 14994 main/binary-amd64/Packages
- fa7946dedcc53857bf22a642f9eea910 5203 main/binary-amd64/Packages.gz
+ cfadf60a154e90c8d071fe697e6329e4 14994 main/binary-amd64/Packages
+ 2831436b84ce6922747354b6e0d330cb 5204 main/binary-amd64/Packages.gz
  3311332d78f80527a36cbeab05ed4777 118 main/binary-amd64/Release
- 69265ddf4c1387f2b57d011f63abb845 3323 main/source/Sources
- 87294f22e8f2f421486945e87f179c58 1333 main/source/Sources.gz
+ 6cb6a356ba6cd1043620cf8b90b020c2 3323 main/source/Sources
+ d77d30911305a2e7ddb82a6ea45aeab8 1334 main/source/Sources.gz
  89ea98ffa9be626deaa57fc57038ae13 119 main/source/Release
 SHA1:
- 2baf21d50478e632f47075ef0540131b9e3577e8 14994 main/binary-amd64/Packages
- 581152c147f6f4c94e1ed9192942b83924c033ed 5203 main/binary-amd64/Packages.gz
+ a58c3630576ce59cca8d2f2e8afeba93c882852c 14994 main/binary-amd64/Packages
+ 202af55568e605b3cb9ab9bceb859e81213a385a 5204 main/binary-amd64/Packages.gz
  b82106642ed1fcfba793a0b108d3e7a527ea2a02 118 main/binary-amd64/Release
- d8905007d6a8c29fb27e0156f6165fea0e509e8f 3323 main/source/Sources
- 8d2a18c16e217de396f3f381b88f20d8580ce13d 1333 main/source/Sources.gz
+ 4b670e1887df45fdb2277112fca480daae86cd8d 3323 main/source/Sources
+ 4f6fe5f76836abe2570d511f070726792599dedb 1334 main/source/Sources.gz
  a616fd046dcd2d204ec74bdf178d32e8906eb1ff 119 main/source/Release
 SHA256:
- 9809d60ca6c803069eb32993f572997650c995de6e391d2a1a60a993258fdd9b 14994 main/binary-amd64/Packages
- 22c335e247f91a9c448ef90cff57b30aa1587b50a18b3ce34e96fb3f37a317ee 5203 main/binary-amd64/Packages.gz
+ 2ee8d75ea969f691d5c13e93732331c9caad268f5adb0d7e8d1ae2068484306b 14994 main/binary-amd64/Packages
+ 1c6d329b02927ff0b40bc58775b9a319703f7a288ef3e1038e533f1d51b8128e 5204 main/binary-amd64/Packages.gz
  0606093c887c7a1c3f7f59340dfd9eadae49b0c7aa297dba580b47b8228cdba8 118 main/binary-amd64/Release
- 5217ffec76ce99638b78da74ef3bcb1ba0136182fff920f29e0d092cafe287ec 3323 main/source/Sources
- 56b284ce5a30b3aa40b40fdc4113ec452d58347653f37dea33c5383e27b9371d 1333 main/source/Sources.gz
+ abd0a261e195c9c8411c7aa0d3bcc9c6d303e348e26707161d2099edaedfe98e 3323 main/source/Sources
+ 5a37b0a7d8a7f2ba729eb4d203a06cfd88de90fb00b8fdfd1429836c7f8e6c54 1334 main/source/Sources.gz
  1dccf2cf9d07dadb836a08c171260ee6136c3c0f2e1ea66c30d510a1c7dc19c7 119 main/source/Release
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYIAB0WIQTYnmsJtCCYzq8IGrFtbTgJIV9yDQUCZaP1IQAKCRBtbTgJIV9y
-DXz/AQD3Sx2ajFymNGIwH8liRpctzASrBoLf2Tq3XvSll2gqKAD/ZZ+wEP+oQQ2L
-BhWiDpol5Zp5N4OGkOl9rasUoLORdgI=
-=UYO6
+iHUEARYIAB0WIQTYnmsJtCCYzq8IGrFtbTgJIV9yDQUCZfkSUAAKCRBtbTgJIV9y
+DXA1AP0Twjr4Ci2yqlPoY11J129z07gpKb9VMTmR75rSo4jETwEAhyYJAoTcVMsU
+zKUgn3RWDbkRFONt17QhqIHpPDjB/AI=
+=WKA1
 -----END PGP SIGNATURE-----
