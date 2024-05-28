@@ -156,6 +156,8 @@ debrepo () {
 
 
 cd "$SOURCE_PACKAGES_DIR"
+apt_update
+
 while [ -n "$1" ]; do
   case "$1" in
     n*)
