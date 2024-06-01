@@ -15,20 +15,22 @@ VERBOSE=""
 #VERBOSE="--verbose"
 BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
-help () {
+help() {
   echo "Syntax:"
   echo "  ${0##*/} name1 name2 ..."
+  echo
+  echo "Names: nvim bss unzip osamu-task incus-ui-canonical"
   exit
 }
 
-apt_update () {
+apt_update() {
   sudo aptitude update
   sudo aptitude install build-essential devscripts reprepro
   sudo apt-get build-dep unzip
 }
 
 # Native package
-debian_native () {
+debian_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
@@ -52,7 +54,7 @@ debian_native () {
 }
 
 # GBP-based non-native package
-gbp_non_native () {
+gbp_non_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
@@ -77,7 +79,7 @@ gbp_non_native () {
 }
 
 # CMake-based non-Native package
-cmake_native () {
+cmake_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
   BRANCH="$2"
@@ -134,13 +136,13 @@ Description: Locally build nvim (branch=$BRANCH)
   cd "$SOURCE_PACKAGES_DIR"
 }
 
-remove_package () {
+remove_package() {
   # $1 package name
   cd "$SOURCE_PACKAGES_DIR"
   find . -maxdepth 1 \( -type f -o -type l \) -name "$1*" -delete
 }
 
-nvim2http () {
+nvim2http() {
   rm -rf "$HTTP_REPO"
   mkdir -p "$HTTP_REPO"
   cd "$SOURCE_PACKAGES_DIR"
@@ -149,11 +151,10 @@ nvim2http () {
   done
 }
 
-debrepo () {
+debrepo() {
   debsign $1
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
-
 
 cd "$SOURCE_PACKAGES_DIR"
 apt_update
@@ -162,7 +163,7 @@ while [ -n "$1" ]; do
   case "$1" in
     n*)
       remove_package nvim
-      cmake_native "https://github.com/neovim/neovim.git" release-0.9
+      cmake_native "https://github.com/neovim/neovim.git" release-0.10
       nvim2http
       ;;
     o*)
@@ -186,9 +187,9 @@ while [ -n "$1" ]; do
       gbp_non_native "git@github.com:osamuaoki/unzip.git" master
       debrepo unzip*.changes
       ;;
-    *) help
+    *)
+      help
       ;;
   esac
   shift
 done
-
