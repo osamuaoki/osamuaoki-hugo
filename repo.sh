@@ -161,6 +161,11 @@ apt_update
 
 while [ -n "$1" ]; do
   case "$1" in
+    N*)
+      remove_package nvim
+      cmake_native "https://github.com/neovim/neovim.git" main
+      #nvim2http
+      ;;
     n*)
       remove_package nvim
       cmake_native "https://github.com/neovim/neovim.git" release-0.10
