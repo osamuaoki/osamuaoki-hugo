@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # vim:set ai si sts=2 sw=2 et:
 # start with -f to force page rebuild
-
+#
 # can be started from sub-directory
 cd "$(dirname "$(which "$0")")"
 BASE_DIR="$(pwd)"
