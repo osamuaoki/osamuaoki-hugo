@@ -19,7 +19,7 @@ help() {
   echo "Syntax:"
   echo "  ${0##*/} name1 name2 ..."
   echo
-  echo "Names: nvim bss unzip osamu-task incus-ui-canonical"
+  echo "Names: nvim bss unzip osamu-task incus-ui-canonical test"
   exit
 }
 
@@ -186,6 +186,11 @@ while [ -n "$1" ]; do
       remove_package incus-ui-canonical
       gbp_non_native "git@github.com:osamuaoki/incus-ui-canonical.git" debian
       debrepo incus-ui-canonical*.changes
+      ;;
+    t*)
+      remove_package debian-reference
+      debian_native ~/salsa/debian-reference/debian-reference latest
+      debrepo debian-reference*.changes
       ;;
     u*)
       remove_package unzip
