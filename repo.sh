@@ -156,6 +156,11 @@ debrepo() {
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
 
+debrepo-rm() {
+  debsign $1
+  reprepro --ignore=wrongdistribution -b "$DEB_REPO" remove sid $1
+}
+
 cd "$SOURCE_PACKAGES_DIR"
 apt_update
 
@@ -190,6 +195,9 @@ while [ -n "$1" ]; do
     t*)
       remove_package debian-reference
       debian_native ~/salsa/debian-reference/debian-reference latest
+      debrepo debian-reference*.changes
+      ;;
+    T*)
       debrepo debian-reference*.changes
       ;;
     u*)
