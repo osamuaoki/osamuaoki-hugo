@@ -20,21 +20,26 @@ echo "${0##*/}: source_packages_dir=$SOURCE_PACKAGES_DIR"
 DEB_REPO="$(pwd)/static/debian"
 HTTP_REPO="$(pwd)/static/http"
 VERBOSE=""
+
+LOCAL_BUILD=true
+REMOTE_UPDATE=true
+
 #VERBOSE="--verbose"
 BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
 help() {
   echo "Syntax:"
-  echo "  ${0##*/} name ..."
+  echo "  ${0##*/} [-l|-r] name ..."
   echo
   echo "Build deb packages to http data site (release-0.11):"
   echo "  name: nvim"
-  echo "Build deb packages (local) mster:"
-  echo "  name: N"
   echo "Build deb packages to debian repository:"
-  echo "  name: bss unzip osamu-task incus-ui-canonical test"
+  echo "  name: bss unzip osamu-task"
   echo "Reset debian repository"
   echo "  name: reset"
+  echo ""
+  echo "  -l: Local build only (No remote update)"
+  echo "  -r: Remote update only (No local build)"
   echo ""
   echo ""
   exit
@@ -154,7 +159,7 @@ Description: Locally build nvim (branch=$BRANCH)
 }
 
 # Remove old build result for package $1
-remove_package() {
+remove_build_result() {
   # $1 package name
   cd "$SOURCE_PACKAGES_DIR"
   find . -maxdepth 1 \( -type f -o -type l \) -name "$1*" -delete
@@ -178,10 +183,10 @@ debrepo() {
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
 
-debrepo_rm() {
-  debsign $1
-  reprepro --ignore=wrongdistribution -b "$DEB_REPO" remove sid $1
-}
+# debrepo_rm() {
+#   debsign $1
+#   reprepro --ignore=wrongdistribution -b "$DEB_REPO" remove sid $1
+# }
 
 debrepo_reset() {
    rm -rf $DEB_REPO/db
@@ -194,45 +199,49 @@ apt_update
 
 while [ -n "$1" ]; do
   case "$1" in
-    N*)
-      # local build only for the latest master branch
-      remove_package nvim
-      cmake_native "https://github.com/neovim/neovim.git" master
-      #nvim2http
+    -l) # local build only
+      LOCAL_BUILD=true
+      REMOTE_UPDATE=false
+      ;;
+    -r) # remote update only
+      LOCAL_BUILD=false
+      REMOTE_UPDATE=true
       ;;
     n*)
-      remove_package nvim
-      cmake_native "https://github.com/neovim/neovim.git" release-0.11
-      nvim2http
+      if $LOCAL_BUILD ; then
+        remove_build_result nvim
+        cmake_native "https://github.com/neovim/neovim.git" release-0.11
+      fi
+      if $REMOTE_UPDATE ; then
+        nvim2http
+      fi
       ;;
     o*)
-      remove_package osamu-task
-      debian_native "git@github.com:osamuaoki/osamu-task.git" main
-      debrepo osamu-task*.changes
-
+      if $LOCAL_BUILD ; then
+        remove_build_result osamu-task
+        debian_native "git@github.com:osamuaoki/osamu-task.git" main
+      fi
+      if $REMOTE_UPDATE ; then
+        debrepo osamu-task*.changes
+      fi
       ;;
     b*)
-      remove_package bss
-      debian_native "git@github.com:osamuaoki/bss.git" main
-      debrepo bss*.changes
-      ;;
-    i*)
-      remove_package incus-ui-canonical
-      gbp_non_native "git@github.com:osamuaoki/incus-ui-canonical.git" debian
-      debrepo incus-ui-canonical*.changes
-      ;;
-    t*)
-      remove_package debian-reference
-      debian_native ~/salsa/debian-reference/debian-reference latest
-      debrepo debian-reference*.changes
-      ;;
-    T*)
-      debrepo debian-reference*.changes
+      if $LOCAL_BUILD ; then
+        remove_build_result bss
+        debian_native "git@github.com:osamuaoki/bss.git" main
+      fi
+      if $REMOTE_UPDATE ; then
+        debrepo bss*.changes
+      fi
       ;;
     u*)
-      remove_package unzip
-      gbp_non_native "git@github.com:osamuaoki/unzip-i18n.git" debian/latest
-      debrepo unzip*.changes
+      if $LOCAL_BUILD ; then
+        remove_build_result unzip
+        gbp_non_native "git@github.com:osamuaoki/unzip-i18n.git" debian/latest
+      fi
+      if $REMOTE_UPDATE ; then
+        debrepo unzip*.changes
+      fi
       ;;
     reset)
       debrepo_reset
