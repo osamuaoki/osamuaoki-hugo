@@ -2,10 +2,18 @@
 # vim:set ai si sts=2 sw=2 et:
 # start with -f to force page rebuild
 
-# can be started from sub-directory in this source
+# can be started from sub-directory in this source to update
+# Personal DEB package repository before ./update.sh
+#
+# When reorganizing published debian repository, remove files in static/debian except for static/debian/conf.
+#
+# When reorganizing published http directory, change files in static/http
+#
 cd "$(dirname "$(which "$0")")"
 BASE_DIR="$(pwd)"
 echo "${0##*/}: base_dir=$BASE_DIR"
+# all packages in this private deb repo has cloned source tree
+# at ../packages/<projectname>
 SOURCE_PACKAGES_DIR="$(pwd)/../packages"
 echo "${0##*/}: source_packages_dir=$SOURCE_PACKAGES_DIR"
 
@@ -17,9 +25,18 @@ BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
 help() {
   echo "Syntax:"
-  echo "  ${0##*/} name1 name2 ..."
+  echo "  ${0##*/} name ..."
   echo
-  echo "Names: nvim bss unzip osamu-task incus-ui-canonical test"
+  echo "Build deb packages to http data site (release-0.11):"
+  echo "  name: nvim"
+  echo "Build deb packages (local) mster:"
+  echo "  name: N"
+  echo "Build deb packages to debian repository:"
+  echo "  name: bss unzip osamu-task incus-ui-canonical test"
+  echo "Reset debian repository"
+  echo "  name: reset"
+  echo ""
+  echo ""
   exit
 }
 
@@ -29,7 +46,7 @@ apt_update() {
   sudo apt-get build-dep unzip
 }
 
-# Native package
+# Update and build Native package
 debian_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
@@ -53,7 +70,7 @@ debian_native() {
   cd "$SOURCE_PACKAGES_DIR"
 }
 
-# GBP-based non-native package
+# Update and build GBP-based non-native package
 gbp_non_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
@@ -78,7 +95,7 @@ gbp_non_native() {
   cd "$SOURCE_PACKAGES_DIR"
 }
 
-# CMake-based non-Native package
+# Update and build CMake-based non-Native package
 cmake_native() {
   cd "$SOURCE_PACKAGES_DIR"
   REPO_URL="$1"
@@ -86,7 +103,7 @@ cmake_native() {
   REPO_DIR="${REPO_URL##*/}"
   REPO_DIR="${REPO_DIR%.git}"
   BUILD_TYPE="RelWithDebInfo"
-  DEB_ORIG="nvim-linux64.deb"
+  DEB_ORIG="nvim-linux-x86_64.deb"
   DEB_NAME="nvim"
   DEB_ARCH="amd64"
   DEB_BUILD="${DEB_NAME}_${BUILD_VERSION}_${DEB_ARCH}.deb"
@@ -136,29 +153,40 @@ Description: Locally build nvim (branch=$BRANCH)
   cd "$SOURCE_PACKAGES_DIR"
 }
 
+# Remove old build result for package $1
 remove_package() {
   # $1 package name
   cd "$SOURCE_PACKAGES_DIR"
   find . -maxdepth 1 \( -type f -o -type l \) -name "$1*" -delete
 }
 
+# remove old nvim packages and copy new source and binary packages for nvim to
+# static http site
 nvim2http() {
-  rm -rf "$HTTP_REPO"
   mkdir -p "$HTTP_REPO"
+  cd "$HTTP_REPO"
+  rm -rf nvim*
   cd "$SOURCE_PACKAGES_DIR"
   for f in nvim*; do
     cp $f "$HTTP_REPO/"
   done
 }
 
+# copy source and binary packages for $1 to private APT site
 debrepo() {
   debsign $1
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
 
-debrepo-rm() {
+debrepo_rm() {
   debsign $1
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" remove sid $1
+}
+
+debrepo_reset() {
+   rm -rf $DEB_REPO/db
+   rm -rf $DEB_REPO/dists
+   rm -rf $DEB_REPO/pool
 }
 
 cd "$SOURCE_PACKAGES_DIR"
@@ -167,13 +195,14 @@ apt_update
 while [ -n "$1" ]; do
   case "$1" in
     N*)
+      # local build only for the latest master branch
       remove_package nvim
-      cmake_native "https://github.com/neovim/neovim.git" main
+      cmake_native "https://github.com/neovim/neovim.git" master
       #nvim2http
       ;;
     n*)
       remove_package nvim
-      cmake_native "https://github.com/neovim/neovim.git" release-0.10
+      cmake_native "https://github.com/neovim/neovim.git" release-0.11
       nvim2http
       ;;
     o*)
@@ -204,6 +233,9 @@ while [ -n "$1" ]; do
       remove_package unzip
       gbp_non_native "git@github.com:osamuaoki/unzip.git" master
       debrepo unzip*.changes
+      ;;
+    reset)
+      debrepo_reset
       ;;
     *)
       help

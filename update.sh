@@ -2,7 +2,7 @@
 # vim:set ai si sts=2 sw=2 et:
 # start with -f to force page rebuild
 #
-# can be started from sub-directory
+# can be started from sub-directory to update web page
 cd "$(dirname "$(which "$0")")"
 BASE_DIR="$(pwd)"
 echo "${0##*/}: base_dir=$BASE_DIR"
@@ -19,8 +19,8 @@ git add -A -- *
 cd ..
 
 ##############################################################################
-echo -e "\033[0;32mBuilding static index...\033[0m"
-./index.sh http "File list for Binary DEB"
+echo -e "\033[0;32mBuilding static data index...\033[0m"
+./index.sh http "File list for data files"
 ./index.sh img "File list for images"
 
 # add any changes under static/
