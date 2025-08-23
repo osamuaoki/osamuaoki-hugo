@@ -14,6 +14,7 @@ help() {
   echo "  ${0##*/} [-l]"
   echo
   echo "Update hugo source and generated HTML"
+  echo
   echo "If -l is specified, no remote repository updated"
   echo ""
   exit
@@ -52,7 +53,6 @@ cd ..
 # update local osamuaoki-hugo repository
 if git diff --cached --exit-code >/dev/null ; then
   echo -e "\033[0;31mosamuaoki-hugo not changed from the last commit\033[0m"
-  exit
 else
   echo -e "\033[0;32mosamuaoki-hugo changed from the last commit\033[0m"
   git commit -a -m "source updated: $DATE"
@@ -62,8 +62,11 @@ fi
 # update remote osamuaoki-hugo repository
 ##############################################################################
 if [ $REMOTE_UPDATE = "true" ]; then
-  git push -f origin main
-  echo -e "\033[0;34mFinished pushing to osamuaoki-hugo \033[0m"
+  if git push -f origin main ; then
+    echo -e "\033[0;34mFinished pushing to osamuaoki-hugo \033[0m"
+  else
+    echo -e "\033[0;34mFail to pushing to osamuaoki-hugo \033[0m"
+  fi
 else
   echo -e "\033[0;34mSkip pushing to osamuaoki-hugo \033[0m"
 fi
@@ -89,7 +92,6 @@ git add -A -- *
 
 if git diff --cached --exit-code >/dev/null ; then
   echo -e "\033[0;31mosamuaoki.github.io not changed from the last commit\033[0m"
-  exit
 else
   echo -e "\033[0;32mosamuaoki.github.io changed from the last commit\033[0m"
   git commit -a -m "HTML rebuild: $DATE"
@@ -99,8 +101,11 @@ fi
 # update remote osamuaoki.github.io repository
 ##############################################################################
 if [ $REMOTE_UPDATE = "true" ]; then
-  git push -f origin main
-  echo -e "\033[0;34mFinished pushing to osamuaoki.github.io \033[0m"
+  if git push -f origin main ; then
+    echo -e "\033[0;34mFinished pushing to osamuaoki.github.io \033[0m"
+  else
+    echo -e "\033[0;34mFail to pushing to osamuaoki.github.io \033[0m"
+  fi
 else
   echo -e "\033[0;34mSkip pushing to osamuaoki.github.io \033[0m"
 fi

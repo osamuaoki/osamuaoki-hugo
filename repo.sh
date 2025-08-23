@@ -231,7 +231,7 @@ while [ -n "$1" ]; do
       ;;
     u*)
       remove_package unzip
-      gbp_non_native "git@github.com:osamuaoki/unzip.git" master
+      gbp_non_native "git@github.com:osamuaoki/unzip-i18n.git" debian/latest
       debrepo unzip*.changes
       ;;
     reset)
