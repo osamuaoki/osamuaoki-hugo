@@ -5,74 +5,105 @@
 # can be started from sub-directory to update web page
 cd "$(dirname "$(which "$0")")"
 BASE_DIR="$(pwd)"
-echo "${0##*/}: base_dir=$BASE_DIR"
+echo "osamuaoki-hugo: base_dir=$BASE_DIR"
 
 DATE=$(date -u --iso=sec)
 
-echo -e "\033[0;32mOutstanding draft pages...\033[0m"
-hugo list drafts
+help() {
+  echo "Syntax:"
+  echo "  ${0##*/} [-l]"
+  echo
+  echo "Update hugo source and generated HTML"
+  echo "If -l is specified, no remote repository updated"
+  echo ""
+  exit
+}
+
+# update remote repositories
+if [ "$1" = "-l" ]; then
+  REMOTE_UPDATE="false"
+elif [ "$1" = "" ]; then
+  REMOTE_UPDATE="true"
+else
+  help
+  exit
+fi
 
 ##############################################################################
-# add any changes under content/
-cd content
-git add -A -- *
-cd ..
-
+# update local osamuaoki-hugo repository
 ##############################################################################
-echo -e "\033[0;32mBuilding static data index...\033[0m"
+# stage any changes under data and image data
+echo -e "\033[0;32mBuilding static data index ...\033[0m"
 ./index.sh http "File list for data files"
-./index.sh img "File list for images"
-
-# add any changes under static/
+./index.sh img "File list for image files"
 cd static
 git add -A -- *
 cd ..
 
-##############################################################################
+# cheick content situation for hugo over drafts
+echo -e "\033[0;32mOutstanding draft pages...\033[0m"
+hugo list drafts
+
+# stage any changes under content/
+cd content
+git add -A -- *
+cd ..
+
+# update local osamuaoki-hugo repository
 if git diff --cached --exit-code >/dev/null ; then
-  echo -e "\033[0;31mSource not changed from the last commit\033[0m"
-  if [ "$1" != "-f" ]; then
-    echo " Use '-f' option, if you wish to force to update web site"
-    exit
-  fi
+  echo -e "\033[0;31mosamuaoki-hugo not changed from the last commit\033[0m"
+  exit
 else
-  echo -e "\033[0;32mSource changed from the last commit\033[0m"
+  echo -e "\033[0;32mosamuaoki-hugo changed from the last commit\033[0m"
   git commit -a -m "source updated: $DATE"
 fi
-git push -f origin main
-echo -e "\033[0;34mFinished recording to source\033[0m"
 
 ##############################################################################
-echo -e "\033[0;32mBuilding HTML pages...\033[0m"
-# Build the project after erasing old build excluding public/.git
-rm -rf public/*
-hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+# update remote osamuaoki-hugo repository
 ##############################################################################
+if [ $REMOTE_UPDATE = "true" ]; then
+  git push -f origin main
+  echo -e "\033[0;34mFinished pushing to osamuaoki-hugo \033[0m"
+else
+  echo -e "\033[0;34mSkip pushing to osamuaoki-hugo \033[0m"
+fi
+
+##############################################################################
+# update local osamuaoki.github.io repository
+##############################################################################
+echo "osamuaoki.github.io: base_dir=$BASE_DIR/public"
+# update local git checkout by using hugo
+echo -e "\033[0;32mBuilding HTML pages by hugo ...\033[0m"
+# Erasing old build results.  NOTE: This excluds public/.git
+rm -rf public/*
+# build HTML files
+hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+# manually remove undesirable contents
 cd public
 rm -rf debian/db
 rm -rf debian/conf
-git add -A -- *
-if git commit -m "HTML rebuilt: $DATE"; then
-  echo -e "\033[0;34mSome thing to commit for HTML .... :-)\033[0m"
-else
-  echo -e "\033[0;31mNothing to commit for HTML .... :-(\033[0m"
-  exit
-fi
-echo -e "\033[0;32mUploading HTML pages...\033[0m"
-git push origin main
-# Come Back up to the Project Root
-cd ..
-##############################################################################
 
-# record submodule updates
-if git diff --exit-code >/dev/null ; then
-  echo -e "\033[0;31mSubmodule not changed from the last commit\033[0m"
-  git commit -a -m "submodule not updated: $DATE"
+# stage any changes under public
+# publishing to public HTML
+git add -A -- *
+
+if git diff --cached --exit-code >/dev/null ; then
+  echo -e "\033[0;31mosamuaoki.github.io not changed from the last commit\033[0m"
   exit
 else
-  echo -e "\033[0;32mSubmodule changed from the last commit\033[0m"
-  git commit -a -m "submodule updated: $DATE"
+  echo -e "\033[0;32mosamuaoki.github.io changed from the last commit\033[0m"
+  git commit -a -m "HTML rebuild: $DATE"
 fi
-git push origin main
-echo -e "\033[0;34mFinished recording to submodule\033[0m"
+
+##############################################################################
+# update remote osamuaoki.github.io repository
+##############################################################################
+if [ $REMOTE_UPDATE = "true" ]; then
+  git push -f origin main
+  echo -e "\033[0;34mFinished pushing to osamuaoki.github.io \033[0m"
+else
+  echo -e "\033[0;34mSkip pushing to osamuaoki.github.io \033[0m"
+fi
+
+cd ..
 
