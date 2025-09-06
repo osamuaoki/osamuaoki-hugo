@@ -48,6 +48,5 @@ You create source Debian package source tree in `../packages/`.
 
 You update repository with:
 
-* `./repo.sh bss incus neovim osamu unzip` to build and update all packages (initial is enough)
+* `./repo.sh bss neovim osamu unzip` to build and update all packages (initial is enough)
 * `./update.sh` for update all web pages
-
