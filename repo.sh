@@ -46,7 +46,7 @@ help() {
 }
 
 apt_update() {
-  sudo aptitude update
+  sudo aptitude update || true
   sudo aptitude install build-essential devscripts reprepro
   sudo apt-get build-dep unzip
 }
@@ -179,7 +179,7 @@ nvim2http() {
 
 # copy source and binary packages for $1 to private APT site
 debrepo() {
-echo "I: pwd=$(pwd) arg=$1 dest=$DEB_REPO"
+  echo "I: pwd=$(pwd) arg=$1 dest=$DEB_REPO"
   debsign $1
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
