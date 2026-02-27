@@ -179,6 +179,7 @@ nvim2http() {
 
 # copy source and binary packages for $1 to private APT site
 debrepo() {
+echo "I: pwd=$(pwd) arg=$1 dest=$DEB_REPO"
   debsign $1
   reprepro --ignore=wrongdistribution -b "$DEB_REPO" include sid $1
 }
