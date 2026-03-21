@@ -37,6 +37,7 @@ fi
 echo -e "\033[0;32mBuilding static data index ...\033[0m"
 ./index.sh http "File list for data files"
 ./index.sh img "File list for image files"
+./index.sh doc "File list for document files"
 cd static
 git add -A -- *
 cd ..
