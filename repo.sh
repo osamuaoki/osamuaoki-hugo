@@ -211,7 +211,7 @@ while [ -n "$1" ]; do
     n*)
       if $LOCAL_BUILD ; then
         remove_build_result nvim
-        cmake_native "https://github.com/neovim/neovim.git" release-0.11
+        cmake_native "https://github.com/neovim/neovim.git" release-0.12
       fi
       if $REMOTE_UPDATE ; then
         nvim2http
