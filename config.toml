@@ -1,5 +1,4 @@
 baseurl = "/"
-lolale = "en-us"
 title = "Goofing Osamu"
 # active theme (default submodule)
 theme = "hugo-xmin"
@@ -11,6 +10,19 @@ enableGitInfo = true
 footnotereturnlinkcontents = "↩"
 # allow all tags automatically
 #tags = ["debian", "blog", "personal", "clean", "simple", "starter", "minimalist"]
+
+defaultContentLanguage = 'en'
+
+[languages]
+  [languages.en]
+    locale = 'en-US'
+    title = 'My English Site'
+    weight = 1
+
+  [languages.ja]
+    locale = 'ja-JP'
+    title = '日本語サイト'
+    weight = 2
 
 [permalinks]
     en = "/en/:year/:month/:day/:slug/"
