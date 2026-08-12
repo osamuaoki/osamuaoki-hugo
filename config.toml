@@ -1,5 +1,5 @@
 baseurl = "/"
-languageCode = "en-us"
+lolale = "en-us"
 title = "Goofing Osamu"
 # active theme (default submodule)
 theme = "hugo-xmin"
@@ -33,12 +33,16 @@ footnotereturnlinkcontents = "↩"
     url = "/tags/"
     weight = 4
 [[menu.main]]
-    name = "English"
+    name = "IT (Eng)"
     url = "/en/"
     weight = 5
 [[menu.main]]
-    name = "Japanese"
+    name = "IT (Jpn)"
     url = "/jp/"
+    weight = 6
+[[menu.main]]
+    name = "non-IT"
+    url = "/jpx/"
     weight = 6
 [[menu.main]]
     name = "Subscribe"
