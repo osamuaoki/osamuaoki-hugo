@@ -7,7 +7,8 @@ author: Osamu Aoki
 
 **Goofing Osamu** is a site where I keep random public memos.
 
-  * [English posts sorted by the initial commit](en)
-  * [Japanese posts sorted by the initial commit](jp)
+  * [English IT posts sorted by the initial commit](en)
+  * [Japanese IT posts sorted by the initial commit](jp)
+  * [Japanese non-IT posts sorted by the initial commit](jpx)
 
 ## Posts sorted by the initial commit (All)
