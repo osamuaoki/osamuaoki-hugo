@@ -8,7 +8,6 @@
  */
 {
   "config": {
-    "MD007": false, // ul-indent Unordered list indentation
     "MD013": false, // line-length Line length
     "MD014": false, // commands-show-output Dollar signs
     "MD034": false, // no-bare-urls Bare URL used
