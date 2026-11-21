@@ -27,11 +27,13 @@ REMOTE_UPDATE=true
 #VERBOSE="--verbose"
 BUILD_VERSION="0.0~$(date -u +%y%m%d.%H%M%S)"
 
+TRACKING_RELEASE_TAG="release-0.12"
+
 help() {
   echo "Syntax:"
   echo "  ${0##*/} [-l|-r] name ..."
   echo
-  echo "Build deb packages to http data site (release-0.11):"
+  echo "Build deb packages to http data site ($TRACKING_RELEASE_TAG):"
   echo "  name: nvim"
   echo "Build deb packages to debian repository:"
   echo "  name: bss unzip osamu-task"
@@ -211,7 +213,7 @@ while [ -n "$1" ]; do
     n*)
       if $LOCAL_BUILD ; then
         remove_build_result nvim
-        cmake_native "https://github.com/neovim/neovim.git" release-0.12
+        cmake_native "https://github.com/neovim/neovim.git" "$TRACKING_RELEASE_TAG"
       fi
       if $REMOTE_UPDATE ; then
         nvim2http
